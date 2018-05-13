@@ -1,0 +1,27 @@
+<?php return array (
+  0 => 
+  array (
+    'GET' => 
+    array (
+      '/' => 
+      array (
+        0 => 'SignpostMarv\\DaftRouter\\Tests\\Fixtures\\NotLoggedIn',
+        1 => 'SignpostMarv\\DaftRouter\\Tests\\Fixtures\\Home',
+      ),
+      '/login' => 
+      array (
+        0 => 'SignpostMarv\\DaftRouter\\Tests\\Fixtures\\Login',
+      ),
+    ),
+    'POST' => 
+    array (
+      '/login' => 
+      array (
+        0 => 'SignpostMarv\\DaftRouter\\Tests\\Fixtures\\Login',
+      ),
+    ),
+  ),
+  1 => 
+  array (
+  ),
+);
