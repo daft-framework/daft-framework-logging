@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace SignpostMarv\DaftFramework\Logging\Tests;
 
 use Generator;
+use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SignpostMarv\DaftFramework\Framework as BaseFramework;
 use SignpostMarv\DaftFramework\HttpHandler as BaseHttpHandler;
@@ -72,6 +73,39 @@ class ImplementationTest extends Base
                 ],
             ],
         ];
+    }
+
+    /**
+    * @param array<string, array<int, mixed>> $postConstructionCalls
+    *
+    * @dataProvider DataProviderGoodSources
+    */
+    public function testEverythingInitialisesFine(
+        string $implementation,
+        array $postConstructionCalls,
+        ...$implementationArgs
+    ) : BaseFramework {
+        /**
+        * @var Framework
+        */
+        $instance = parent::testEverythingInitialisesFine(
+            $implementation,
+            $postConstructionCalls,
+            ...$implementationArgs
+        );
+
+        list($logger) = $implementationArgs;
+
+        $this->assertInstanceOf(LoggerInterface::class, $logger);
+
+        $this->assertTrue(
+            is_a($instance, Framework::class) ||
+            is_a($instance, HttpHandler::class)
+        );
+
+        $this->assertSame($logger, $instance->ObtainLogger());
+
+        return $instance;
     }
 
     protected function extractDefaultFrameworkArgs(array $implementationArgs) : array
