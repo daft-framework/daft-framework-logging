@@ -64,8 +64,8 @@ class CatchingHttpHandlerTest extends Base
     public function DataProviderTesting() : Generator
     {
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-            foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
-                foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+                foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                     $loggerImplementation = $loggerArgs[0];
 
                     $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
