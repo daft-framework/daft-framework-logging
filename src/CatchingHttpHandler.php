@@ -91,6 +91,18 @@ class CatchingHttpHandler extends HttpHandler
         }
 
         foreach ($config[HandlerInterface::class] as $handler => $handlerArgs) {
+            $this->ValidateHandlerConfig($handler, $handlerArgs);
+        }
+
+        return parent::ValidateConfig($config);
+    }
+
+    /**
+    * @param mixed $handler
+    * @param mixed $handlerArgs
+    */
+    protected function ValidateHandlerConfig($handler, $handlerArgs) : void
+    {
             if ( ! is_string($handler)) {
                 throw new InvalidArgumentException('Handler config keys must be strings!');
             } elseif ( ! is_a($handler, HandlerInterface::class, true)) {
@@ -103,8 +115,5 @@ class CatchingHttpHandler extends HttpHandler
                     'Handler arguments must be specifed as an array!'
                 );
             }
-        }
-
-        return parent::ValidateConfig($config);
     }
 }
