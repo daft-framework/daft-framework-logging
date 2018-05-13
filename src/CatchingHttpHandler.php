@@ -14,6 +14,7 @@ use Throwable;
 use Whoops\Handler\HandlerInterface;
 use Whoops\Handler\PlainTextHandler;
 use Whoops\Run;
+use Whoops\RunInterface;
 
 class CatchingHttpHandler extends HttpHandler
 {
@@ -33,10 +34,8 @@ class CatchingHttpHandler extends HttpHandler
         $this->handlers = $config[HandlerInterface::class];
     }
 
-    public function handle(Request $request) : Response
+    protected function ObtainWhoopsRunner() : RunInterface
     {
-        try {
-            try {
                 $whoops = new Run();
 
                 foreach ($this->handlers as $handler => $handlerArgs) {
@@ -50,11 +49,19 @@ class CatchingHttpHandler extends HttpHandler
 
                     $whoops->pushHandler($handlerInstance);
                 }
-
-                $whoops->register();
                 $whoops->writeToOutput(false);
                 $whoops->sendHttpCode(false);
                 $whoops->allowQuit(false);
+
+        return $whoops;
+    }
+
+    public function handle(Request $request) : Response
+    {
+        try {
+            try {
+                $whoops = $this->ObtainWhoopsRunner();
+                $whoops->register();
 
                 try {
                     return parent::handle($request);
