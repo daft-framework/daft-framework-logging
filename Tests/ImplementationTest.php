@@ -19,6 +19,11 @@ use Whoops\Handler\PlainTextHandler;
 
 class ImplementationTest extends Base
 {
+    const RemapFrameworks = [
+        BaseFramework::class => Framework::class,
+        BaseHttpHandler::class => HttpHandler::class,
+    ];
+
     public function DataProviderGoodSources() : Generator
     {
         foreach (parent::DataProviderGoodSources() as $args) {
@@ -28,11 +33,8 @@ class ImplementationTest extends Base
                 $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                 $implementation = array_shift($args);
-                if (BaseFramework::class === $implementation) {
-                    $implementation = Framework::class;
-                } elseif (BaseHttpHandler::class === $implementation) {
-                    $implementation = HttpHandler::class;
-                }
+                $implementation = self::RemapFrameworks[$implementation] ?? $implementation;
+
                 $postConstructionCalls = array_shift($args);
 
                 array_unshift($args, $implementation, $postConstructionCalls, $logger);
