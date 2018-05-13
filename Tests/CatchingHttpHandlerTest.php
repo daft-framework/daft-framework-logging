@@ -58,6 +58,17 @@ class CatchingHttpHandlerTest extends Base
                 '/^.+: Dispatcher was not able to generate a response! in file .+Dispatcher\.php on line \d+/',
                 '/?loggedin',
             ],
+            [
+                [
+                    'sources' => [
+                        fixtures\Routes\Config::class,
+                    ],
+                    'cacheFile' => (__DIR__ . '/fixtures/catching-handler.fast-route.cache'),
+                ],
+                500,
+                '/^RuntimeException: foo in file .+Throws\.php on line \d+/',
+                '/throws/runtime-exception/foo',
+            ],
         ];
     }
 

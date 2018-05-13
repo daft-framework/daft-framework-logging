@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+/**
+* @author SignpostMarv
+*/
+declare(strict_types=1);
+
+namespace SignpostMarv\DaftFramework\Logging\Tests\fixtures;
+
+use SignpostMarv\DaftFramework\Framework;
+use SignpostMarv\DaftFramework\Symfony\Console\Application;
+
+require_once(dirname(dirname(dirname(__DIR__))) . '/vendor/autoload.php');
+
+$framework = new Framework(
+    'http://example.com/',
+    dirname(__DIR__),
+    (array) include(dirname(__DIR__) . '/config.php')
+);
+
+$app = Application::CollectApplicationWithCommands('daft-framework', '0.0.0', $framework);
+
+$app->run();

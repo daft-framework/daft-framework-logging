@@ -4,5 +4,26 @@
   ),
   1 => 
   array (
+    'GET' => 
+    array (
+      0 => 
+      array (
+        'regex' => '~^(?|/throws/runtime\\-exception/([^\\/]+))$~',
+        'routeMap' => 
+        array (
+          2 => 
+          array (
+            0 => 
+            array (
+              0 => 'SignpostMarv\\DaftFramework\\Logging\\Tests\\fixtures\\Routes\\Throws',
+            ),
+            1 => 
+            array (
+              'msg' => 'msg',
+            ),
+          ),
+        ),
+      ),
+    ),
   ),
 );
