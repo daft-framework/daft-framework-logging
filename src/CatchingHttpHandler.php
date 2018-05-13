@@ -103,17 +103,17 @@ class CatchingHttpHandler extends HttpHandler
     */
     protected function ValidateHandlerConfig($handler, $handlerArgs) : void
     {
-            if ( ! is_string($handler)) {
-                throw new InvalidArgumentException('Handler config keys must be strings!');
-            } elseif ( ! is_a($handler, HandlerInterface::class, true)) {
-                throw new InvalidArgumentException(sprintf(
-                    'Handler config keys must refer to implementations of %s!',
-                    HandlerInterface::class
-                ));
-            } elseif ( ! is_array($handlerArgs)) {
-                throw new InvalidArgumentException(
-                    'Handler arguments must be specifed as an array!'
-                );
-            }
+        if ( ! is_string($handler)) {
+            throw new InvalidArgumentException('Handler config keys must be strings!');
+        } elseif ( ! is_a($handler, HandlerInterface::class, true)) {
+            throw new InvalidArgumentException(sprintf(
+                'Handler config keys must refer to implementations of %s!',
+                HandlerInterface::class
+            ));
+        } elseif ( ! is_array($handlerArgs)) {
+            throw new InvalidArgumentException(
+                'Handler arguments must be specifed as an array!'
+            );
+        }
     }
 }
