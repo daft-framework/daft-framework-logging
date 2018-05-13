@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace SignpostMarv\DaftFramework\Logging\Tests;
 
 use Generator;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase as Base;
 use Psr\Log\NullLogger;
 use SignpostMarv\DaftFramework\Logging\CatchingHttpHandler;
@@ -128,5 +129,137 @@ class CatchingHttpHandlerTest extends Base
 
         $this->assertSame($expectedStatus, $response->getStatusCode());
         $this->assertRegExp($expectedContentRegex, $response->getContent());
+    }
+
+    public function DataProviderBadConfig() : Generator
+    {
+        yield from [
+            [
+                [],
+                InvalidArgumentException::class,
+                'Handlers are not configured',
+            ],
+            [
+                [
+                    HandlerInterface::class => null,
+                ],
+                InvalidArgumentException::class,
+                'Handlers are not configured',
+            ],
+            [
+                [
+                    HandlerInterface::class => false,
+                ],
+                InvalidArgumentException::class,
+                'Handlers were not specified via an array!',
+            ],
+            [
+                [
+                    HandlerInterface::class => [],
+                ],
+                InvalidArgumentException::class,
+                'No handlers were specified!',
+            ],
+            [
+                [
+                    HandlerInterface::class => [1 => null],
+                ],
+                InvalidArgumentException::class,
+                'Handler config keys must be strings!',
+            ],
+            [
+                [
+                    HandlerInterface::class => [static::class => null],
+                ],
+                InvalidArgumentException::class,
+                sprintf(
+                    'Handler config keys must refer to implementations of %s!',
+                    HandlerInterface::class
+                ),
+            ],
+            [
+                [
+                    HandlerInterface::class => [HandlerInterface::class => null],
+                ],
+                InvalidArgumentException::class,
+                sprintf(
+                    'Handler config keys must refer to implementations of %s, not the interface!',
+                    HandlerInterface::class
+                ),
+            ],
+            [
+                [
+                    HandlerInterface::class => [PlainTextHandler::class => null],
+                ],
+                InvalidArgumentException::class,
+                'Handler arguments must be specifed as an array!',
+            ],
+        ];
+    }
+
+    public function DataProviderTestBadConfig() : Generator
+    {
+        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+                foreach ($this->DataProviderBadConfig() as $badConfigArgs) {
+                    list(
+                        $handlerConfigArgs,
+                        $expectedExceptionType,
+                        $expectedExceptionMessage
+                    ) = $badConfigArgs;
+
+                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
+                        $loggerImplementation = $loggerArgs[0];
+
+                        $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
+
+                        /**
+                        * @var string $implementation
+                        * @var array<string, mixed[]> $frameworkArgs
+                        */
+                        list($implementation, $postConstructionCalls) = $frameworkArgs;
+
+                        $frameworkArgs = array_slice($frameworkArgs, 2);
+                        $frameworkArgs[2][DaftSource::class] = $routerArgs[0];
+
+                        if (isset($frameworkArgs[2][HandlerInterface::class])) {
+                            unset($frameworkArgs[2][HandlerInterface::class]);
+                        }
+
+                        $frameworkArgs[2] = array_merge($frameworkArgs[2], $handlerConfigArgs);
+
+                        array_unshift($frameworkArgs, $logger);
+
+                        yield [
+                            $implementation,
+                            $frameworkArgs,
+                            $expectedExceptionType,
+                            $expectedExceptionMessage,
+                        ];
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+    * @dataProvider DataProviderTestBadConfig
+    *
+    * @depends testCachingHttpHandler
+    */
+    public function testBadConfig(
+        string $implementation,
+        array $frameworkArgs,
+        string $expectedExceptionType,
+        string $expectedExceptionMessage
+    ) : void {
+        $this->expectException($expectedExceptionType);
+        $this->expectExceptionMessage($expectedExceptionMessage);
+
+        $instance = Utilities::ObtainHttpHandlerInstance(
+            $this,
+            $implementation,
+            ...$frameworkArgs
+        );
     }
 }
