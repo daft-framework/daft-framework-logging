@@ -36,22 +36,22 @@ class CatchingHttpHandler extends HttpHandler
 
     protected function ObtainWhoopsRunner() : RunInterface
     {
-                $whoops = new Run();
+        $whoops = new Run();
 
-                foreach ($this->handlers as $handler => $handlerArgs) {
-                    /**
-                    * @var HandlerInterface $handlerInstance
-                    */
-                    $handlerInstance =
-                        (PlainTextHandler::class === $handler && count($handlerArgs) < 1)
-                            ? new PlainTextHandler($this->logger)
-                            : new $handler(...$handlerArgs);
+        foreach ($this->handlers as $handler => $handlerArgs) {
+            /**
+            * @var HandlerInterface $handlerInstance
+            */
+            $handlerInstance =
+                (PlainTextHandler::class === $handler && count($handlerArgs) < 1)
+                    ? new PlainTextHandler($this->logger)
+                    : new $handler(...$handlerArgs);
 
-                    $whoops->pushHandler($handlerInstance);
-                }
-                $whoops->writeToOutput(false);
-                $whoops->sendHttpCode(false);
-                $whoops->allowQuit(false);
+            $whoops->pushHandler($handlerInstance);
+        }
+        $whoops->writeToOutput(false);
+        $whoops->sendHttpCode(false);
+        $whoops->allowQuit(false);
 
         return $whoops;
     }
