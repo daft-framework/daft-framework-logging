@@ -110,7 +110,7 @@ class CatchingHttpHandler extends HttpHandler
                 'Handler config keys must refer to implementations of %s!',
                 HandlerInterface::class
             ));
-        } elseif ($handler === HandlerInterface::class) {
+        } elseif (HandlerInterface::class === $handler) {
             throw new InvalidArgumentException(sprintf(
                 'Handler config keys must refer to implementations of %s, not the interface!',
                 HandlerInterface::class
