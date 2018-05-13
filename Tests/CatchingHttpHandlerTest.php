@@ -70,6 +70,10 @@ class CatchingHttpHandlerTest extends Base
 
                     $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
+                    /**
+                    * @var string $implementation
+                    * @var array<string, mixed[]> $frameworkArgs
+                    */
                     list($implementation, $postConstructionCalls) = $frameworkArgs;
 
                     $frameworkArgs = array_slice($frameworkArgs, 2);
