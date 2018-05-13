@@ -12,7 +12,6 @@ use Psr\Log\NullLogger;
 use SignpostMarv\DaftFramework\Logging\CatchingHttpHandler;
 use SignpostMarv\DaftFramework\Tests\Utilities;
 use SignpostMarv\DaftRouter\DaftSource;
-use SignpostMarv\DaftRouter\Tests\Fixtures\Config as DaftRouterFixturesConfig;
 use Symfony\Component\HttpFoundation\Request;
 use Whoops\Handler\HandlerInterface;
 use Whoops\Handler\PlainTextHandler;

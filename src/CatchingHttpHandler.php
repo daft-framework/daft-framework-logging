@@ -34,28 +34,6 @@ class CatchingHttpHandler extends HttpHandler
         $this->handlers = $config[HandlerInterface::class];
     }
 
-    protected function ObtainWhoopsRunner() : RunInterface
-    {
-        $whoops = new Run();
-
-        foreach ($this->handlers as $handler => $handlerArgs) {
-            /**
-            * @var HandlerInterface $handlerInstance
-            */
-            $handlerInstance =
-                (PlainTextHandler::class === $handler && count($handlerArgs) < 1)
-                    ? new PlainTextHandler($this->logger)
-                    : new $handler(...$handlerArgs);
-
-            $whoops->pushHandler($handlerInstance);
-        }
-        $whoops->writeToOutput(false);
-        $whoops->sendHttpCode(false);
-        $whoops->allowQuit(false);
-
-        return $whoops;
-    }
-
     public function handle(Request $request) : Response
     {
         try {
@@ -78,6 +56,28 @@ class CatchingHttpHandler extends HttpHandler
         } catch (Throwable $e) {
             return new Response('There was an internal error', 500);
         }
+    }
+
+    protected function ObtainWhoopsRunner() : RunInterface
+    {
+        $whoops = new Run();
+
+        foreach ($this->handlers as $handler => $handlerArgs) {
+            /**
+            * @var HandlerInterface $handlerInstance
+            */
+            $handlerInstance =
+                (PlainTextHandler::class === $handler && count($handlerArgs) < 1)
+                    ? new PlainTextHandler($this->logger)
+                    : new $handler(...$handlerArgs);
+
+            $whoops->pushHandler($handlerInstance);
+        }
+        $whoops->writeToOutput(false);
+        $whoops->sendHttpCode(false);
+        $whoops->allowQuit(false);
+
+        return $whoops;
     }
 
     protected function ValidateConfig(array $config) : array

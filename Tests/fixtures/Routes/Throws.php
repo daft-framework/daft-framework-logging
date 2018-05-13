@@ -28,7 +28,7 @@ class Throws implements DaftRoute
 
     public static function DaftRouterHttpRoute(array $args, string $method = 'GET') : string
     {
-        if ( ! isset ($args['msg'])) {
+        if ( ! isset($args['msg'])) {
             throw new InvalidArgumentException('This route requires a msg argument!');
         }
 
