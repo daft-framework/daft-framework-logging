@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "SignpostMarv\\DaftFramework\\Logging\\": "./Tests/",
+            "SignpostMarv\\DaftFramework\\Logging\\Tests\\": "./Tests/",
             "SignpostMarv\\DaftFramework\\Tests\\": "./vendor/signpostmarv/daft-framework/Tests/",
             "SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/Tests/"
         }
