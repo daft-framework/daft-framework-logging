@@ -44,7 +44,7 @@ class ThrowingLogger extends Base
 
     public function log($level, $message, array $context = []) : void
     {
-        $this->loggingCalls += 1;
+        ++$this->loggingCalls;
 
         if ($this->loggingCalls <= $this->throwUnderLogCount) {
             throw new RuntimeException($this->exceptionMessage, $this->exceptionCode);

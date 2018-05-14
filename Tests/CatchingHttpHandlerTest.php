@@ -267,7 +267,7 @@ class CatchingHttpHandlerTest extends Base
     {
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                foreach (range(1,2) as $throwUnderLogCount) {
+                foreach (range(1, 2) as $throwUnderLogCount) {
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
