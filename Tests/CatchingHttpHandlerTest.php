@@ -262,4 +262,62 @@ class CatchingHttpHandlerTest extends Base
             ...$frameworkArgs
         );
     }
+
+    public function DataProviderTestBadLogger() : Generator
+    {
+        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+                foreach (range(1,2) as $throwUnderLogCount) {
+                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
+                        $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
+
+                        /**
+                        * @var string $implementation
+                        * @var array<string, mixed[]> $frameworkArgs
+                        */
+                        list($implementation, $postConstructionCalls) = $frameworkArgs;
+
+                        $frameworkArgs = array_slice($frameworkArgs, 2);
+                        $frameworkArgs[2][DaftSource::class] = $routerArgs[0];
+
+                        array_unshift($frameworkArgs, $logger);
+
+                        $instance = Utilities::ObtainHttpHandlerInstance(
+                            $this,
+                            $implementation,
+                            ...$frameworkArgs
+                        );
+
+                        Utilities::ConfigureFrameworkInstance(
+                            $this,
+                            $instance,
+                            $postConstructionCalls
+                        );
+
+                        $yield = array_slice($routerArgs, 1);
+                        array_unshift($yield, $instance);
+
+                        yield $yield;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+    * @dataProvider DataProviderTestBadLogger
+    */
+    public function testBadLogger(
+        CatchingHttpHandler $framework,
+        int $expectedStatus,
+        string $expectedContentRegex,
+        ...$requestArgs
+    ) : void {
+        $request = Request::create(...$requestArgs);
+
+        $response = $framework->handle($request);
+
+        $this->assertSame(500, $response->getStatusCode());
+        $this->assertSame('There was an internal error', $response->getContent());
+    }
 }
