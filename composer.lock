@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dadd096c8016298ed6587e857e1d071f",
+    "content-hash": "4a9ba716ddd9d65edf6e10d9a519530a",
     "packages": [
         {
             "name": "filp/whoops",
@@ -222,16 +222,16 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v0.1.4",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "1546a12504e117e4c99941c875070c7de581e2a4"
+                "reference": "4dcde68efa21a50ec74cfcaf9443d29f1ac0bf12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/1546a12504e117e4c99941c875070c7de581e2a4",
-                "reference": "1546a12504e117e4c99941c875070c7de581e2a4",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/4dcde68efa21a50ec74cfcaf9443d29f1ac0bf12",
+                "reference": "4dcde68efa21a50ec74cfcaf9443d29f1ac0bf12",
                 "shasum": ""
             },
             "require": {
@@ -270,7 +270,7 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2018-05-14T18:02:22+00:00"
+            "time": "2018-05-15T22:01:19+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
