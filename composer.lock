@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a9ba716ddd9d65edf6e10d9a519530a",
+    "content-hash": "7d7bd55dbe1dc2c636abcef7a513e353",
     "packages": [
         {
             "name": "filp/whoops",
@@ -222,23 +222,23 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v0.1.5",
+            "version": "v0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "4dcde68efa21a50ec74cfcaf9443d29f1ac0bf12"
+                "reference": "cd1392bf07846bf7803c83275f8a2688f4f70bd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/4dcde68efa21a50ec74cfcaf9443d29f1ac0bf12",
-                "reference": "4dcde68efa21a50ec74cfcaf9443d29f1ac0bf12",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/cd1392bf07846bf7803c83275f8a2688f4f70bd3",
+                "reference": "cd1392bf07846bf7803c83275f8a2688f4f70bd3",
                 "shasum": ""
             },
             "require": {
                 "paragonie/easydb": "^2.6",
                 "php": "^7.1",
-                "signpostmarv/daft-interface-collector": "^0.4.2",
-                "signpostmarv/daft-router": "^0.2.2",
+                "signpostmarv/daft-interface-collector": "^0.4.3",
+                "signpostmarv/daft-router": "^0.2.4",
                 "symfony/console": "^4.0",
                 "symfony/http-foundation": "^4.0"
             },
@@ -270,20 +270,20 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2018-05-15T22:01:19+00:00"
+            "time": "2018-05-17T00:48:23+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
-            "version": "v0.4.2",
+            "version": "v0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-interface-collector.git",
-                "reference": "ddb6e68e0f3337257d9fec9d5ffd439e14514eef"
+                "reference": "dd9c6a0ab5d13a3387697521023948bf6471d13b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/ddb6e68e0f3337257d9fec9d5ffd439e14514eef",
-                "reference": "ddb6e68e0f3337257d9fec9d5ffd439e14514eef",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/dd9c6a0ab5d13a3387697521023948bf6471d13b",
+                "reference": "dd9c6a0ab5d13a3387697521023948bf6471d13b",
                 "shasum": ""
             },
             "require": {
@@ -318,26 +318,26 @@
                 }
             ],
             "description": "interface collector. daft reasons again.",
-            "time": "2018-05-10T19:13:10+00:00"
+            "time": "2018-05-15T22:24:35+00:00"
         },
         {
             "name": "signpostmarv/daft-router",
-            "version": "v0.2.3",
+            "version": "v0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-router.git",
-                "reference": "d81034c329d57169e6dbaa93504eef9ec2db6878"
+                "reference": "b48662575d1f43e7782036b19f61e7554a25ca70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/d81034c329d57169e6dbaa93504eef9ec2db6878",
-                "reference": "d81034c329d57169e6dbaa93504eef9ec2db6878",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/b48662575d1f43e7782036b19f61e7554a25ca70",
+                "reference": "b48662575d1f43e7782036b19f61e7554a25ca70",
                 "shasum": ""
             },
             "require": {
                 "nikic/fast-route": "^1.3",
                 "php": "^7.1",
-                "signpostmarv/daft-interface-collector": "^0.4.1",
+                "signpostmarv/daft-interface-collector": "^0.4.3",
                 "symfony/http-foundation": "^4.0"
             },
             "require-dev": {
@@ -368,7 +368,7 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2018-05-13T10:02:50+00:00"
+            "time": "2018-05-16T21:57:34+00:00"
         },
         {
             "name": "symfony/console",

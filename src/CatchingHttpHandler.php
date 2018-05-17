@@ -31,7 +31,12 @@ class CatchingHttpHandler extends HttpHandler
     ) {
         parent::__construct($logger, $baseUrl, $basePath, $config);
 
-        $this->handlers = $config[HandlerInterface::class];
+        /**
+        * @var array<string, mixed[]> $subConfig
+        */
+        $subConfig = $config[HandlerInterface::class];
+
+        $this->handlers = $subConfig;
     }
 
     public function handle(Request $request) : Response
@@ -82,15 +87,24 @@ class CatchingHttpHandler extends HttpHandler
 
     protected function ValidateConfig(array $config) : array
     {
-        if ( ! isset($config[HandlerInterface::class])) {
+        /**
+        * @var array|null|string $subConfig
+        */
+        $subConfig = $config[HandlerInterface::class] ?? null;
+
+        if ( ! isset($subConfig)) {
             throw new InvalidArgumentException('Handlers are not configured!');
-        } elseif ( ! is_array($config[HandlerInterface::class])) {
+        } elseif ( ! is_array($subConfig)) {
             throw new InvalidArgumentException('Handlers were not specified via an array!');
-        } elseif (count($config[HandlerInterface::class]) < 1) {
+        } elseif (count($subConfig) < 1) {
             throw new InvalidArgumentException('No handlers were specified!');
         }
 
-        foreach ($config[HandlerInterface::class] as $handler => $handlerArgs) {
+        /**
+        * @var string $handler
+        * @var array $handlerArgs
+        */
+        foreach ($subConfig as $handler => $handlerArgs) {
             $this->ValidateHandlerConfig($handler, $handlerArgs);
         }
 
