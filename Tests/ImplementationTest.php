@@ -77,6 +77,7 @@ class ImplementationTest extends Base
 
     /**
     * @param array<string, array<int, mixed>> $postConstructionCalls
+    * @param mixed ...$implementationArgs
     *
     * @dataProvider DataProviderGoodSources
     */
@@ -96,14 +97,14 @@ class ImplementationTest extends Base
 
         list($logger) = $implementationArgs;
 
-        $this->assertInstanceOf(LoggerInterface::class, $logger);
+        static::assertInstanceOf(LoggerInterface::class, $logger);
 
-        $this->assertTrue(
+        static::assertTrue(
             is_a($instance, Framework::class) ||
             is_a($instance, HttpHandler::class)
         );
 
-        $this->assertSame($logger, $instance->ObtainLogger());
+        static::assertSame($logger, $instance->ObtainLogger());
 
         return $instance;
     }

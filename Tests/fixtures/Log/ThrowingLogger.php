@@ -42,6 +42,10 @@ class ThrowingLogger extends Base
         $this->exceptionCode = $exceptionCode;
     }
 
+    /**
+    * @param int $level
+    * @param string $message
+    */
     public function log($level, $message, array $context = []) : void
     {
         ++$this->loggingCalls;

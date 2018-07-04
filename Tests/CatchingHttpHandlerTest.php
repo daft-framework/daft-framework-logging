@@ -115,6 +115,8 @@ class CatchingHttpHandlerTest extends Base
     }
 
     /**
+    * @param mixed ...$requestArgs
+    *
     * @dataProvider DataProviderTesting
     */
     public function testCachingHttpHandler(
@@ -127,8 +129,8 @@ class CatchingHttpHandlerTest extends Base
 
         $response = $framework->handle($request);
 
-        $this->assertSame($expectedStatus, $response->getStatusCode());
-        $this->assertRegExp($expectedContentRegex, $response->getContent());
+        static::assertSame($expectedStatus, $response->getStatusCode());
+        static::assertRegExp($expectedContentRegex, $response->getContent());
     }
 
     public function DataProviderBadConfig() : Generator
@@ -305,6 +307,8 @@ class CatchingHttpHandlerTest extends Base
     }
 
     /**
+    * @param mixed ...$requestArgs
+    *
     * @dataProvider DataProviderTestBadLogger
     */
     public function testBadLogger(
@@ -317,7 +321,7 @@ class CatchingHttpHandlerTest extends Base
 
         $response = $framework->handle($request);
 
-        $this->assertSame(500, $response->getStatusCode());
-        $this->assertSame('There was an internal error', $response->getContent());
+        static::assertSame(500, $response->getStatusCode());
+        static::assertSame('There was an internal error', $response->getContent());
     }
 }
