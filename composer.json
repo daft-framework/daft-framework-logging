@@ -30,8 +30,10 @@
             "phpunit -vvvv",
             "phpstan analyse -c ./phpstan.neon .php_cs.dist src tests",
             "psalm",
-            "phpcpd src",
+            "phpcpd src Tests",
             "phpmnd src",
+            "phpmnd Tests",
+            "composer-require-checker check ./composer.json",
             "php-cs-fixer fix --verbose --allow-risky=yes --dry-run"
         ]
     },
@@ -39,9 +41,11 @@
         "php": "^7.1",
         "filp/whoops": "^2.1",
         "psr/log": "^1.0",
-        "signpostmarv/daft-framework": "^0.1.7"
+        "signpostmarv/daft-framework": "^0.1.7",
+        "symfony/http-foundation": "^4.1"
     },
     "require-dev": {
+        "maglnet/composer-require-checker": "dev-master",
         "phpstan/phpstan": "^0.10.1",
         "phpstan/phpstan-phpunit": "^0.10.0",
         "phpstan/phpstan-strict-rules": "^0.10.0",
