@@ -19,6 +19,15 @@ use Whoops\Handler\PlainTextHandler;
 
 class CatchingHttpHandlerTest extends Base
 {
+    public function __construct(string $name = '', array $data = [], string $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+
+        $this->backupGlobals = false;
+        $this->backupStaticAttributes = false;
+        $this->runTestInSeparateProcess = false;
+    }
+
     public function DataProviderLoggerArguments() : Generator
     {
         yield from [
