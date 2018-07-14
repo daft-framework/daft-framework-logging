@@ -45,7 +45,7 @@
         "symfony/http-foundation": "^4.1"
     },
     "require-dev": {
-        "maglnet/composer-require-checker": "dev-master",
+        "maglnet/composer-require-checker": "^1.0",
         "phpstan/phpstan": "^0.10.1",
         "phpstan/phpstan-phpunit": "^0.10.0",
         "phpstan/phpstan-strict-rules": "^0.10.0",
@@ -54,6 +54,6 @@
         "roave/security-advisories": "dev-master",
         "sebastian/phpcpd": "^4.0",
         "signpostmarv/php-cs-fixer-config": "^0.5.1",
-        "vimeo/psalm": "dev-master"
+        "vimeo/psalm": "^2.0"
     }
 }
