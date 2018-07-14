@@ -27,15 +27,25 @@ class ImplementationTest extends Base
 
     public function DataProviderGoodSources() : Generator
     {
+        /**
+        * @var array $args
+        */
         foreach (parent::DataProviderGoodSources() as $args) {
+            /**
+            * @var array $loggerArgs
+            * @var string $loggerArgs[0]
+            */
             foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
                 $loggerImplementation = $loggerArgs[0];
 
                 $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-                $implementation = array_shift($args);
+                $implementation = (string) array_shift($args);
                 $implementation = self::RemapFrameworks[$implementation] ?? $implementation;
 
+                /**
+                * @var array<string, mixed[]> $postConstructionCalls
+                */
                 $postConstructionCalls = array_shift($args);
 
                 array_unshift($args, $implementation, $postConstructionCalls, $logger);
@@ -45,8 +55,15 @@ class ImplementationTest extends Base
                 if (HttpHandler::class === $args[0]) {
                     $args[0] = CatchingHttpHandler::class;
 
+                    /**
+                    * @var array $whoopsArguments
+                    */
                     foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
-                        $args[5][HandlerInterface::class] = $whoopsArguments[0];
+                        $args5 = (array) $args[5];
+
+                        $args5[HandlerInterface::class] = (array) $whoopsArguments[0];
+
+                        $args[5] = $args5;
 
                         yield $args;
                     }
@@ -87,7 +104,7 @@ class ImplementationTest extends Base
         ...$implementationArgs
     ) : BaseFramework {
         /**
-        * @var Framework
+        * @var Framework|object|null $instance
         */
         $instance = parent::testEverythingInitialisesFine(
             $implementation,
@@ -100,9 +117,17 @@ class ImplementationTest extends Base
         static::assertInstanceOf(LoggerInterface::class, $logger);
 
         static::assertTrue(
-            is_a($instance, Framework::class) ||
-            is_a($instance, HttpHandler::class)
+            is_object($instance) &&
+            (
+                ($instance instanceof Framework) ||
+                ($instance instanceof HttpHandler)
+            )
         );
+
+        /**
+        * @var Framework $instance
+        */
+        $instance = $instance;
 
         static::assertSame($logger, $instance->ObtainLogger());
 

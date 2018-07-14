@@ -16,7 +16,7 @@ class Throws implements DaftRoute
 {
     public static function DaftRouterHandleRequest(Request $request, array $args) : Response
     {
-        throw new RuntimeException($args['msg']);
+        throw new RuntimeException((string) $args['msg']);
     }
 
     public static function DaftRouterRoutes() : array
@@ -28,7 +28,7 @@ class Throws implements DaftRoute
 
     public static function DaftRouterHttpRoute(array $args, string $method = 'GET') : string
     {
-        if ( ! isset($args['msg'])) {
+        if ( ! isset($args['msg']) || ! is_string($args['msg'])) {
             throw new InvalidArgumentException('This route requires a msg argument!');
         }
 
