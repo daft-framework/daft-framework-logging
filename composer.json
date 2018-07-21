@@ -16,9 +16,12 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "FastRoute\\": "./vendor/nikic/fast-route/test/",
+            "SignpostMarv\\DaftInterfaceCollector\\Tests\\": "./vendor/signpostmarv/daft-interface-collector/Tests/",
             "SignpostMarv\\DaftFramework\\Logging\\Tests\\": "./Tests/",
             "SignpostMarv\\DaftFramework\\Tests\\": "./vendor/signpostmarv/daft-framework/Tests/",
-            "SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/Tests/"
+            "SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/tests/daft-router/",
+            "SignpostMarv\\DaftRouter\\Tests\\FastRoute\\": "./vendor/signpostmarv/daft-router/tests/fast-route/"
         }
     },
     "config": {

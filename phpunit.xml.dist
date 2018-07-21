@@ -1,5 +1,17 @@
 <phpunit bootstrap="./vendor/autoload.php">
   <testsuites>
+    <testsuite name="FastRoute Tests">
+      <directory>./vendor/signpostmarv/daft-router/tests/fast-route/</directory>
+    </testsuite>
+    <testsuite name="DaftInterfaceCollector">
+      <directory>./vendor/signpostmarv/daft-interface-collector/Tests/</directory>
+    </testsuite>
+    <testsuite name="DaftRouter">
+      <directory>./vendor/signpostmarv/daft-router/tests/daft-router/</directory>
+    </testsuite>
+    <testsuite name="DaftFramework">
+      <directory>./vendor/signpostmarv/daft-framework/Tests/</directory>
+    </testsuite>
     <testsuite name="DaftFramework Logging">
       <directory>./Tests/</directory>
     </testsuite>
