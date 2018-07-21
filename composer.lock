@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97a0435ba53048350477569c6604b2e1",
+    "content-hash": "4cf81faa551befb39a66dd744cf17753",
     "packages": [
         {
             "name": "filp/whoops",
@@ -222,24 +222,24 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v0.3.1",
+            "version": "v0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "740a1d6372e59f4edff99e191c26df2026894d4a"
+                "reference": "5b7be354671e422d594447e3539419af2331137b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/740a1d6372e59f4edff99e191c26df2026894d4a",
-                "reference": "740a1d6372e59f4edff99e191c26df2026894d4a",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/5b7be354671e422d594447e3539419af2331137b",
+                "reference": "5b7be354671e422d594447e3539419af2331137b",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "paragonie/easydb": "^2.6",
                 "php": "^7.1",
-                "signpostmarv/daft-interface-collector": "^0.4.6",
-                "signpostmarv/daft-router": "^0.3.1",
+                "signpostmarv/daft-interface-collector": "^0.4.8",
+                "signpostmarv/daft-router": "^0.3.2",
                 "symfony/console": "^4.1",
                 "symfony/event-dispatcher": "^4.1",
                 "symfony/http-foundation": "^4.1",
@@ -274,20 +274,20 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2018-07-14T11:41:24+00:00"
+            "time": "2018-07-21T03:49:50+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
-            "version": "v0.4.6",
+            "version": "v0.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-interface-collector.git",
-                "reference": "239587250682ee76b21ce69d730110986bdf502d"
+                "reference": "5fe7633ecbe64bcbdaa124770ec4074a0991919a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/239587250682ee76b21ce69d730110986bdf502d",
-                "reference": "239587250682ee76b21ce69d730110986bdf502d",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/5fe7633ecbe64bcbdaa124770ec4074a0991919a",
+                "reference": "5fe7633ecbe64bcbdaa124770ec4074a0991919a",
                 "shasum": ""
             },
             "require": {
@@ -302,7 +302,6 @@
                 "povils/phpmnd": "^2.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.0",
-                "signpostmarv/daft-router": "^0.1",
                 "signpostmarv/php-cs-fixer-config": "^0.5.1",
                 "vimeo/psalm": "^2.0"
             },
@@ -323,27 +322,27 @@
                 }
             ],
             "description": "interface collector. daft reasons again.",
-            "time": "2018-07-13T19:07:03+00:00"
+            "time": "2018-07-19T20:22:23+00:00"
         },
         {
             "name": "signpostmarv/daft-router",
-            "version": "v0.3.1",
+            "version": "v0.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-router.git",
-                "reference": "a619f8ce4b78b659ac63faf5f636af22568f93a5"
+                "reference": "2094ea0bfa6f419fba6a035e98237d2fa3054247"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/a619f8ce4b78b659ac63faf5f636af22568f93a5",
-                "reference": "a619f8ce4b78b659ac63faf5f636af22568f93a5",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/2094ea0bfa6f419fba6a035e98237d2fa3054247",
+                "reference": "2094ea0bfa6f419fba6a035e98237d2fa3054247",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "nikic/fast-route": "^1.3",
                 "php": "^7.1",
-                "signpostmarv/daft-interface-collector": "^0.4.6",
+                "signpostmarv/daft-interface-collector": "^0.4.8",
                 "symfony/http-foundation": "^4.1"
             },
             "require-dev": {
@@ -375,7 +374,7 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2018-07-13T21:17:10+00:00"
+            "time": "2018-07-19T20:52:18+00:00"
         },
         {
             "name": "symfony/console",
@@ -1983,16 +1982,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.0.2",
+            "version": "v4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "35b8caf75e791ba1b2d24fec1552168d72692b12"
+                "reference": "bd088dc940a418f09cda079a9b5c7c478890fb8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/35b8caf75e791ba1b2d24fec1552168d72692b12",
-                "reference": "35b8caf75e791ba1b2d24fec1552168d72692b12",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/bd088dc940a418f09cda079a9b5c7c478890fb8d",
+                "reference": "bd088dc940a418f09cda079a9b5c7c478890fb8d",
                 "shasum": ""
             },
             "require": {
@@ -2030,7 +2029,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-06-03T11:33:10+00:00"
+            "time": "2018-07-15T17:25:16+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -2181,22 +2180,22 @@
         },
         {
             "name": "phar-io/manifest",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
-                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0"
+                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/manifest/zipball/2df402786ab5368a0169091f61a7c1e0eb6852d0",
-                "reference": "2df402786ab5368a0169091f61a7c1e0eb6852d0",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
+                "reference": "7761fcacf03b4d4f16e7ccb606d4879ca431fcf4",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-phar": "*",
-                "phar-io/version": "^1.0.1",
+                "phar-io/version": "^2.0",
                 "php": "^5.6 || ^7.0"
             },
             "type": "library",
@@ -2232,20 +2231,20 @@
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
-            "time": "2017-03-05T18:14:27+00:00"
+            "time": "2018-07-08T19:23:20+00:00"
         },
         {
             "name": "phar-io/version",
-            "version": "1.0.1",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df"
+                "reference": "45a2ec53a73c70ce41d55cedef9063630abaf1b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/a70c0ced4be299a63d32fa96d9281d03e94041df",
-                "reference": "a70c0ced4be299a63d32fa96d9281d03e94041df",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/45a2ec53a73c70ce41d55cedef9063630abaf1b6",
+                "reference": "45a2ec53a73c70ce41d55cedef9063630abaf1b6",
                 "shasum": ""
             },
             "require": {
@@ -2279,7 +2278,7 @@
                 }
             ],
             "description": "Library for handling version information and constraints",
-            "time": "2017-03-05T17:38:23+00:00"
+            "time": "2018-07-08T19:19:57+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
@@ -3008,16 +3007,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.2.6",
+            "version": "7.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "400a3836ee549ae6f665323ac3f21e27eac7155f"
+                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/400a3836ee549ae6f665323ac3f21e27eac7155f",
-                "reference": "400a3836ee549ae6f665323ac3f21e27eac7155f",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e878aff7917ef66e702e03d1359b16eee254e2c",
+                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c",
                 "shasum": ""
             },
             "require": {
@@ -3028,8 +3027,8 @@
                 "ext-mbstring": "*",
                 "ext-xml": "*",
                 "myclabs/deep-copy": "^1.7",
-                "phar-io/manifest": "^1.0.1",
-                "phar-io/version": "^1.0",
+                "phar-io/manifest": "^1.0.2",
+                "phar-io/version": "^2.0",
                 "php": "^7.1",
                 "phpspec/prophecy": "^1.7",
                 "phpunit/php-code-coverage": "^6.0.7",
@@ -3088,7 +3087,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-06-21T13:13:39+00:00"
+            "time": "2018-07-15T05:20:50+00:00"
         },
         {
             "name": "povils/phpmnd",
@@ -3149,12 +3148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "731d60f7fc78a8816dae7049df255cd55e30c313"
+                "reference": "053766d789f6393e5bc0896635d35abf8d2d362e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/731d60f7fc78a8816dae7049df255cd55e30c313",
-                "reference": "731d60f7fc78a8816dae7049df255cd55e30c313",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/053766d789f6393e5bc0896635d35abf8d2d362e",
+                "reference": "053766d789f6393e5bc0896635d35abf8d2d362e",
                 "shasum": ""
             },
             "conflict": {
@@ -3203,7 +3202,7 @@
                 "kreait/firebase-php": ">=3.2,<3.8.1",
                 "laravel/framework": ">=4,<4.0.99|>=4.1,<=4.1.31|>=4.2,<=4.2.22|>=5,<=5.0.35|>=5.1,<=5.1.46|>=5.2,<=5.2.45|>=5.3,<=5.3.31|>=5.4,<=5.4.36|>=5.5,<5.5.40|>=5.6,<5.6.15",
                 "laravel/socialite": ">=1,<1.0.99|>=2,<2.0.10",
-                "magento/magento1ce": ">=1.5.0.1,<1.9.3.2",
+                "magento/magento1ce": "<1.9.3.9",
                 "magento/magento1ee": ">=1.9,<1.14.3.2",
                 "magento/product-community-edition": ">=2,<2.2.5",
                 "monolog/monolog": ">=1.8,<1.12",
@@ -3261,7 +3260,8 @@
                 "thelia/thelia": ">=2.1,<2.1.2|>=2.1.0-beta1,<2.1.3",
                 "titon/framework": ">=0,<9.9.99",
                 "twig/twig": "<1.20",
-                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.22|>=8,<8.7.5",
+                "typo3/cms": ">=6.2,<6.2.30|>=7,<7.6.30|>=8,<8.7.17|>=9,<9.3.2",
+                "typo3/cms-core": ">=8,<8.7.17|>=9,<9.3.2",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.10|>=3.1,<3.1.7|>=3.2,<3.2.7|>=3.3,<3.3.5",
                 "typo3/neos": ">=1.1,<1.1.3|>=1.2,<1.2.13|>=2,<2.0.4",
                 "willdurand/js-translation-bundle": "<2.1.1",
@@ -3310,7 +3310,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2018-07-09T14:09:25+00:00"
+            "time": "2018-07-18T13:51:34+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
