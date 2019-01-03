@@ -31,11 +31,11 @@ class ImplementationTest extends Base
     public function DataProviderGoodSources() : Generator
     {
         /**
-        * @var array $args
+        * @var array
         */
         foreach (parent::DataProviderGoodSources() as $args) {
             /**
-            * @var array $loggerArgs
+            * @var array
             * @var string $loggerArgs[0]
             */
             foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
@@ -64,7 +64,7 @@ class ImplementationTest extends Base
                 $implementation = self::RemapFrameworks[$implementation] ?? $implementation;
 
                 /**
-                * @var array<string, mixed[]> $postConstructionCalls
+                * @var array<string, mixed[]>
                 */
                 $postConstructionCalls = array_shift($args);
 
@@ -76,7 +76,7 @@ class ImplementationTest extends Base
                     $args[0] = CatchingHttpHandler::class;
 
                     /**
-                    * @var array $whoopsArguments
+                    * @var array
                     */
                     foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
                         $args5 = (array) $args[5];
@@ -124,7 +124,7 @@ class ImplementationTest extends Base
         ...$implementationArgs
     ) : BaseFramework {
         /**
-        * @var Framework|object|null $instance
+        * @var Framework|object|null
         */
         $instance = parent::testEverythingInitialisesFine(
             $implementation,
@@ -145,7 +145,7 @@ class ImplementationTest extends Base
         );
 
         /**
-        * @var Framework $instance
+        * @var Framework
         */
         $instance = $instance;
 

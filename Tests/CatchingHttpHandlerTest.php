@@ -89,16 +89,16 @@ class CatchingHttpHandlerTest extends Base
     public function DataProviderTesting() : Generator
     {
         /**
-        * @var array $loggerArgs
+        * @var array
         * @var string $loggerArgs[0]
         */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
             /**
-            * @var array $routerArgs
+            * @var array
             */
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
                 /**
-                * @var array $frameworkArgs
+                * @var array
                 * @var string $frameworkArgs[0]
                 * @var array<string, mixed[]> $frameworkArgs[1]
                 */
@@ -125,25 +125,25 @@ class CatchingHttpHandlerTest extends Base
                     $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                     /**
-                    * @var string $implementation
+                    * @var string
                     * @var array<string, mixed[]> $postConstructionCalls
                     */
                     list($implementation, $postConstructionCalls) = $frameworkArgs;
 
                     /**
-                    * @var string $implementation
+                    * @var string
                     */
                     $implementation = $implementation;
 
                     /**
-                    * @var array<string, mixed[]> $postConstructionCalls
+                    * @var array<string, mixed[]>
                     */
                     $postConstructionCalls = $postConstructionCalls;
 
                     $frameworkArgs = array_slice($frameworkArgs, 2);
 
                     /**
-                    * @var array<string, mixed> $config
+                    * @var array<string, mixed>
                     */
                     $config = (array) $frameworkArgs[2];
 
@@ -192,7 +192,7 @@ class CatchingHttpHandlerTest extends Base
         $server = (array) ($requestArgs[5] ?? []);
 
         /**
-        * @var string|resource|null $content
+        * @var string|resource|null
         */
         $content = ($requestArgs[6] ?? null);
 
@@ -284,7 +284,7 @@ class CatchingHttpHandlerTest extends Base
     public function DataProviderTestBadConfig() : Generator
     {
         /**
-        * @var array $loggerArgs
+        * @var array
         * @var string $loggerArgs[0]
         */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
@@ -305,11 +305,11 @@ class CatchingHttpHandlerTest extends Base
             }
 
             /**
-            * @var array $routerArgs
+            * @var array
             */
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
                 /**
-                * @var array $badConfigArgs
+                * @var array
                 */
                 foreach ($this->DataProviderBadConfig() as $badConfigArgs) {
                     list(
@@ -319,7 +319,7 @@ class CatchingHttpHandlerTest extends Base
                     ) = $badConfigArgs;
 
                     /**
-                    * @var array $frameworkArgs
+                    * @var array
                     */
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         /**
@@ -328,7 +328,7 @@ class CatchingHttpHandlerTest extends Base
                         $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                         /**
-                        * @var string $implementation
+                        * @var string
                         * @var array<string, mixed[]> $frameworkArgs
                         */
                         list($implementation, $postConstructionCalls) = $frameworkArgs;
@@ -336,7 +336,7 @@ class CatchingHttpHandlerTest extends Base
                         $frameworkArgs = array_slice($frameworkArgs, 2);
 
                         /**
-                        * @var array<string, mixed> $config
+                        * @var array<string, mixed>
                         */
                         $config = (array) $frameworkArgs[2];
 
@@ -387,43 +387,43 @@ class CatchingHttpHandlerTest extends Base
     public function DataProviderTestBadLogger() : Generator
     {
         /**
-        * @var array $loggerArgs
+        * @var array
         */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
             /**
-            * @var array $routerArgs
+            * @var array
             */
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
                 /**
-                * @var int $throwUnderLogCount
+                * @var int
                 */
                 foreach (range(1, 2) as $throwUnderLogCount) {
                     /**
-                    * @var array $frameworkArgs
+                    * @var array
                     */
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
                         /**
-                        * @var string $implementation
+                        * @var string
                         * @var array<string, mixed[]> $postConstructionCalls
                         */
                         list($implementation, $postConstructionCalls) = $frameworkArgs;
 
                         /**
-                        * @var string $implementation
+                        * @var string
                         */
                         $implementation = $implementation;
 
                         /**
-                        * @var array<string, mixed[]> $postConstructionCalls
+                        * @var array<string, mixed[]>
                         */
                         $postConstructionCalls = $postConstructionCalls;
 
                         $frameworkArgs = array_slice($frameworkArgs, 2);
 
                         /**
-                        * @var array<string, mixed> $config
+                        * @var array<string, mixed>
                         */
                         $config = (array) $frameworkArgs[2];
 
@@ -473,7 +473,7 @@ class CatchingHttpHandlerTest extends Base
         $server = (array) ($requestArgs[5] ?? []);
 
         /**
-        * @var string|resource|null $content
+        * @var string|resource|null
         */
         $content = ($requestArgs[6] ?? null);
 

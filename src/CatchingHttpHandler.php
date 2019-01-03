@@ -32,7 +32,7 @@ class CatchingHttpHandler extends HttpHandler
         parent::__construct($logger, $baseUrl, $basePath, $config);
 
         /**
-        * @var array<string, mixed[]> $subConfig
+        * @var array<string, mixed[]>
         */
         $subConfig = array_filter(
             array_filter(
@@ -84,7 +84,7 @@ class CatchingHttpHandler extends HttpHandler
 
         foreach ($this->handlers as $handler => $handlerArgs) {
             /**
-            * @var HandlerInterface $handlerInstance
+            * @var HandlerInterface
             */
             $handlerInstance =
                 (PlainTextHandler::class === $handler && count($handlerArgs) < 1)
@@ -103,7 +103,7 @@ class CatchingHttpHandler extends HttpHandler
     protected function ValidateConfig(array $config) : array
     {
         /**
-        * @var array|null|string $subConfig
+        * @var array|null|string
         */
         $subConfig = $config[HandlerInterface::class] ?? null;
 
@@ -116,7 +116,7 @@ class CatchingHttpHandler extends HttpHandler
         }
 
         /**
-        * @var string $handler
+        * @var string
         * @var array $handlerArgs
         */
         foreach ($subConfig as $handler => $handlerArgs) {
