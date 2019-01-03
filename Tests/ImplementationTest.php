@@ -30,14 +30,7 @@ class ImplementationTest extends Base
     */
     public function DataProviderGoodSources() : Generator
     {
-        /**
-        * @var array
-        */
         foreach (parent::DataProviderGoodSources() as $args) {
-            /**
-            * @var array
-            * @var string $loggerArgs[0]
-            */
             foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
                 $loggerImplementation = $loggerArgs[0];
 
@@ -75,9 +68,6 @@ class ImplementationTest extends Base
                 if (HttpHandler::class === $args[0]) {
                     $args[0] = CatchingHttpHandler::class;
 
-                    /**
-                    * @var array
-                    */
                     foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
                         $args5 = (array) $args[5];
 

@@ -88,20 +88,8 @@ class CatchingHttpHandlerTest extends Base
     */
     public function DataProviderTesting() : Generator
     {
-        /**
-        * @var array
-        * @var string $loggerArgs[0]
-        */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-            /**
-            * @var array
-            */
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                /**
-                * @var array
-                * @var string $frameworkArgs[0]
-                * @var array<string, mixed[]> $frameworkArgs[1]
-                */
                 foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                     $loggerImplementation = $loggerArgs[0];
 
@@ -283,10 +271,6 @@ class CatchingHttpHandlerTest extends Base
     */
     public function DataProviderTestBadConfig() : Generator
     {
-        /**
-        * @var array
-        * @var string $loggerArgs[0]
-        */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
             $loggerImplementation = $loggerArgs[0];
 
@@ -304,13 +288,7 @@ class CatchingHttpHandlerTest extends Base
                 return;
             }
 
-            /**
-            * @var array
-            */
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                /**
-                * @var array
-                */
                 foreach ($this->DataProviderBadConfig() as $badConfigArgs) {
                     list(
                         $handlerConfigArgs,
@@ -318,9 +296,6 @@ class CatchingHttpHandlerTest extends Base
                         $expectedExceptionMessage
                     ) = $badConfigArgs;
 
-                    /**
-                    * @var array
-                    */
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         /**
                         * @var LoggerInterface
@@ -386,21 +361,9 @@ class CatchingHttpHandlerTest extends Base
 
     public function DataProviderTestBadLogger() : Generator
     {
-        /**
-        * @var array
-        */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-            /**
-            * @var array
-            */
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                /**
-                * @var int
-                */
                 foreach (range(1, 2) as $throwUnderLogCount) {
-                    /**
-                    * @var array
-                    */
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
