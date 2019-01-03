@@ -52,7 +52,7 @@ class ImplementationTest extends Base
                     static::assertIsString($loggerImplementation);
 
                     return;
-                } elseif(
+                } elseif (
                     ! class_exists($loggerImplementation) ||
                     ! is_a($loggerImplementation, LoggerInterface::class, true)
                 ) {
