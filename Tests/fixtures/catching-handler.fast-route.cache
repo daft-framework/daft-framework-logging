@@ -15,6 +15,12 @@
           array (
             0 => 
             array (
+              'SignpostMarv\\DaftRouter\\DaftRequestInterceptor' => 
+              array (
+              ),
+              'SignpostMarv\\DaftRouter\\DaftResponseModifier' => 
+              array (
+              ),
               0 => 'SignpostMarv\\DaftFramework\\Logging\\Tests\\fixtures\\Routes\\Throws',
             ),
             1 => 

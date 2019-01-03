@@ -160,9 +160,9 @@ class CatchingHttpHandlerTest extends Base
                     $config[DaftSource::class] = (array) $routerArgs[0];
                     $frameworkArgs[2] = $config;
 
-                    array_unshift($frameworkArgs, $logger);
+                    $frameworkArgs[] = $logger;
 
-                    $instance = Utilities::ObtainHttpHandlerInstance(
+                    $instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
                         $this,
                         $implementation,
                         ...$frameworkArgs
@@ -376,7 +376,7 @@ class CatchingHttpHandlerTest extends Base
 
                         $frameworkArgs[2] = array_merge($frameworkArgs[2], $handlerConfigArgs);
 
-                        array_unshift($frameworkArgs, $logger);
+                        $frameworkArgs[] = $logger;
 
                         yield [
                             $implementation,
@@ -404,7 +404,7 @@ class CatchingHttpHandlerTest extends Base
         $this->expectException($expectedExceptionType);
         $this->expectExceptionMessage($expectedExceptionMessage);
 
-        $instance = Utilities::ObtainHttpHandlerInstance(
+        $instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
             $this,
             $implementation,
             ...$frameworkArgs
@@ -457,17 +457,30 @@ class CatchingHttpHandlerTest extends Base
 
                         $frameworkArgs = array_slice($frameworkArgs, 2);
 
+                        static::assertIsString($frameworkArgs[0]);
+                        static::assertIsString($frameworkArgs[1]);
+                        static::assertIsArray($frameworkArgs[2]);
+
                         /**
-                        * @var array<string, mixed>
+                        * @var array{0:string, 1:string, 2:array}
                         */
-                        $config = (array) $frameworkArgs[2];
+                        $frameworkArgs = $frameworkArgs;
 
-                        $config[DaftSource::class] = (array) $routerArgs[0];
-                        $frameworkArgs[2] = $config;
+                        $frameworkArgs[2][DaftSource::class] = (array) $routerArgs[0];
 
-                        array_unshift($frameworkArgs, $logger);
+                        $frameworkArgs[] = $logger;
 
-                        $instance = Utilities::ObtainHttpHandlerInstance(
+                        static::assertInstanceOf(
+                            LoggerInterface::class,
+                            $frameworkArgs[3] ?? null
+                        );
+
+                        /**
+                        * @var array{0:string, 1:string, 2:array, 3:LoggerInterface}
+                        */
+                        $frameworkArgs = $frameworkArgs;
+
+                        $instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
                             $this,
                             $implementation,
                             ...$frameworkArgs

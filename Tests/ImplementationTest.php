@@ -79,7 +79,9 @@ class ImplementationTest extends Base
                 */
                 $postConstructionCalls = array_shift($args);
 
-                array_unshift($args, $implementation, $postConstructionCalls, $logger);
+                array_unshift($args, $implementation, $postConstructionCalls);
+
+                $args[] = $logger;
 
                 yield $args;
 
@@ -92,11 +94,11 @@ class ImplementationTest extends Base
                     $dataProviderWhoopsArguments = $this->DataProviderWhoopsHandlerArguments();
 
                     foreach ($dataProviderWhoopsArguments as $whoopsArguments) {
-                        $args5 = (array) $args[5];
+                        $args4 = (array) $args[4];
 
-                        $args5[HandlerInterface::class] = $whoopsArguments[0];
+                        $args4[HandlerInterface::class] = $whoopsArguments[0];
 
-                        $args[5] = $args5;
+                        $args[4] = $args4;
 
                         yield $args;
                     }
@@ -136,21 +138,14 @@ class ImplementationTest extends Base
         array $postConstructionCalls,
         ...$implementationArgs
     ) : BaseFramework {
-        /**
-        * @var Framework|object|null
-        */
-        $instance = parent::testEverythingInitialisesFine(
-            $implementation,
-            $postConstructionCalls,
-            ...$implementationArgs
-        );
-
-        list($logger) = $implementationArgs;
+        list(,,,$logger) = $implementationArgs;
 
         static::assertInstanceOf(LoggerInterface::class, $logger);
 
+        $instance = $this->ObtainFrameworkInstance($implementation, ...$implementationArgs);
+        $this->ConfigureFrameworkInstance($instance, $postConstructionCalls);
+
         static::assertTrue(
-            is_object($instance) &&
             (
                 ($instance instanceof Framework) ||
                 ($instance instanceof HttpHandler)

@@ -14,10 +14,10 @@ class Framework extends Base
     use Logger;
 
     public function __construct(
-        LoggerInterface $logger,
         string $baseUrl,
         string $basePath,
-        array $config = []
+        array $config,
+        LoggerInterface $logger
     ) {
         parent::__construct($baseUrl, $basePath, $config);
 
