@@ -30,11 +30,29 @@ class ImplementationTest extends Base
     */
     public function DataProviderGoodSources() : Generator
     {
-        foreach (parent::DataProviderGoodSources() as $args) {
-            foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+        /**
+        * @var iterable<array<int, mixed>>
+        */
+        $goodSources = parent::DataProviderGoodSources();
+
+        foreach ($goodSources as $args) {
+            /**
+            * @var iterable<array<int, mixed>>
+            */
+            $loggerSources = $this->DataProviderLoggerArguments();
+            foreach ($loggerSources as $loggerArgs) {
+                /**
+                * @var scalar|array|object|null
+                */
                 $loggerImplementation = $loggerArgs[0];
 
                 if (
+                    ! is_string($loggerImplementation)
+                ) {
+                    static::assertIsString($loggerImplementation);
+
+                    return;
+                } elseif(
                     ! class_exists($loggerImplementation) ||
                     ! is_a($loggerImplementation, LoggerInterface::class, true)
                 ) {
@@ -68,10 +86,15 @@ class ImplementationTest extends Base
                 if (HttpHandler::class === $args[0]) {
                     $args[0] = CatchingHttpHandler::class;
 
-                    foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
+                    /**
+                    * @var iterable<array<int, array<string, mixed[]>>>
+                    */
+                    $dataProviderWhoopsArguments = $this->DataProviderWhoopsHandlerArguments();
+
+                    foreach ($dataProviderWhoopsArguments as $whoopsArguments) {
                         $args5 = (array) $args[5];
 
-                        $args5[HandlerInterface::class] = (array) $whoopsArguments[0];
+                        $args5[HandlerInterface::class] = $whoopsArguments[0];
 
                         $args[5] = $args5;
 

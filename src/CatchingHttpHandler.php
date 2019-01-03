@@ -115,6 +115,11 @@ class CatchingHttpHandler extends HttpHandler
             throw new InvalidArgumentException('No handlers were specified!');
         }
 
+        /**
+        * @var array<int|string, scalar|array|object|null>
+        */
+        $subConfig = $subConfig;
+
         foreach ($subConfig as $handler => $handlerArgs) {
             $this->ValidateHandlerConfig($handler, $handlerArgs);
         }

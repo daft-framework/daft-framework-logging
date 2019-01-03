@@ -88,12 +88,34 @@ class CatchingHttpHandlerTest extends Base
     */
     public function DataProviderTesting() : Generator
     {
-        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
+        /**
+        * @var iterable<array<int, mixed>>
+        */
+        $loggerSources = $this->DataProviderLoggerArguments();
+
+        foreach ($loggerSources as $loggerArgs) {
+            /**
+            * @var iterable<array<int, mixed>>
+            */
+            $routerSources = $this->DataProviderRouterArguments();
+
+            foreach ($routerSources as $routerArgs) {
+                /**
+                * @var iterable<array<int, mixed>>
+                */
+                $frameworkSources = $this->DataProviderFrameworkArguments();
+
+                foreach ($frameworkSources as $frameworkArgs) {
+                    /**
+                    * @var scalar|array|object|null
+                    */
                     $loggerImplementation = $loggerArgs[0];
 
-                    if (
+                    if ( ! is_string($loggerImplementation)) {
+                        static::assertIsString($loggerImplementation);
+
+                        return;
+                    } elseif (
                         ! class_exists($loggerImplementation) ||
                         ! is_a($loggerImplementation, LoggerInterface::class, true)
                     ) {
@@ -271,10 +293,22 @@ class CatchingHttpHandlerTest extends Base
     */
     public function DataProviderTestBadConfig() : Generator
     {
-        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+        /**
+        * @var iterable<array<int, mixed>>
+        */
+        $loggerSources = $this->DataProviderLoggerArguments();
+
+        foreach ($loggerSources as $loggerArgs) {
+            /**
+            * @var scalar|array|object|null
+            */
             $loggerImplementation = $loggerArgs[0];
 
-            if (
+            if ( ! is_string($loggerImplementation)) {
+                static::assertIsString($loggerImplementation);
+
+                return;
+            } elseif (
                 ! class_exists($loggerImplementation) ||
                 ! is_a($loggerImplementation, LoggerInterface::class, true)
             ) {
@@ -288,15 +322,33 @@ class CatchingHttpHandlerTest extends Base
                 return;
             }
 
-            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                foreach ($this->DataProviderBadConfig() as $badConfigArgs) {
+            /**
+            * @var iterable<array<int, mixed>>
+            */
+            $routerSources = $this->DataProviderRouterArguments();
+
+            foreach ($routerSources as $routerArgs) {
+                /**
+                * @var iterable<array<int, scalar|array>>
+                */
+                $badConfigSources = $this->DataProviderBadConfig();
+
+                foreach ($badConfigSources as $badConfigArgs) {
                     list(
                         $handlerConfigArgs,
                         $expectedExceptionType,
                         $expectedExceptionMessage
                     ) = $badConfigArgs;
 
-                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
+                    static::assertIsArray($handlerConfigArgs);
+                    $handlerConfigArgs = (array) $handlerConfigArgs;
+
+                    /**
+                    * @var iterable<array<int, mixed>>
+                    */
+                    $frameworkSources = $this->DataProviderFrameworkArguments();
+
+                    foreach ($frameworkSources as $frameworkArgs) {
                         /**
                         * @var LoggerInterface
                         */
@@ -361,10 +413,30 @@ class CatchingHttpHandlerTest extends Base
 
     public function DataProviderTestBadLogger() : Generator
     {
-        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                foreach (range(1, 2) as $throwUnderLogCount) {
-                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
+        /**
+        * @var iterable<array<int, mixed>>
+        */
+        $loggerSources = $this->DataProviderLoggerArguments();
+
+        foreach ($loggerSources as $loggerArgs) {
+            /**
+            * @var iterable<array<int, mixed>>
+            */
+            $routerSources = $this->DataProviderRouterArguments();
+
+            foreach ($routerSources as $routerArgs) {
+                /**
+                * @var array<int, int>
+                */
+                $range = range(1, 2);
+
+                foreach ($range as $throwUnderLogCount) {
+                    /**
+                    * @var iterable<array<int, mixed>>
+                    */
+                    $frameworkSources = $this->DataProviderFrameworkArguments();
+
+                    foreach ($frameworkSources as $frameworkArgs) {
                         $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
                         /**
