@@ -138,7 +138,7 @@ class ImplementationTest extends Base
         array $postConstructionCalls,
         ...$implementationArgs
     ) : BaseFramework {
-        list(,,,$logger) = $implementationArgs;
+        list(, , , $logger) = $implementationArgs;
 
         static::assertInstanceOf(LoggerInterface::class, $logger);
 

@@ -16,7 +16,7 @@ class HttpHandler extends Base
     public function __construct(
         string $baseUrl,
         string $basePath,
-        array $config = [],
+        array $config,
         LoggerInterface $logger
     ) {
         parent::__construct($baseUrl, $basePath, $config);
