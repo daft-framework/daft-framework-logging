@@ -9,6 +9,7 @@ namespace SignpostMarv\DaftFramework\Logging\Tests;
 use Generator;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase as Base;
+use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SignpostMarv\DaftFramework\Logging\CatchingHttpHandler;
 use SignpostMarv\DaftFramework\Tests\Utilities;
@@ -82,6 +83,9 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
+    /**
+    * @psalm-suppress InterfaceInstantiation
+    */
     public function DataProviderTesting() : Generator
     {
         /**
@@ -101,6 +105,23 @@ class CatchingHttpHandlerTest extends Base
                 foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                     $loggerImplementation = $loggerArgs[0];
 
+                    if (
+                        ! class_exists($loggerImplementation) ||
+                        ! is_a($loggerImplementation, LoggerInterface::class, true)
+                    ) {
+                        static::assertTrue(class_exists($loggerImplementation));
+                        static::assertTrue(is_a(
+                            $loggerImplementation,
+                            LoggerInterface::class,
+                            true
+                        ));
+
+                        return;
+                    }
+
+                    /**
+                    * @var LoggerInterface
+                    */
                     $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                     /**
@@ -257,6 +278,9 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
+    /**
+    * @psalm-suppress InterfaceInstantiation
+    */
     public function DataProviderTestBadConfig() : Generator
     {
         /**
@@ -264,6 +288,22 @@ class CatchingHttpHandlerTest extends Base
         * @var string $loggerArgs[0]
         */
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+            $loggerImplementation = $loggerArgs[0];
+
+            if (
+                ! class_exists($loggerImplementation) ||
+                ! is_a($loggerImplementation, LoggerInterface::class, true)
+            ) {
+                static::assertTrue(class_exists($loggerImplementation));
+                static::assertTrue(is_a(
+                    $loggerImplementation,
+                    LoggerInterface::class,
+                    true
+                ));
+
+                return;
+            }
+
             /**
             * @var array $routerArgs
             */
@@ -282,8 +322,9 @@ class CatchingHttpHandlerTest extends Base
                     * @var array $frameworkArgs
                     */
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
-                        $loggerImplementation = $loggerArgs[0];
-
+                        /**
+                        * @var LoggerInterface
+                        */
                         $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                         /**

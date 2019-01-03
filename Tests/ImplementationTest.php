@@ -25,6 +25,9 @@ class ImplementationTest extends Base
         BaseHttpHandler::class => HttpHandler::class,
     ];
 
+    /**
+    * @psalm-suppress InterfaceInstantiation
+    */
     public function DataProviderGoodSources() : Generator
     {
         /**
@@ -38,6 +41,23 @@ class ImplementationTest extends Base
             foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
                 $loggerImplementation = $loggerArgs[0];
 
+                if (
+                    ! class_exists($loggerImplementation) ||
+                    ! is_a($loggerImplementation, LoggerInterface::class, true)
+                ) {
+                    static::assertTrue(class_exists($loggerImplementation));
+                    static::assertTrue(is_a(
+                        $loggerImplementation,
+                        LoggerInterface::class,
+                        true
+                    ));
+
+                    return;
+                }
+
+                /**
+                * @var LoggerInterface
+                */
                 $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                 $implementation = (string) array_shift($args);

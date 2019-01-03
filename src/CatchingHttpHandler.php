@@ -34,7 +34,19 @@ class CatchingHttpHandler extends HttpHandler
         /**
         * @var array<string, mixed[]> $subConfig
         */
-        $subConfig = $config[HandlerInterface::class];
+        $subConfig = array_filter(
+            array_filter(
+                (array) $config[HandlerInterface::class],
+                'is_string',
+                ARRAY_FILTER_USE_KEY
+            ),
+            function (string $maybe) : bool {
+                return
+                    is_a($maybe, HandlerInterface::class, true) &&
+                    class_exists($maybe);
+            },
+            ARRAY_FILTER_USE_KEY
+        );
 
         $this->handlers = $subConfig;
     }
@@ -63,6 +75,9 @@ class CatchingHttpHandler extends HttpHandler
         }
     }
 
+    /**
+    * @psalm-suppress InvalidStringClass
+    */
     protected function ObtainWhoopsRunner() : RunInterface
     {
         $whoops = new Run();
