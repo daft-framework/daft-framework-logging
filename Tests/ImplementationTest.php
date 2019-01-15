@@ -72,6 +72,10 @@ class ImplementationTest extends Base
                 $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                 $implementation = (string) array_shift($args);
+
+                /**
+                * @var string
+                */
                 $implementation = self::RemapFrameworks[$implementation] ?? $implementation;
 
                 /**
