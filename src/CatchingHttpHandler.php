@@ -103,7 +103,7 @@ class CatchingHttpHandler extends HttpHandler
     protected function ValidateConfig(array $config) : array
     {
         /**
-        * @var array|null|string
+        * @var array|string|null
         */
         $subConfig = $config[HandlerInterface::class] ?? null;
 
