@@ -18,8 +18,6 @@ use Whoops\RunInterface;
 
 class CatchingHttpHandler extends HttpHandler
 {
-    const BOOL_IS_A_IS_STRING = true;
-
     const INT_ARGS_IS_PLAINTEXT_HANDLER = 1;
 
     const BOOL_WHOOPS_NO_SENDING = false;
@@ -48,7 +46,7 @@ class CatchingHttpHandler extends HttpHandler
             ),
             function (string $maybe) : bool {
                 return
-                    is_a($maybe, HandlerInterface::class, self::BOOL_IS_A_IS_STRING) &&
+                    is_a($maybe, HandlerInterface::class, true) &&
                     class_exists($maybe);
             },
             ARRAY_FILTER_USE_KEY
@@ -81,9 +79,6 @@ class CatchingHttpHandler extends HttpHandler
         }
     }
 
-    /**
-    * @psalm-suppress InvalidStringClass
-    */
     protected function ObtainWhoopsRunner() : RunInterface
     {
         $whoops = new Run();

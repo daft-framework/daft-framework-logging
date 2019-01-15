@@ -263,16 +263,16 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "4118ee000a493abbb10873955f6dd63d72bd4465"
+                "reference": "545231a870e4261e8bdb30d1d7cc31c3f7f0b9a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/4118ee000a493abbb10873955f6dd63d72bd4465",
-                "reference": "4118ee000a493abbb10873955f6dd63d72bd4465",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/545231a870e4261e8bdb30d1d7cc31c3f7f0b9a4",
+                "reference": "545231a870e4261e8bdb30d1d7cc31c3f7f0b9a4",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,7 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-01-15T18:43:36+00:00"
+            "time": "2019-01-15T21:06:23+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",

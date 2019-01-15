@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file src="src\CatchingHttpHandler.php">
+    <InvalidStringClass occurrences="1">
+      <code>new $handler(...$handlerArgs)</code>
+    </InvalidStringClass>
+  </file>
+</files>

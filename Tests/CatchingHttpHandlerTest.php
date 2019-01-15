@@ -83,9 +83,6 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
-    /**
-    * @psalm-suppress InterfaceInstantiation
-    */
     public function DataProviderTesting() : Generator
     {
         /**
@@ -288,9 +285,6 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
-    /**
-    * @psalm-suppress InterfaceInstantiation
-    */
     public function DataProviderTestBadConfig() : Generator
     {
         /**

@@ -48,6 +48,11 @@
                 "SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::ObtainWhoopsRunner",
                 "SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::ValidateHandlerConfig"
             ]
+        },
+        "TrueValue": {
+            "ignore": [
+                "SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::__construct"
+            ]
         }
     }
 }

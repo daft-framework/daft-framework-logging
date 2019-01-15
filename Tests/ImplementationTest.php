@@ -25,9 +25,6 @@ class ImplementationTest extends Base
         BaseHttpHandler::class => HttpHandler::class,
     ];
 
-    /**
-    * @psalm-suppress InterfaceInstantiation
-    */
     public function DataProviderGoodSources() : Generator
     {
         /**
