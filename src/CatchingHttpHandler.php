@@ -18,6 +18,12 @@ use Whoops\RunInterface;
 
 class CatchingHttpHandler extends HttpHandler
 {
+    const BOOL_IS_A_IS_STRING = true;
+
+    const INT_ARGS_IS_PLAINTEXT_HANDLER = 1;
+
+    const BOOL_WHOOPS_NO_SENDING = false;
+
     /**
     * @var array<string, mixed[]>
     */
@@ -42,7 +48,7 @@ class CatchingHttpHandler extends HttpHandler
             ),
             function (string $maybe) : bool {
                 return
-                    is_a($maybe, HandlerInterface::class, true) &&
+                    is_a($maybe, HandlerInterface::class, self::BOOL_IS_A_IS_STRING) &&
                     class_exists($maybe);
             },
             ARRAY_FILTER_USE_KEY
@@ -87,15 +93,18 @@ class CatchingHttpHandler extends HttpHandler
             * @var HandlerInterface
             */
             $handlerInstance =
-                (PlainTextHandler::class === $handler && count($handlerArgs) < 1)
+                (
+                    PlainTextHandler::class === $handler &&
+                    count($handlerArgs) < self::INT_ARGS_IS_PLAINTEXT_HANDLER
+                )
                     ? new PlainTextHandler($this->logger)
                     : new $handler(...$handlerArgs);
 
             $whoops->pushHandler($handlerInstance);
         }
-        $whoops->writeToOutput(false);
-        $whoops->sendHttpCode(false);
-        $whoops->allowQuit(false);
+        $whoops->writeToOutput(self::BOOL_WHOOPS_NO_SENDING);
+        $whoops->sendHttpCode(self::BOOL_WHOOPS_NO_SENDING);
+        $whoops->allowQuit(self::BOOL_WHOOPS_NO_SENDING);
 
         return $whoops;
     }
