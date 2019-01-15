@@ -135,7 +135,7 @@ class CatchingHttpHandler extends HttpHandler
     * @param mixed $handler
     * @param mixed $handlerArgs
     */
-    protected function ValidateHandlerConfig($handler, $handlerArgs) : void
+    protected function ValidateHandlerConfig($handler, $handlerArgs)
     {
         if ( ! is_string($handler)) {
             throw new InvalidArgumentException('Handler config keys must be strings!');

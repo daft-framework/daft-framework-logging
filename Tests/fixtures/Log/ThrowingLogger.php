@@ -46,7 +46,7 @@ class ThrowingLogger extends Base
     * @param int|mixed $level
     * @param string $message
     */
-    public function log($level, $message, array $context = []) : void
+    public function log($level, $message, array $context = [])
     {
         ++$this->loggingCalls;
 

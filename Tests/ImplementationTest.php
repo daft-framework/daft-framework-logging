@@ -46,7 +46,7 @@ class ImplementationTest extends Base
                 if (
                     ! is_string($loggerImplementation)
                 ) {
-                    static::assertIsString($loggerImplementation);
+                    static::assertInternalType('string', $loggerImplementation);
 
                     return;
                 } elseif (

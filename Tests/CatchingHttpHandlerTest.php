@@ -109,7 +109,7 @@ class CatchingHttpHandlerTest extends Base
                     $loggerImplementation = $loggerArgs[0];
 
                     if ( ! is_string($loggerImplementation)) {
-                        static::assertIsString($loggerImplementation);
+                        static::assertInternalType('string', $loggerImplementation);
 
                         return;
                     } elseif (
@@ -190,7 +190,7 @@ class CatchingHttpHandlerTest extends Base
         int $expectedStatus,
         string $expectedContentRegex,
         ...$requestArgs
-    ) : void {
+    ) {
         $uri = (string) $requestArgs[0];
         $method = (string) ($requestArgs[1] ?? 'GET');
         $parameters = (array) ($requestArgs[2] ?? []);
@@ -299,7 +299,7 @@ class CatchingHttpHandlerTest extends Base
             $loggerImplementation = $loggerArgs[0];
 
             if ( ! is_string($loggerImplementation)) {
-                static::assertIsString($loggerImplementation);
+                static::assertInternalType('string', $loggerImplementation);
 
                 return;
             } elseif (
@@ -334,7 +334,7 @@ class CatchingHttpHandlerTest extends Base
                         $expectedExceptionMessage
                     ) = $badConfigArgs;
 
-                    static::assertIsArray($handlerConfigArgs);
+                    static::assertInternalType('array', $handlerConfigArgs);
                     $handlerConfigArgs = (array) $handlerConfigArgs;
 
                     /**
@@ -394,7 +394,7 @@ class CatchingHttpHandlerTest extends Base
         array $frameworkArgs,
         string $expectedExceptionType,
         string $expectedExceptionMessage
-    ) : void {
+    ) {
         $this->expectException($expectedExceptionType);
         $this->expectExceptionMessage($expectedExceptionMessage);
 
@@ -451,9 +451,9 @@ class CatchingHttpHandlerTest extends Base
 
                         $frameworkArgs = array_slice($frameworkArgs, 2);
 
-                        static::assertIsString($frameworkArgs[0]);
-                        static::assertIsString($frameworkArgs[1]);
-                        static::assertIsArray($frameworkArgs[2]);
+                        static::assertInternalType('string', $frameworkArgs[0]);
+                        static::assertInternalType('string', $frameworkArgs[1]);
+                        static::assertInternalType('array', $frameworkArgs[2]);
 
                         /**
                         * @var array{0:string, 1:string, 2:array}
@@ -506,7 +506,7 @@ class CatchingHttpHandlerTest extends Base
         int $expectedStatus,
         string $expectedContentRegex,
         ...$requestArgs
-    ) : void {
+    ) {
         $uri = (string) $requestArgs[0];
         $method = (string) ($requestArgs[1] ?? 'GET');
         $parameters = (array) ($requestArgs[2] ?? []);
