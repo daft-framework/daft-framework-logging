@@ -41,7 +41,7 @@
         ]
     },
     "require": {
-        "php": "^7.0,<7.1",
+        "php": "^7.0,<7.0.8",
         "filp/whoops": "^2.2",
         "psr/log": "^1.0",
         "signpostmarv/daft-framework": "^0.6|^0.7",
