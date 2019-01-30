@@ -335,7 +335,6 @@ class CatchingHttpHandlerTest extends Base
                     ) = $badConfigArgs;
 
                     static::assertInternalType('array', $handlerConfigArgs);
-                    $handlerConfigArgs = (array) $handlerConfigArgs;
 
                     /**
                     * @var iterable<array<int, mixed>>
