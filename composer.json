@@ -44,7 +44,7 @@
         "php": "^7.1",
         "filp/whoops": "^2.2",
         "psr/log": "^1.0",
-        "signpostmarv/daft-framework": "^1.0",
+        "signpostmarv/daft-framework": "^1.1",
         "symfony/http-foundation": "^4.1"
     },
     "require-dev": {

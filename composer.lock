@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b8d868255e5bdbaa554ee07ad8ce499",
+    "content-hash": "451d8ea25fe9d45521031844d3f4f9a2",
     "packages": [
         {
             "name": "filp/whoops",
@@ -263,40 +263,40 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "545231a870e4261e8bdb30d1d7cc31c3f7f0b9a4"
+                "reference": "af26ab6be3d5bc339e666c562a2c3c8b754db86a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/545231a870e4261e8bdb30d1d7cc31c3f7f0b9a4",
-                "reference": "545231a870e4261e8bdb30d1d7cc31c3f7f0b9a4",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/af26ab6be3d5bc339e666c562a2c3c8b754db86a",
+                "reference": "af26ab6be3d5bc339e666c562a2c3c8b754db86a",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "paragonie/easydb": "^2.6",
                 "php": "^7.1",
-                "signpostmarv/daft-interface-collector": "^1.0",
-                "signpostmarv/daft-router": "^1.0",
+                "signpostmarv/daft-interface-collector": "^1.1",
+                "signpostmarv/daft-router": "^1.1",
                 "symfony/console": "^4.1",
                 "symfony/event-dispatcher": "^4.1",
                 "symfony/http-foundation": "^4.1",
                 "symfony/http-kernel": "^4.1"
             },
             "require-dev": {
-                "infection/infection": "^0.11.5",
+                "infection/infection": "^0.12.0",
                 "maglnet/composer-require-checker": "^1.1",
-                "phpstan/phpstan": "^0.10.8",
-                "phpstan/phpstan-phpunit": "^0.10.0",
-                "phpstan/phpstan-strict-rules": "^0.10.1",
+                "phpstan/phpstan": "^0.11.1",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
                 "phpunit/phpunit": "^7.5",
-                "povils/phpmnd": "^2.0",
+                "povils/phpmnd": "^2.1",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.6.0",
+                "signpostmarv/php-cs-fixer-config": "^0.6.1",
                 "vimeo/psalm": "^3.0"
             },
             "type": "library",
@@ -316,20 +316,20 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-01-15T21:06:23+00:00"
+            "time": "2019-01-30T01:56:29+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-interface-collector.git",
-                "reference": "7e56d752ceb5ccd29161cf29e0c396bb90a25a0e"
+                "reference": "40617c6bc5e638514724b7285ec9f364f99cbacf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/7e56d752ceb5ccd29161cf29e0c396bb90a25a0e",
-                "reference": "7e56d752ceb5ccd29161cf29e0c396bb90a25a0e",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/40617c6bc5e638514724b7285ec9f364f99cbacf",
+                "reference": "40617c6bc5e638514724b7285ec9f364f99cbacf",
                 "shasum": ""
             },
             "require": {
@@ -337,17 +337,17 @@
             },
             "require-dev": {
                 "bmitch/churn-php": "^1.0",
-                "infection/infection": "^0.11.5",
+                "infection/infection": "^0.12.0",
                 "maglnet/composer-require-checker": "^1.1",
-                "phpstan/phpstan": "^0.10.8",
-                "phpstan/phpstan-phpunit": "^0.10.0",
-                "phpstan/phpstan-strict-rules": "^0.10.1",
+                "phpstan/phpstan": "^0.11.1",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
                 "phpunit/phpunit": "^7.5",
-                "povils/phpmnd": "^2.0",
+                "povils/phpmnd": "^2.1",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.6.0",
-                "vimeo/psalm": "3.x-dev"
+                "signpostmarv/php-cs-fixer-config": "^0.6.1",
+                "vimeo/psalm": "^3.0"
             },
             "type": "library",
             "autoload": {
@@ -366,20 +366,20 @@
                 }
             ],
             "description": "interface collector. daft reasons again.",
-            "time": "2019-01-14T20:11:21+00:00"
+            "time": "2019-01-28T22:42:10+00:00"
         },
         {
             "name": "signpostmarv/daft-router",
-            "version": "v1.0.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-router.git",
-                "reference": "5a07da16c3f7acff53b7a97afc0681796367426e"
+                "reference": "c0c91074725badf26bebb3c61b0fbc0c24f89f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/5a07da16c3f7acff53b7a97afc0681796367426e",
-                "reference": "5a07da16c3f7acff53b7a97afc0681796367426e",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/c0c91074725badf26bebb3c61b0fbc0c24f89f2d",
+                "reference": "c0c91074725badf26bebb3c61b0fbc0c24f89f2d",
                 "shasum": ""
             },
             "require": {
@@ -390,16 +390,17 @@
                 "symfony/http-foundation": "^4.2"
             },
             "require-dev": {
-                "infection/infection": "^0.11.5",
+                "infection/infection": "^0.12.0",
                 "maglnet/composer-require-checker": "^1.1",
-                "phpstan/phpstan": "^0.10.8",
-                "phpstan/phpstan-phpunit": "^0.10.0",
-                "phpstan/phpstan-strict-rules": "^0.10.1",
+                "phpstan/phpstan": "^0.11.1",
+                "phpstan/phpstan-phpunit": "^0.11.0",
+                "phpstan/phpstan-strict-rules": "^0.11.0",
                 "phpunit/phpunit": "^7.5",
-                "povils/phpmnd": "^2.0",
+                "povils/phpmnd": "^2.1",
+                "psalm/plugin-phpunit": "^0.3.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.6.0",
+                "signpostmarv/php-cs-fixer-config": "^0.6.1",
                 "vimeo/psalm": "^3.0"
             },
             "type": "library",
@@ -419,7 +420,7 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2019-01-14T22:34:59+00:00"
+            "time": "2019-01-30T01:18:43+00:00"
         },
         {
             "name": "symfony/console",
@@ -866,7 +867,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
