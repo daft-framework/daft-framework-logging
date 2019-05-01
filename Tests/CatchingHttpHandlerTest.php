@@ -362,76 +362,76 @@ class CatchingHttpHandlerTest extends Base
     */
     public function DataProviderTestBadLogger() : Generator
     {
-            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
-                foreach (range(1, 2) as $throwUnderLogCount) {
-                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
-                        $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
+        foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+            foreach (range(1, 2) as $throwUnderLogCount) {
+                foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
+                    $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
-                        /**
-                        * @var string
-                        * @var array<string, mixed[]> $postConstructionCalls
-                        */
-                        list($implementation, $postConstructionCalls) = $frameworkArgs;
+                    /**
+                    * @var string
+                    * @var array<string, mixed[]> $postConstructionCalls
+                    */
+                    list($implementation, $postConstructionCalls) = $frameworkArgs;
 
-                        /**
-                        * @var string
-                        */
-                        $implementation = $implementation;
+                    /**
+                    * @var string
+                    */
+                    $implementation = $implementation;
 
-                        /**
-                        * @var array<string, mixed[]>
-                        */
-                        $postConstructionCalls = $postConstructionCalls;
+                    /**
+                    * @var array<string, mixed[]>
+                    */
+                    $postConstructionCalls = $postConstructionCalls;
 
-                        $frameworkArgs = array_slice($frameworkArgs, 2);
+                    $frameworkArgs = array_slice($frameworkArgs, 2);
 
-                        static::assertIsString($frameworkArgs[0]);
-                        static::assertIsString($frameworkArgs[1]);
-                        static::assertIsArray($frameworkArgs[2]);
+                    static::assertIsString($frameworkArgs[0]);
+                    static::assertIsString($frameworkArgs[1]);
+                    static::assertIsArray($frameworkArgs[2]);
 
-                        /**
-                        * @var array{0:string, 1:string, 2:array}
-                        */
-                        $frameworkArgs = $frameworkArgs;
+                    /**
+                    * @var array{0:string, 1:string, 2:array}
+                    */
+                    $frameworkArgs = $frameworkArgs;
 
-                        $frameworkArgs[2][DaftSource::class] = (array) $routerArgs[0];
+                    $frameworkArgs[2][DaftSource::class] = (array) $routerArgs[0];
 
-                        $frameworkArgs[] = $logger;
+                    $frameworkArgs[] = $logger;
 
-                        static::assertInstanceOf(
-                            LoggerInterface::class,
-                            $frameworkArgs[3] ?? null
-                        );
+                    static::assertInstanceOf(
+                        LoggerInterface::class,
+                        $frameworkArgs[3] ?? null
+                    );
 
-                        /**
-                        * @var array{0:string, 1:string, 2:array, 3:LoggerInterface}
-                        */
-                        $frameworkArgs = $frameworkArgs;
+                    /**
+                    * @var array{0:string, 1:string, 2:array, 3:LoggerInterface}
+                    */
+                    $frameworkArgs = $frameworkArgs;
 
-                        $instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
-                            $this,
-                            $implementation,
-                            ...$frameworkArgs
-                        );
+                    $instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
+                        $this,
+                        $implementation,
+                        ...$frameworkArgs
+                    );
 
-                        Utilities::ConfigureFrameworkInstance(
-                            $this,
-                            $instance,
-                            $postConstructionCalls
-                        );
+                    Utilities::ConfigureFrameworkInstance(
+                        $this,
+                        $instance,
+                        $postConstructionCalls
+                    );
 
-                        $yield = array_slice($routerArgs, 1);
-                        array_unshift($yield, $instance);
+                    $yield = array_slice($routerArgs, 1);
+                    array_unshift($yield, $instance);
 
-                        /**
-                        * @psalm-var array{0:CatchingHttpHandler, 1:int, 2:string}
-                        */
-                        $yield = $yield;
+                    /**
+                    * @psalm-var array{0:CatchingHttpHandler, 1:int, 2:string}
+                    */
+                    $yield = $yield;
 
-                        yield $yield;
-                    }
+                    yield $yield;
                 }
             }
+        }
     }
 
     /**
