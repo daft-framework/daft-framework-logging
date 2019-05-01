@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files/>
+<files>
+  <file src="Tests\CatchingHttpHandlerTest.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam occurrences="2">
+      <code>$expectedStatus</code>
+      <code>$expectedContentRegex</code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src\CatchingHttpHandler.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src\Framework.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+</files>

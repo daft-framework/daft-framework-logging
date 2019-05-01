@@ -297,7 +297,7 @@ class CatchingHttpHandlerTest extends Base
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-                        list($implementation, $postConstructionCalls) = $frameworkArgs;
+                        list($implementation) = $frameworkArgs;
 
                         $frameworkArgs = array_slice($frameworkArgs, 2);
 
@@ -350,7 +350,7 @@ class CatchingHttpHandlerTest extends Base
         $this->expectException($expectedExceptionType);
         $this->expectExceptionMessage($expectedExceptionMessage);
 
-        $instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
+        Utilities::ObtainHttpHandlerInstanceMixedArgs(
             $this,
             $implementation,
             ...$frameworkArgs
@@ -362,7 +362,6 @@ class CatchingHttpHandlerTest extends Base
     */
     public function DataProviderTestBadLogger() : Generator
     {
-        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
             foreach ($this->DataProviderRouterArguments() as $routerArgs) {
                 foreach (range(1, 2) as $throwUnderLogCount) {
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
@@ -433,7 +432,6 @@ class CatchingHttpHandlerTest extends Base
                     }
                 }
             }
-        }
     }
 
     /**
