@@ -31,7 +31,7 @@
     "scripts": {
         "tests": [
             "phpunit -vvvv",
-            "phpstan analyse -c ./phpstan.neon .php_cs.dist src tests",
+            "phpstan analyse -c ./phpstan.neon .php_cs.dist src Tests",
             "psalm",
             "phpcpd src Tests",
             "phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
