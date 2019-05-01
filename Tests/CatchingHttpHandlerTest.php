@@ -93,6 +93,9 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
+    */
     public function DataProviderTesting() : Generator
     {
         foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
@@ -147,6 +150,11 @@ class CatchingHttpHandlerTest extends Base
 
                     $yield = array_slice($routerArgs, 1);
                     array_unshift($yield, $instance);
+
+                    /**
+                    * @psalm-var array{0:CatchingHttpHandler, 1:int, 2:string}
+                    */
+                    $yield = $yield;
 
                     yield $yield;
                 }
@@ -262,14 +270,12 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<int, mixed>, 2:class-string<Throwable>, 3:string}, mixed, void>
+    */
     public function DataProviderTestBadConfig() : Generator
     {
-        /**
-        * @var iterable<array<int, mixed>>
-        */
-        $loggerSources = $this->DataProviderLoggerArguments();
-
-        foreach ($loggerSources as $loggerArgs) {
+        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
             /**
             * @psalm-var class-string<LoggerInterface>
             */
@@ -283,8 +289,6 @@ class CatchingHttpHandlerTest extends Base
                         $expectedExceptionMessage
                     ) = $badConfigArgs;
 
-                    static::assertIsArray($handlerConfigArgs);
-
                     /**
                     * @var array
                     */
@@ -293,10 +297,6 @@ class CatchingHttpHandlerTest extends Base
                     foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-                        /**
-                        * @var string
-                        * @var array<string, mixed[]> $frameworkArgs
-                        */
                         list($implementation, $postConstructionCalls) = $frameworkArgs;
 
                         $frameworkArgs = array_slice($frameworkArgs, 2);
@@ -317,6 +317,11 @@ class CatchingHttpHandlerTest extends Base
 
                         $frameworkArgs[] = $logger;
 
+                        /**
+                        * @var array<int, mixed>
+                        */
+                        $frameworkArgs = $frameworkArgs;
+
                         yield [
                             $implementation,
                             $frameworkArgs,
@@ -330,6 +335,8 @@ class CatchingHttpHandlerTest extends Base
     }
 
     /**
+    * @psalm-param class-string<Throwable> $expectedExceptionType
+    *
     * @dataProvider DataProviderTestBadConfig
     *
     * @depends testCachingHttpHandler
@@ -350,32 +357,15 @@ class CatchingHttpHandlerTest extends Base
         );
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
+    */
     public function DataProviderTestBadLogger() : Generator
     {
-        /**
-        * @var iterable<array<int, mixed>>
-        */
-        $loggerSources = $this->DataProviderLoggerArguments();
-
-        foreach ($loggerSources as $loggerArgs) {
-            /**
-            * @var iterable<array<int, mixed>>
-            */
-            $routerSources = $this->DataProviderRouterArguments();
-
-            foreach ($routerSources as $routerArgs) {
-                /**
-                * @var array<int, int>
-                */
-                $range = range(1, 2);
-
-                foreach ($range as $throwUnderLogCount) {
-                    /**
-                    * @var iterable<array<int, mixed>>
-                    */
-                    $frameworkSources = $this->DataProviderFrameworkArguments();
-
-                    foreach ($frameworkSources as $frameworkArgs) {
+        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+                foreach (range(1, 2) as $throwUnderLogCount) {
+                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
                         /**
@@ -433,6 +423,11 @@ class CatchingHttpHandlerTest extends Base
 
                         $yield = array_slice($routerArgs, 1);
                         array_unshift($yield, $instance);
+
+                        /**
+                        * @psalm-var array{0:CatchingHttpHandler, 1:int, 2:string}
+                        */
+                        $yield = $yield;
 
                         yield $yield;
                     }
