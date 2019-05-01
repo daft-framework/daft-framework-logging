@@ -32,7 +32,7 @@
         "tests": [
             "phpunit -vvvv",
             "phpstan analyse -c ./phpstan.neon .php_cs.dist src Tests",
-            "psalm",
+            "psalm --find-dead-code --shepherd",
             "phpcpd src Tests",
             "phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
             "composer-require-checker check ./composer.json",
