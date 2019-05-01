@@ -25,50 +25,18 @@ class ImplementationTest extends Base
         BaseHttpHandler::class => HttpHandler::class,
     ];
 
+    /**
+    * @psalm-return Generator<int, array{0:class-string<Framework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
+    */
     public function DataProviderGoodSources() : Generator
     {
-        /**
-        * @var iterable<array<int, mixed>>
-        */
-        $goodSources = parent::DataProviderGoodSources();
-
-        foreach ($goodSources as $args) {
-            /**
-            * @var iterable<array<int, mixed>>
-            */
-            $loggerSources = $this->DataProviderLoggerArguments();
-            foreach ($loggerSources as $loggerArgs) {
-                /**
-                * @var scalar|array|object|null
-                */
+        foreach (parent::DataProviderGoodSources() as $args) {
+            foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
                 $loggerImplementation = $loggerArgs[0];
 
-                if (
-                    ! is_string($loggerImplementation)
-                ) {
-                    static::assertIsString($loggerImplementation);
-
-                    return;
-                } elseif (
-                    ! class_exists($loggerImplementation) ||
-                    ! is_a($loggerImplementation, LoggerInterface::class, true)
-                ) {
-                    static::assertTrue(class_exists($loggerImplementation));
-                    static::assertTrue(is_a(
-                        $loggerImplementation,
-                        LoggerInterface::class,
-                        true
-                    ));
-
-                    return;
-                }
-
-                /**
-                * @var LoggerInterface
-                */
                 $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-                $implementation = (string) array_shift($args);
+                $implementation = array_shift($args);
 
                 /**
                 * @var string
@@ -84,22 +52,27 @@ class ImplementationTest extends Base
 
                 $args[] = $logger;
 
+                /**
+                * @psalm-var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+                */
+                $args = $args;
+
                 yield $args;
 
                 if (HttpHandler::class === $args[0]) {
                     $args[0] = CatchingHttpHandler::class;
 
-                    /**
-                    * @var iterable<array<int, array<string, mixed[]>>>
-                    */
-                    $dataProviderWhoopsArguments = $this->DataProviderWhoopsHandlerArguments();
-
-                    foreach ($dataProviderWhoopsArguments as $whoopsArguments) {
+                    foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
                         $args4 = (array) $args[4];
 
                         $args4[HandlerInterface::class] = $whoopsArguments[0];
 
                         $args[4] = $args4;
+
+                        /**
+                        * @psalm-var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+                        */
+                        $args = $args;
 
                         yield $args;
                     }
@@ -108,6 +81,9 @@ class ImplementationTest extends Base
         }
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+    */
     public function DataProviderLoggerArguments() : Generator
     {
         yield from [
@@ -117,6 +93,9 @@ class ImplementationTest extends Base
         ];
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
+    */
     public function DataProviderWhoopsHandlerArguments() : Generator
     {
         yield from [

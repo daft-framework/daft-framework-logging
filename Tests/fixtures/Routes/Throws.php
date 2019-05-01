@@ -51,7 +51,7 @@ class Throws implements DaftRoute
     {
         static::DaftRouterAutoMethodChecking($method);
 
-        if ( ! isset($args['msg']) || ! is_string($args['msg'])) {
+        if ( ! isset($args['msg'])) {
             throw new InvalidArgumentException('This route requires a msg argument!');
         }
 

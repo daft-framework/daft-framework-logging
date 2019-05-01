@@ -24,6 +24,8 @@ class CatchingHttpHandler extends HttpHandler
 
     /**
     * @var array<string, mixed[]>
+    *
+    * @psalm-var array<class-string<HandlerInterface>, mixed[]>
     */
     protected $handlers = [];
 
@@ -37,6 +39,8 @@ class CatchingHttpHandler extends HttpHandler
 
         /**
         * @var array<string, mixed[]>
+        *
+        * @psalm-var array<class-string<HandlerInterface>, mixed[]>
         */
         $subConfig = array_filter(
             array_filter(

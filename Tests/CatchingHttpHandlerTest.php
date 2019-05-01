@@ -15,6 +15,7 @@ use SignpostMarv\DaftFramework\Logging\CatchingHttpHandler;
 use SignpostMarv\DaftFramework\Tests\Utilities;
 use SignpostMarv\DaftRouter\DaftSource;
 use Symfony\Component\HttpFoundation\Request;
+use Throwable;
 use Whoops\Handler\HandlerInterface;
 use Whoops\Handler\PlainTextHandler;
 
@@ -29,6 +30,9 @@ class CatchingHttpHandlerTest extends Base
         $this->runTestInSeparateProcess = false;
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+    */
     public function DataProviderLoggerArguments() : Generator
     {
         yield from [
@@ -38,6 +42,9 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array, 2:string, 3:string, 4:array}, mixed, void>
+    */
     public function DataProviderFrameworkArguments() : Generator
     {
         yield from [
@@ -55,6 +62,9 @@ class CatchingHttpHandlerTest extends Base
         ];
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:array<string, mixed>, 1:int, 2:string, 3:string}, mixed, void>
+    */
     public function DataProviderRouterArguments() : Generator
     {
         yield from [
@@ -85,50 +95,14 @@ class CatchingHttpHandlerTest extends Base
 
     public function DataProviderTesting() : Generator
     {
-        /**
-        * @var iterable<array<int, mixed>>
-        */
-        $loggerSources = $this->DataProviderLoggerArguments();
-
-        foreach ($loggerSources as $loggerArgs) {
-            /**
-            * @var iterable<array<int, mixed>>
-            */
-            $routerSources = $this->DataProviderRouterArguments();
-
-            foreach ($routerSources as $routerArgs) {
-                /**
-                * @var iterable<array<int, mixed>>
-                */
-                $frameworkSources = $this->DataProviderFrameworkArguments();
-
-                foreach ($frameworkSources as $frameworkArgs) {
+        foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+                foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                     /**
-                    * @var scalar|array|object|null
+                    * @psalm-var class-string<LoggerInterface>
                     */
                     $loggerImplementation = $loggerArgs[0];
 
-                    if ( ! is_string($loggerImplementation)) {
-                        static::assertIsString($loggerImplementation);
-
-                        return;
-                    } elseif (
-                        ! class_exists($loggerImplementation) ||
-                        ! is_a($loggerImplementation, LoggerInterface::class, true)
-                    ) {
-                        static::assertTrue(class_exists($loggerImplementation));
-                        static::assertTrue(is_a(
-                            $loggerImplementation,
-                            LoggerInterface::class,
-                            true
-                        ));
-
-                        return;
-                    }
-
-                    /**
-                    * @var LoggerInterface
-                    */
                     $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                     /**
@@ -219,6 +193,9 @@ class CatchingHttpHandlerTest extends Base
         static::assertRegExp($expectedContentRegex, $response->getContent());
     }
 
+    /**
+    * @psalm-return Generator<int, array{0:array, 1:class-string<Throwable>, 2:string}, mixed, void>
+    */
     public function DataProviderBadConfig() : Generator
     {
         yield from [
@@ -294,40 +271,12 @@ class CatchingHttpHandlerTest extends Base
 
         foreach ($loggerSources as $loggerArgs) {
             /**
-            * @var scalar|array|object|null
+            * @psalm-var class-string<LoggerInterface>
             */
             $loggerImplementation = $loggerArgs[0];
 
-            if ( ! is_string($loggerImplementation)) {
-                static::assertIsString($loggerImplementation);
-
-                return;
-            } elseif (
-                ! class_exists($loggerImplementation) ||
-                ! is_a($loggerImplementation, LoggerInterface::class, true)
-            ) {
-                static::assertTrue(class_exists($loggerImplementation));
-                static::assertTrue(is_a(
-                    $loggerImplementation,
-                    LoggerInterface::class,
-                    true
-                ));
-
-                return;
-            }
-
-            /**
-            * @var iterable<array<int, mixed>>
-            */
-            $routerSources = $this->DataProviderRouterArguments();
-
-            foreach ($routerSources as $routerArgs) {
-                /**
-                * @var iterable<array<int, scalar|array>>
-                */
-                $badConfigSources = $this->DataProviderBadConfig();
-
-                foreach ($badConfigSources as $badConfigArgs) {
+            foreach ($this->DataProviderRouterArguments() as $routerArgs) {
+                foreach ($this->DataProviderBadConfig() as $badConfigArgs) {
                     list(
                         $handlerConfigArgs,
                         $expectedExceptionType,
@@ -337,14 +286,11 @@ class CatchingHttpHandlerTest extends Base
                     static::assertIsArray($handlerConfigArgs);
 
                     /**
-                    * @var iterable<array<int, mixed>>
+                    * @var array
                     */
-                    $frameworkSources = $this->DataProviderFrameworkArguments();
+                    $handlerConfigArgs = $handlerConfigArgs;
 
-                    foreach ($frameworkSources as $frameworkArgs) {
-                        /**
-                        * @var LoggerInterface
-                        */
+                    foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
                         $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
                         /**
