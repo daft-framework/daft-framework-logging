@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5891b66eb257ebf4524124b028f08d34",
+    "content-hash": "e3e65edce86196bb055fa7ebefc98d40",
     "packages": [
         {
             "name": "filp/whoops",
@@ -312,16 +312,16 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "dev-master",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "ddfede002cc486eb4403608beb7a7ad81be2ee25"
+                "reference": "31710da065f3c991f947752a863bd41d5e5f5575"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/ddfede002cc486eb4403608beb7a7ad81be2ee25",
-                "reference": "ddfede002cc486eb4403608beb7a7ad81be2ee25",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/31710da065f3c991f947752a863bd41d5e5f5575",
+                "reference": "31710da065f3c991f947752a863bd41d5e5f5575",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 "paragonie/easydb": "^2.9",
                 "php": "^7.3",
                 "signpostmarv/daft-interface-collector": "^2.0",
-                "signpostmarv/daft-router": "3.1.x-dev",
+                "signpostmarv/daft-router": "^3.1",
                 "symfony/console": "^4.3",
                 "symfony/event-dispatcher": "^4.3",
                 "symfony/http-foundation": "^4.3",
@@ -372,7 +372,7 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-07-07T10:06:00+00:00"
+            "time": "2019-07-07T10:47:19+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
@@ -424,7 +424,7 @@
         },
         {
             "name": "signpostmarv/daft-router",
-            "version": "dev-master",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-router.git",
@@ -5187,8 +5187,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "signpostmarv/daft-framework": 20,
-        "signpostmarv/daft-router": 20,
         "roave/security-advisories": 20,
         "vimeo/psalm": 20
     },
