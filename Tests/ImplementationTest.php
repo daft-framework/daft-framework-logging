@@ -26,7 +26,7 @@ class ImplementationTest extends Base
     ];
 
     /**
-    * @psalm-return Generator<int, array{0:class-string<Framework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
+    * @return Generator<int, array{0:class-string<BaseFramework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
     */
     public function DataProviderGoodSources() : Generator
     {

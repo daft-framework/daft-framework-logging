@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <psalm
     totallyTyped="true"
+    findUnusedCode="true"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="https://getpsalm.org/schema/config"
     xsi:schemaLocation="https://getpsalm.org/schema/config"
@@ -12,6 +13,7 @@
         <directory name="./Tests/" />
         <ignoreFiles>
             <directory name="./vendor/phpunit/phpunit/" />
+            <file name="./vendor/signpostmarv/daft-router/src/DaftRouterHttpRouteDefaultMethodGet.php" />
         </ignoreFiles>
     </projectFiles>
 

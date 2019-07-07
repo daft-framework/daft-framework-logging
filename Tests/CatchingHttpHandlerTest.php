@@ -21,15 +21,6 @@ use Whoops\Handler\PlainTextHandler;
 
 class CatchingHttpHandlerTest extends Base
 {
-    public function __construct(string $name = '', array $data = [], string $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-
-        $this->backupGlobals = false;
-        $this->backupStaticAttributes = false;
-        $this->runTestInSeparateProcess = false;
-    }
-
     /**
     * @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
     */

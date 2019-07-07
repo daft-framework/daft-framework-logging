@@ -99,7 +99,7 @@ class CatchingHttpHandler extends HttpHandler
                     ? new PlainTextHandler($this->logger)
                     : new $handler(...$handlerArgs);
 
-            $whoops->pushHandler($handlerInstance);
+            $whoops->appendHandler($handlerInstance);
         }
         $whoops->writeToOutput(self::BOOL_WHOOPS_NO_SENDING);
         $whoops->sendHttpCode(self::BOOL_WHOOPS_NO_SENDING);

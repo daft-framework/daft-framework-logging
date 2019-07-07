@@ -9,19 +9,37 @@ namespace SignpostMarv\DaftFramework\Logging\Tests\fixtures\Routes;
 use InvalidArgumentException;
 use RuntimeException;
 use SignpostMarv\DaftRouter\DaftRoute;
+use SignpostMarv\DaftRouter\DaftRouteAcceptsOnlyTypedArgs;
 use SignpostMarv\DaftRouter\DaftRouterAutoMethodCheckingTrait;
+use SignpostMarv\DaftRouter\DaftRouterHttpRouteDefaultMethodGet;
+use SignpostMarv\DaftRouter\TypedArgs;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Throws implements DaftRoute
+/**
+* @psalm-type T1 = array{msg:string}
+* @psalm-type T2 = MessageArgs
+* @psalm-type R_TYPED = Response
+*
+* @template-extends DaftRouteAcceptsOnlyTypedArgs<T1, T1, T2, R_TYPED, 'GET', 'GET'>
+*/
+class Throws extends DaftRouteAcceptsOnlyTypedArgs
 {
-    use DaftRouterAutoMethodCheckingTrait;
+    use DaftRouterHttpRouteDefaultMethodGet;
 
-    public static function DaftRouterHandleRequest(Request $request, array $args) : Response
+    /**
+    * @param T2 $args
+    */
+    public static function DaftRouterHandleRequestWithTypedArgs(Request $request, TypedArgs $args) : Response
     {
-        throw new RuntimeException((string) $args['msg']);
+        static::DaftRouterAutoMethodChecking($request->getMethod());
+
+        throw new RuntimeException($args->msg);
     }
 
+    /**
+    * @return array<string, array<int, 'GET'>>
+    */
     public static function DaftRouterRoutes() : array
     {
         return [
@@ -29,32 +47,27 @@ class Throws implements DaftRoute
         ];
     }
 
-    public static function DaftRouterHttpRoute(array $args, string $method = 'GET') : string
-    {
-        /**
-        * @var array{msg:string}
-        */
-        $args = static::DaftRouterHttpRouteArgsTyped($args, $method);
-
-        return sprintf('/throws/runtime-exception/%s', rawurlencode($args['msg']));
-    }
-
-    public static function DaftRouterHttpRouteArgsTyped(array $args, string $method) : array
-    {
-        return static::DaftRouterHttpRouteArgs($args, $method);
+    /**
+    * @param T2 $args
+    * @param 'GET'|null $method
+    */
+    public static function DaftRouterHttpRouteWithTypedArgs(
+        TypedArgs $args,
+        string $method = null
+    ) : string {
+        return sprintf('/throws/runtime-exception/%s', rawurlencode($args->msg));
     }
 
     /**
-    * @return array<string, string>
+    * @param T1 $args
+    * @param 'GET'|null $method
+    *
+    * @return T2
     */
-    public static function DaftRouterHttpRouteArgs(array $args, string $method) : array
-    {
-        static::DaftRouterAutoMethodChecking($method);
-
-        if ( ! isset($args['msg'])) {
-            throw new InvalidArgumentException('This route requires a msg argument!');
-        }
-
-        return ['msg' => $args['msg']];
+    public static function DaftRouterHttpRouteArgsTyped(
+        array $args,
+        string $method = null
+    ) : TypedArgs {
+        return new MessageArgs($args);
     }
 }
