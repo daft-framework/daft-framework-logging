@@ -52,6 +52,10 @@ class Throws extends DaftRouteAcceptsOnlyTypedArgs
         TypedArgs $args,
         string $method = null
     ) : string {
+        static::DaftRouterAutoMethodChecking(
+            $method ?? static::DaftRouterHttpRouteDefaultMethod()
+        );
+
         return sprintf('/throws/runtime-exception/%s', rawurlencode($args->msg));
     }
 

@@ -46,7 +46,8 @@
         "php": "^7.3",
         "filp/whoops": "^2.4",
         "psr/log": "^1.1",
-        "signpostmarv/daft-framework": "^2.2",
+        "signpostmarv/daft-framework": "2.3.x-dev",
+        "signpostmarv/daft-router": "3.1.x-dev",
         "symfony/http-foundation": "^4.3"
     },
     "require-dev": {
