@@ -316,12 +316,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "cb3bf78698dcae734a62e2289b3f15d338b08f4a"
+                "reference": "ddfede002cc486eb4403608beb7a7ad81be2ee25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/cb3bf78698dcae734a62e2289b3f15d338b08f4a",
-                "reference": "cb3bf78698dcae734a62e2289b3f15d338b08f4a",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/ddfede002cc486eb4403608beb7a7ad81be2ee25",
+                "reference": "ddfede002cc486eb4403608beb7a7ad81be2ee25",
                 "shasum": ""
             },
             "require": {
@@ -372,20 +372,20 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-07-06T22:28:02+00:00"
+            "time": "2019-07-07T10:06:00+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-interface-collector.git",
-                "reference": "d55d911e295b5768982a204db74ca8fa9c213852"
+                "reference": "cc2919c7f4c8535722d11ea66ed6119c35a9c817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/d55d911e295b5768982a204db74ca8fa9c213852",
-                "reference": "d55d911e295b5768982a204db74ca8fa9c213852",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/cc2919c7f4c8535722d11ea66ed6119c35a9c817",
+                "reference": "cc2919c7f4c8535722d11ea66ed6119c35a9c817",
                 "shasum": ""
             },
             "require": {
@@ -393,14 +393,14 @@
             },
             "require-dev": {
                 "bmitch/churn-php": "^1.0",
-                "infection/infection": "^0.13.1",
+                "infection/infection": "^0.13.4",
                 "maglnet/composer-require-checker": "^2.0",
                 "phpunit/phpunit": "^8.2",
                 "povils/phpmnd": "^2.1",
                 "psalm/plugin-phpunit": "^0.6.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.9.0",
+                "signpostmarv/php-cs-fixer-config": "^0.10.0",
                 "vimeo/psalm": "^3.4"
             },
             "type": "library",
@@ -420,7 +420,7 @@
                 }
             ],
             "description": "interface collector. daft reasons again.",
-            "time": "2019-06-08T19:52:35+00:00"
+            "time": "2019-07-07T09:45:32+00:00"
         },
         {
             "name": "signpostmarv/daft-router",
@@ -428,12 +428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-router.git",
-                "reference": "5e503b61cb2daa0c6627155851b08569da2ef8c1"
+                "reference": "f77ebdaf3aeb73e9bb70614ef764616ab0030f0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/5e503b61cb2daa0c6627155851b08569da2ef8c1",
-                "reference": "5e503b61cb2daa0c6627155851b08569da2ef8c1",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/f77ebdaf3aeb73e9bb70614ef764616ab0030f0d",
+                "reference": "f77ebdaf3aeb73e9bb70614ef764616ab0030f0d",
                 "shasum": ""
             },
             "require": {
@@ -480,7 +480,7 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2019-07-06T22:09:38+00:00"
+            "time": "2019-07-07T09:51:44+00:00"
         },
         {
             "name": "symfony/console",
