@@ -19,7 +19,7 @@
             "SignpostMarv\\DaftInterfaceCollector\\Tests\\": "./vendor/signpostmarv/daft-interface-collector/Tests/",
             "SignpostMarv\\DaftFramework\\Logging\\Tests\\": "./Tests/",
             "SignpostMarv\\DaftFramework\\Tests\\": "./vendor/signpostmarv/daft-framework/Tests/",
-            "SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/tests/"
+            "SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/Tests/"
         }
     },
     "config": {
