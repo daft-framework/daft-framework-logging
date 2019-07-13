@@ -312,16 +312,16 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-framework.git",
-                "reference": "31710da065f3c991f947752a863bd41d5e5f5575"
+                "reference": "a2876231a04c9790023e62e8260258b88cc7042b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/31710da065f3c991f947752a863bd41d5e5f5575",
-                "reference": "31710da065f3c991f947752a863bd41d5e5f5575",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-framework/zipball/a2876231a04c9790023e62e8260258b88cc7042b",
+                "reference": "a2876231a04c9790023e62e8260258b88cc7042b",
                 "shasum": ""
             },
             "require": {
@@ -339,12 +339,13 @@
                 "ext-pdo_sqlite": "*",
                 "infection/infection": "^0.13.4",
                 "maglnet/composer-require-checker": "^2.0",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^8.2",
                 "povils/phpmnd": "^2.1",
-                "psalm/plugin-phpunit": "^0.6.0",
+                "psalm/plugin-phpunit": "^0.7.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.10.0",
+                "signpostmarv/php-cs-fixer-config": "^0.11.0",
                 "vimeo/psalm": "dev-master"
             },
             "suggest": {
@@ -372,20 +373,20 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-07-07T10:47:19+00:00"
+            "time": "2019-07-13T14:45:15+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-interface-collector.git",
-                "reference": "cc2919c7f4c8535722d11ea66ed6119c35a9c817"
+                "reference": "16559454460fe4c91a5d5286f3763e902d23e04e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/cc2919c7f4c8535722d11ea66ed6119c35a9c817",
-                "reference": "cc2919c7f4c8535722d11ea66ed6119c35a9c817",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/16559454460fe4c91a5d5286f3763e902d23e04e",
+                "reference": "16559454460fe4c91a5d5286f3763e902d23e04e",
                 "shasum": ""
             },
             "require": {
@@ -393,15 +394,17 @@
             },
             "require-dev": {
                 "bmitch/churn-php": "^1.0",
+                "ext-mbstring": "*",
                 "infection/infection": "^0.13.4",
                 "maglnet/composer-require-checker": "^2.0",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^8.2",
                 "povils/phpmnd": "^2.1",
-                "psalm/plugin-phpunit": "^0.6.0",
+                "psalm/plugin-phpunit": "^0.7.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.10.0",
-                "vimeo/psalm": "^3.4"
+                "signpostmarv/php-cs-fixer-config": "^0.11.0",
+                "vimeo/psalm": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -420,20 +423,20 @@
                 }
             ],
             "description": "interface collector. daft reasons again.",
-            "time": "2019-07-07T09:45:32+00:00"
+            "time": "2019-07-13T09:04:03+00:00"
         },
         {
             "name": "signpostmarv/daft-router",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-router.git",
-                "reference": "f77ebdaf3aeb73e9bb70614ef764616ab0030f0d"
+                "reference": "9bb8811fbd883fbba337f3ff13d8d9e0c7c3eb95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/f77ebdaf3aeb73e9bb70614ef764616ab0030f0d",
-                "reference": "f77ebdaf3aeb73e9bb70614ef764616ab0030f0d",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-router/zipball/9bb8811fbd883fbba337f3ff13d8d9e0c7c3eb95",
+                "reference": "9bb8811fbd883fbba337f3ff13d8d9e0c7c3eb95",
                 "shasum": ""
             },
             "require": {
@@ -447,12 +450,13 @@
             "require-dev": {
                 "infection/infection": "^0.13.4",
                 "maglnet/composer-require-checker": "^2.0",
+                "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^8.2",
                 "povils/phpmnd": "^2.1",
                 "psalm/plugin-phpunit": "^0.6.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.10.0",
+                "signpostmarv/php-cs-fixer-config": "^0.11.0",
                 "vimeo/psalm": "dev-master"
             },
             "suggest": {
@@ -480,7 +484,7 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2019-07-07T09:51:44+00:00"
+            "time": "2019-07-13T10:24:46+00:00"
         },
         {
             "name": "symfony/console",
@@ -2319,16 +2323,16 @@
         },
         {
             "name": "netresearch/jsonmapper",
-            "version": "v1.4.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cweiske/jsonmapper.git",
-                "reference": "3868fe1128ce1169228acdb623359dca74db5ef3"
+                "reference": "047dafe26facbba1e997e9fb3b3c298562d75a0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cweiske/jsonmapper/zipball/3868fe1128ce1169228acdb623359dca74db5ef3",
-                "reference": "3868fe1128ce1169228acdb623359dca74db5ef3",
+                "url": "https://api.github.com/repos/cweiske/jsonmapper/zipball/047dafe26facbba1e997e9fb3b3c298562d75a0b",
+                "reference": "047dafe26facbba1e997e9fb3b3c298562d75a0b",
                 "shasum": ""
             },
             "require": {
@@ -2357,7 +2361,7 @@
                 }
             ],
             "description": "Map nested JSON structures onto PHP classes",
-            "time": "2017-11-28T21:30:01+00:00"
+            "time": "2019-07-08T18:46:43+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3045,16 +3049,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.5",
+            "version": "7.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "aed67b57d459dcab93e84a5c9703d3deb5025dff"
+                "reference": "d471d0d2b529a67c6a722dd446c4ec90881ac315"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/aed67b57d459dcab93e84a5c9703d3deb5025dff",
-                "reference": "aed67b57d459dcab93e84a5c9703d3deb5025dff",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/d471d0d2b529a67c6a722dd446c4ec90881ac315",
+                "reference": "d471d0d2b529a67c6a722dd446c4ec90881ac315",
                 "shasum": ""
             },
             "require": {
@@ -3063,17 +3067,17 @@
                 "php": "^7.2",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^3.0.1",
+                "phpunit/php-token-stream": "^3.0.2",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
-                "sebastian/environment": "^4.1",
+                "sebastian/environment": "^4.2.2",
                 "sebastian/version": "^2.0.1",
-                "theseer/tokenizer": "^1.1"
+                "theseer/tokenizer": "^1.1.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.0"
+                "phpunit/phpunit": "^8.2.2"
             },
             "suggest": {
-                "ext-xdebug": "^2.6.1"
+                "ext-xdebug": "^2.7.2"
             },
             "type": "library",
             "extra": {
@@ -3104,7 +3108,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-06-06T12:28:18+00:00"
+            "time": "2019-07-08T05:29:42+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3248,16 +3252,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18"
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c99e3be9d3e85f60646f152f9002d46ed7770d18",
-                "reference": "c99e3be9d3e85f60646f152f9002d46ed7770d18",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
+                "reference": "c4a66b97f040e3e20b3aa2a243230a1c3a9f7c8c",
                 "shasum": ""
             },
             "require": {
@@ -3293,7 +3297,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2018-10-30T05:52:18+00:00"
+            "time": "2019-07-08T05:24:54+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -4958,12 +4962,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "94f934627c6901e2e85e2cf7dc1384e2af9a0909"
+                "reference": "ee1387473f8060c2f01a4928bc4062f24ef0524c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/94f934627c6901e2e85e2cf7dc1384e2af9a0909",
-                "reference": "94f934627c6901e2e85e2cf7dc1384e2af9a0909",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/ee1387473f8060c2f01a4928bc4062f24ef0524c",
+                "reference": "ee1387473f8060c2f01a4928bc4062f24ef0524c",
                 "shasum": ""
             },
             "require": {
@@ -5037,7 +5041,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2019-07-06T16:21:39+00:00"
+            "time": "2019-07-13T14:10:51+00:00"
         },
         {
             "name": "webmozart/assert",
