@@ -1,9 +1,9 @@
-Copyright 2018 SignpostMarv
+Copyright 2019 SignpostMarv
 
-# daft-framework-logging
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SignpostMarv/daft-framework-logging/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SignpostMarv/daft-framework-logging/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/SignpostMarv/daft-framework-logging/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/SignpostMarv/daft-framework-logging/?branch=master)
-[![Build Status](https://scrutinizer-ci.com/g/SignpostMarv/daft-framework-logging/badges/build.png?b=master)](https://scrutinizer-ci.com/g/SignpostMarv/daft-framework-logging/build-status/master)
+# daft-framework-logging-logging
+[![Coverage Status](https://coveralls.io/repos/github/SignpostMarv/daft-framework-logging/badge.svg?branch=master)](https://coveralls.io/github/SignpostMarv/daft-framework-logging?branch=master)
+[![Build Status](https://travis-ci.org/SignpostMarv/daft-framework-logging.svg?branch=master)](https://travis-ci.org/SignpostMarv/daft-framework-logging)
+[![Type Coverage](https://shepherd.dev/github/signpostmarv/daft-framework-logging/coverage.svg)](https://shepherd.dev/github/signpostmarv/daft-framework-logging)
 
 Logging/Catching separate from the core framework. Because reasons.
 
