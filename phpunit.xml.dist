@@ -1,33 +1,33 @@
 <phpunit bootstrap="./vendor/autoload.php">
-  <testsuites>
-    <testsuite name="DaftInterfaceCollector">
-      <directory>./vendor/signpostmarv/daft-interface-collector/Tests/</directory>
-    </testsuite>
-    <testsuite name="DaftRouter">
-      <directory>./vendor/signpostmarv/daft-router/tests/</directory>
-    </testsuite>
-    <testsuite name="DaftFramework">
-      <directory>./vendor/signpostmarv/daft-framework/Tests/</directory>
-    </testsuite>
-    <testsuite name="DaftFramework Logging">
-      <directory>./Tests/</directory>
-    </testsuite>
-  </testsuites>
-  <logging>
-    <log
-      type="coverage-html"
-      target="phpunit"
-    />
-    <log
-      type="coverage-text"
-      target="php://stdout"
-      showUncoveredFiles="true"
-      showOnlySummary="false"
-    />
-  </logging>
-  <filter>
-    <whitelist processUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">./src/</directory>
-    </whitelist>
-  </filter>
+	<testsuites>
+		<testsuite name="DaftInterfaceCollector">
+			<directory>./vendor/signpostmarv/daft-interface-collector/Tests/</directory>
+		</testsuite>
+		<testsuite name="DaftRouter">
+			<directory>./vendor/signpostmarv/daft-router/tests/</directory>
+		</testsuite>
+		<testsuite name="DaftFramework">
+			<directory>./vendor/signpostmarv/daft-framework/Tests/</directory>
+		</testsuite>
+		<testsuite name="DaftFramework Logging">
+			<directory>./Tests/</directory>
+		</testsuite>
+	</testsuites>
+	<logging>
+		<log
+			type="coverage-html"
+			target="phpunit"
+		/>
+		<log
+			type="coverage-text"
+			target="php://stdout"
+			showUncoveredFiles="true"
+			showOnlySummary="false"
+		/>
+	</logging>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">./src/</directory>
+		</whitelist>
+	</filter>
 </phpunit>

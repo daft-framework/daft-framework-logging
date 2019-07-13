@@ -18,145 +18,145 @@ use Whoops\RunInterface;
 
 class CatchingHttpHandler extends HttpHandler
 {
-    const INT_ARGS_IS_PLAINTEXT_HANDLER = 1;
+	const INT_ARGS_IS_PLAINTEXT_HANDLER = 1;
 
-    const BOOL_WHOOPS_NO_SENDING = false;
+	const BOOL_WHOOPS_NO_SENDING = false;
 
-    /**
-    * @var array<string, mixed[]>
-    *
-    * @psalm-var array<class-string<HandlerInterface>, mixed[]>
-    */
-    protected $handlers = [];
+	/**
+	* @var array<string, mixed[]>
+	*
+	* @psalm-var array<class-string<HandlerInterface>, mixed[]>
+	*/
+	protected $handlers = [];
 
-    public function __construct(
-        string $baseUrl,
-        string $basePath,
-        array $config,
-        LoggerInterface $logger
-    ) {
-        parent::__construct($baseUrl, $basePath, $config, $logger);
+	public function __construct(
+		string $baseUrl,
+		string $basePath,
+		array $config,
+		LoggerInterface $logger
+	) {
+		parent::__construct($baseUrl, $basePath, $config, $logger);
 
-        /**
-        * @var array<string, mixed[]>
-        *
-        * @psalm-var array<class-string<HandlerInterface>, mixed[]>
-        */
-        $subConfig = array_filter(
-            array_filter(
-                (array) $config[HandlerInterface::class],
-                'is_string',
-                ARRAY_FILTER_USE_KEY
-            ),
-            function (string $maybe) : bool {
-                return
-                    is_a($maybe, HandlerInterface::class, true) &&
-                    class_exists($maybe);
-            },
-            ARRAY_FILTER_USE_KEY
-        );
+		/**
+		* @var array<string, mixed[]>
+		*
+		* @psalm-var array<class-string<HandlerInterface>, mixed[]>
+		*/
+		$subConfig = array_filter(
+			array_filter(
+				(array) $config[HandlerInterface::class],
+				'is_string',
+				ARRAY_FILTER_USE_KEY
+			),
+			function (string $maybe) : bool {
+				return
+					is_a($maybe, HandlerInterface::class, true) &&
+					class_exists($maybe);
+			},
+			ARRAY_FILTER_USE_KEY
+		);
 
-        $this->handlers = $subConfig;
-    }
+		$this->handlers = $subConfig;
+	}
 
-    public function handle(Request $request) : Response
-    {
-        try {
-            try {
-                $whoops = $this->ObtainWhoopsRunner();
-                $whoops->register();
+	public function handle(Request $request) : Response
+	{
+		try {
+			try {
+				$whoops = $this->ObtainWhoopsRunner();
+				$whoops->register();
 
-                try {
-                    return parent::handle($request);
-                } catch (Throwable $e) {
-                    $this->logger->critical($e->getMessage());
+				try {
+					return parent::handle($request);
+				} catch (Throwable $e) {
+					$this->logger->critical($e->getMessage());
 
-                    return new Response($whoops->handleException($e), 500);
-                }
-            } catch (Throwable $e) {
-                $this->logger->critical($e->getMessage());
+					return new Response($whoops->handleException($e), 500);
+				}
+			} catch (Throwable $e) {
+				$this->logger->critical($e->getMessage());
 
-                return new Response('There was an internal error', 500);
-            }
-        } catch (Throwable $e) {
-            return new Response('There was an internal error', 500);
-        }
-    }
+				return new Response('There was an internal error', 500);
+			}
+		} catch (Throwable $e) {
+			return new Response('There was an internal error', 500);
+		}
+	}
 
-    protected function ObtainWhoopsRunner() : RunInterface
-    {
-        $whoops = new Run();
+	protected function ObtainWhoopsRunner() : RunInterface
+	{
+		$whoops = new Run();
 
-        foreach ($this->handlers as $handler => $handlerArgs) {
-            /**
-            * @var HandlerInterface
-            */
-            $handlerInstance =
-                (
-                    PlainTextHandler::class === $handler &&
-                    count($handlerArgs) < self::INT_ARGS_IS_PLAINTEXT_HANDLER
-                )
-                    ? new PlainTextHandler($this->logger)
-                    : new $handler(...$handlerArgs);
+		foreach ($this->handlers as $handler => $handlerArgs) {
+			/**
+			* @var HandlerInterface
+			*/
+			$handlerInstance =
+				(
+					PlainTextHandler::class === $handler &&
+					count($handlerArgs) < self::INT_ARGS_IS_PLAINTEXT_HANDLER
+				)
+					? new PlainTextHandler($this->logger)
+					: new $handler(...$handlerArgs);
 
-            $whoops->appendHandler($handlerInstance);
-        }
-        $whoops->writeToOutput(self::BOOL_WHOOPS_NO_SENDING);
-        $whoops->sendHttpCode(self::BOOL_WHOOPS_NO_SENDING);
-        $whoops->allowQuit(self::BOOL_WHOOPS_NO_SENDING);
+			$whoops->appendHandler($handlerInstance);
+		}
+		$whoops->writeToOutput(self::BOOL_WHOOPS_NO_SENDING);
+		$whoops->sendHttpCode(self::BOOL_WHOOPS_NO_SENDING);
+		$whoops->allowQuit(self::BOOL_WHOOPS_NO_SENDING);
 
-        return $whoops;
-    }
+		return $whoops;
+	}
 
-    protected function ValidateConfig(array $config) : array
-    {
-        /**
-        * @var array|string|null
-        */
-        $subConfig = $config[HandlerInterface::class] ?? null;
+	protected function ValidateConfig(array $config) : array
+	{
+		/**
+		* @var array|string|null
+		*/
+		$subConfig = $config[HandlerInterface::class] ?? null;
 
-        if ( ! isset($subConfig)) {
-            throw new InvalidArgumentException('Handlers are not configured!');
-        } elseif ( ! is_array($subConfig)) {
-            throw new InvalidArgumentException('Handlers were not specified via an array!');
-        } elseif (count($subConfig) < 1) {
-            throw new InvalidArgumentException('No handlers were specified!');
-        }
+		if ( ! isset($subConfig)) {
+			throw new InvalidArgumentException('Handlers are not configured!');
+		} elseif ( ! is_array($subConfig)) {
+			throw new InvalidArgumentException('Handlers were not specified via an array!');
+		} elseif (count($subConfig) < 1) {
+			throw new InvalidArgumentException('No handlers were specified!');
+		}
 
-        /**
-        * @var array<int|string, scalar|array|object|null>
-        */
-        $subConfig = $subConfig;
+		/**
+		* @var array<int|string, scalar|array|object|null>
+		*/
+		$subConfig = $subConfig;
 
-        foreach ($subConfig as $handler => $handlerArgs) {
-            $this->ValidateHandlerConfig($handler, $handlerArgs);
-        }
+		foreach ($subConfig as $handler => $handlerArgs) {
+			$this->ValidateHandlerConfig($handler, $handlerArgs);
+		}
 
-        return parent::ValidateConfig($config);
-    }
+		return parent::ValidateConfig($config);
+	}
 
-    /**
-    * @param mixed $handler
-    * @param mixed $handlerArgs
-    */
-    protected function ValidateHandlerConfig($handler, $handlerArgs) : void
-    {
-        if ( ! is_string($handler)) {
-            throw new InvalidArgumentException('Handler config keys must be strings!');
-        } elseif ( ! is_a($handler, HandlerInterface::class, true)) {
-            throw new InvalidArgumentException(sprintf(
-                'Handler config keys must refer to implementations of %s!',
-                HandlerInterface::class
-            ));
-        } elseif (HandlerInterface::class === $handler) {
-            throw new InvalidArgumentException(sprintf(
-                'Handler config keys must refer to implementations of %s, not the interface!',
-                HandlerInterface::class
-            ));
-        } elseif ( ! is_array($handlerArgs)) {
-            throw new InvalidArgumentException(
-                'Handler arguments must be specifed as an array!'
-            );
-        }
-    }
+	/**
+	* @param mixed $handler
+	* @param mixed $handlerArgs
+	*/
+	protected function ValidateHandlerConfig($handler, $handlerArgs) : void
+	{
+		if ( ! is_string($handler)) {
+			throw new InvalidArgumentException('Handler config keys must be strings!');
+		} elseif ( ! is_a($handler, HandlerInterface::class, true)) {
+			throw new InvalidArgumentException(sprintf(
+				'Handler config keys must refer to implementations of %s!',
+				HandlerInterface::class
+			));
+		} elseif (HandlerInterface::class === $handler) {
+			throw new InvalidArgumentException(sprintf(
+				'Handler config keys must refer to implementations of %s, not the interface!',
+				HandlerInterface::class
+			));
+		} elseif ( ! is_array($handlerArgs)) {
+			throw new InvalidArgumentException(
+				'Handler arguments must be specifed as an array!'
+			);
+		}
+	}
 }

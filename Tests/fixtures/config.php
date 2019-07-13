@@ -11,14 +11,14 @@ use SignpostMarv\DaftFramework\Tests\fixtures\Console\Command;
 use SignpostMarv\DaftRouter\DaftSource;
 
 return [
-    DaftConsoleSource::class => [
-        Command\TestCommand::class,
-        Command\DisabledTestCommand::class,
-        \SignpostMarv\DaftFramework\Symfony\Console\Command\FastRouteCacheCommand::class,
-    ],
-    DaftSource::class => [
-        'sources' => [
-        ],
-        'cacheFile' => realpath(__DIR__ . '/') . 'fast-route.cache',
-    ],
+	DaftConsoleSource::class => [
+		Command\TestCommand::class,
+		Command\DisabledTestCommand::class,
+		\SignpostMarv\DaftFramework\Symfony\Console\Command\FastRouteCacheCommand::class,
+	],
+	DaftSource::class => [
+		'sources' => [
+		],
+		'cacheFile' => realpath(__DIR__ . '/') . 'fast-route.cache',
+	],
 ];

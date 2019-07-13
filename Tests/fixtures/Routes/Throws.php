@@ -22,53 +22,53 @@ use Symfony\Component\HttpFoundation\Response;
 */
 class Throws extends DaftRouteAcceptsOnlyTypedArgs
 {
-    use DaftRouterHttpRouteDefaultMethodGet;
+	use DaftRouterHttpRouteDefaultMethodGet;
 
-    /**
-    * @param T2 $args
-    */
-    public static function DaftRouterHandleRequestWithTypedArgs(Request $request, TypedArgs $args) : Response
-    {
-        static::DaftRouterAutoMethodChecking($request->getMethod());
+	/**
+	* @param T2 $args
+	*/
+	public static function DaftRouterHandleRequestWithTypedArgs(Request $request, TypedArgs $args) : Response
+	{
+		static::DaftRouterAutoMethodChecking($request->getMethod());
 
-        throw new RuntimeException($args->msg);
-    }
+		throw new RuntimeException($args->msg);
+	}
 
-    /**
-    * @return array<string, array<int, 'GET'>>
-    */
-    public static function DaftRouterRoutes() : array
-    {
-        return [
-            '/throws/runtime-exception/{msg:[^\/]+}' => ['GET'],
-        ];
-    }
+	/**
+	* @return array<string, array<int, 'GET'>>
+	*/
+	public static function DaftRouterRoutes() : array
+	{
+		return [
+			'/throws/runtime-exception/{msg:[^\/]+}' => ['GET'],
+		];
+	}
 
-    /**
-    * @param T2 $args
-    * @param 'GET'|null $method
-    */
-    public static function DaftRouterHttpRouteWithTypedArgs(
-        TypedArgs $args,
-        string $method = null
-    ) : string {
-        static::DaftRouterAutoMethodChecking(
-            $method ?? static::DaftRouterHttpRouteDefaultMethod()
-        );
+	/**
+	* @param T2 $args
+	* @param 'GET'|null $method
+	*/
+	public static function DaftRouterHttpRouteWithTypedArgs(
+		TypedArgs $args,
+		string $method = null
+	) : string {
+		static::DaftRouterAutoMethodChecking(
+			$method ?? static::DaftRouterHttpRouteDefaultMethod()
+		);
 
-        return sprintf('/throws/runtime-exception/%s', rawurlencode($args->msg));
-    }
+		return sprintf('/throws/runtime-exception/%s', rawurlencode($args->msg));
+	}
 
-    /**
-    * @param T1 $args
-    * @param 'GET'|null $method
-    *
-    * @return T2
-    */
-    public static function DaftRouterHttpRouteArgsTyped(
-        array $args,
-        string $method = null
-    ) : TypedArgs {
-        return new MessageArgs($args);
-    }
+	/**
+	* @param T1 $args
+	* @param 'GET'|null $method
+	*
+	* @return T2
+	*/
+	public static function DaftRouterHttpRouteArgsTyped(
+		array $args,
+		string $method = null
+	) : TypedArgs {
+		return new MessageArgs($args);
+	}
 }

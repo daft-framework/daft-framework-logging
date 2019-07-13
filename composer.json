@@ -1,62 +1,62 @@
 {
-    "name": "signpostmarv/daft-framework-logging",
-    "description": "daft framework with logging",
-    "type": "library",
-    "license": "Apache-2.0",
-    "authors": [
-        {
-            "name": "SignpostMarv",
-            "email": "me@signpostmarv.name"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "SignpostMarv\\DaftFramework\\Logging\\": "./src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "SignpostMarv\\DaftInterfaceCollector\\Tests\\": "./vendor/signpostmarv/daft-interface-collector/Tests/",
-            "SignpostMarv\\DaftFramework\\Logging\\Tests\\": "./Tests/",
-            "SignpostMarv\\DaftFramework\\Tests\\": "./vendor/signpostmarv/daft-framework/Tests/",
-            "SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/Tests/"
-        }
-    },
-    "config": {
-        "classmap-authoritative": true,
-        "sort-packages": true
-    },
-    "scripts": {
-        "tests": [
-            "phpunit -vvvv --coverage-clover=phpunit.clover",
-            "psalm --shepherd",
-            "phpcpd src Tests",
-            "phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
-            "composer-require-checker check ./composer.json",
-            "php-cs-fixer fix --verbose --allow-risky=yes --dry-run"
-        ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0.x-dev"
-        }
-    },
-    "require": {
-        "php": "^7.3",
-        "filp/whoops": "^2.4",
-        "psr/log": "^1.1",
-        "signpostmarv/daft-framework": "^2.3",
-        "symfony/http-foundation": "^4.3"
-    },
-    "require-dev": {
-        "infection/infection": "^0.13.4",
-        "maglnet/composer-require-checker": "^2.0",
-        "phpunit/phpunit": "^8.2",
-        "povils/phpmnd": "^2.1",
-        "psalm/plugin-phpunit": "^0.6.0",
-        "roave/security-advisories": "dev-master",
-        "sebastian/phpcpd": "^4.1",
-        "signpostmarv/php-cs-fixer-config": "^0.10.0",
-        "vimeo/psalm": "dev-master"
-    }
+	"name": "signpostmarv/daft-framework-logging",
+	"description": "daft framework with logging",
+	"type": "library",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "SignpostMarv",
+			"email": "me@signpostmarv.name"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"SignpostMarv\\DaftFramework\\Logging\\": "./src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"SignpostMarv\\DaftInterfaceCollector\\Tests\\": "./vendor/signpostmarv/daft-interface-collector/Tests/",
+			"SignpostMarv\\DaftFramework\\Logging\\Tests\\": "./Tests/",
+			"SignpostMarv\\DaftFramework\\Tests\\": "./vendor/signpostmarv/daft-framework/Tests/",
+			"SignpostMarv\\DaftRouter\\Tests\\": "./vendor/signpostmarv/daft-router/Tests/"
+		}
+	},
+	"config": {
+		"classmap-authoritative": true,
+		"sort-packages": true
+	},
+	"scripts": {
+		"tests": [
+			"phpunit -vvvv --coverage-clover=phpunit.clover",
+			"psalm --shepherd",
+			"phpcpd src Tests",
+			"phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
+			"composer-require-checker check ./composer.json",
+			"php-cs-fixer fix --verbose --allow-risky=yes --dry-run"
+		]
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "2.0.x-dev"
+		}
+	},
+	"require": {
+		"php": "^7.3",
+		"filp/whoops": "^2.4",
+		"psr/log": "^1.1",
+		"signpostmarv/daft-framework": "^2.3",
+		"symfony/http-foundation": "^4.3"
+	},
+	"require-dev": {
+		"infection/infection": "^0.13.4",
+		"maglnet/composer-require-checker": "^2.0",
+		"phpunit/phpunit": "^8.2",
+		"povils/phpmnd": "^2.1",
+		"psalm/plugin-phpunit": "^0.6.0",
+		"roave/security-advisories": "dev-master",
+		"sebastian/phpcpd": "^4.1",
+		"signpostmarv/php-cs-fixer-config": "^0.11.0",
+		"vimeo/psalm": "dev-master"
+	}
 }

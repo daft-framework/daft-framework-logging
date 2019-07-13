@@ -11,16 +11,16 @@ use SignpostMarv\DaftRouter\Tests\ImplementationTest as Base;
 
 class RouterTest extends Base
 {
-    public function DataProviderRoutesWithKnownArgs() : Generator
-    {
-        yield from [
-            [
-                fixtures\Routes\Throws::class,
-                ['msg' => 'foo'],
-                ['msg' => 'foo'],
-                'GET',
-                '/throws/runtime-exception/foo',
-            ],
-        ];
-    }
+	public function DataProviderRoutesWithKnownArgs() : Generator
+	{
+		yield from [
+			[
+				fixtures\Routes\Throws::class,
+				['msg' => 'foo'],
+				['msg' => 'foo'],
+				'GET',
+				'/throws/runtime-exception/foo',
+			],
+		];
+	}
 }

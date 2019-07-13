@@ -20,132 +20,132 @@ use Whoops\Handler\PlainTextHandler;
 
 class ImplementationTest extends Base
 {
-    const RemapFrameworks = [
-        BaseFramework::class => Framework::class,
-        BaseHttpHandler::class => HttpHandler::class,
-    ];
+	const RemapFrameworks = [
+		BaseFramework::class => Framework::class,
+		BaseHttpHandler::class => HttpHandler::class,
+	];
 
-    /**
-    * @return Generator<int, array{0:class-string<BaseFramework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
-    */
-    public function DataProviderGoodSources() : Generator
-    {
-        foreach (parent::DataProviderGoodSources() as $args) {
-            foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-                $loggerImplementation = $loggerArgs[0];
+	/**
+	* @return Generator<int, array{0:class-string<BaseFramework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
+	*/
+	public function DataProviderGoodSources() : Generator
+	{
+		foreach (parent::DataProviderGoodSources() as $args) {
+			foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
+				$loggerImplementation = $loggerArgs[0];
 
-                $logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
+				$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-                $implementation = array_shift($args);
+				$implementation = array_shift($args);
 
-                /**
-                * @var string
-                */
-                $implementation = self::RemapFrameworks[$implementation] ?? $implementation;
+				/**
+				* @var string
+				*/
+				$implementation = self::RemapFrameworks[$implementation] ?? $implementation;
 
-                /**
-                * @var array<string, mixed[]>
-                */
-                $postConstructionCalls = array_shift($args);
+				/**
+				* @var array<string, mixed[]>
+				*/
+				$postConstructionCalls = array_shift($args);
 
-                array_unshift($args, $implementation, $postConstructionCalls);
+				array_unshift($args, $implementation, $postConstructionCalls);
 
-                $args[] = $logger;
+				$args[] = $logger;
 
-                /**
-                * @psalm-var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
-                */
-                $args = $args;
+				/**
+				* @psalm-var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+				*/
+				$args = $args;
 
-                yield $args;
+				yield $args;
 
-                if (HttpHandler::class === $args[0]) {
-                    $args[0] = CatchingHttpHandler::class;
+				if (HttpHandler::class === $args[0]) {
+					$args[0] = CatchingHttpHandler::class;
 
-                    foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
-                        $args4 = (array) $args[4];
+					foreach ($this->DataProviderWhoopsHandlerArguments() as $whoopsArguments) {
+						$args4 = (array) $args[4];
 
-                        $args4[HandlerInterface::class] = $whoopsArguments[0];
+						$args4[HandlerInterface::class] = $whoopsArguments[0];
 
-                        $args[4] = $args4;
+						$args[4] = $args4;
 
-                        /**
-                        * @psalm-var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
-                        */
-                        $args = $args;
+						/**
+						* @psalm-var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+						*/
+						$args = $args;
 
-                        yield $args;
-                    }
-                }
-            }
-        }
-    }
+						yield $args;
+					}
+				}
+			}
+		}
+	}
 
-    /**
-    * @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
-    */
-    public function DataProviderLoggerArguments() : Generator
-    {
-        yield from [
-            [
-                NullLogger::class,
-            ],
-        ];
-    }
+	/**
+	* @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+	*/
+	public function DataProviderLoggerArguments() : Generator
+	{
+		yield from [
+			[
+				NullLogger::class,
+			],
+		];
+	}
 
-    /**
-    * @psalm-return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
-    */
-    public function DataProviderWhoopsHandlerArguments() : Generator
-    {
-        yield from [
-            [
-                [
-                    PlainTextHandler::class => [],
-                ],
-            ],
-        ];
-    }
+	/**
+	* @psalm-return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
+	*/
+	public function DataProviderWhoopsHandlerArguments() : Generator
+	{
+		yield from [
+			[
+				[
+					PlainTextHandler::class => [],
+				],
+			],
+		];
+	}
 
-    /**
-    * @param array<string, array<int, mixed>> $postConstructionCalls
-    * @param mixed ...$implementationArgs
-    *
-    * @dataProvider DataProviderGoodSources
-    */
-    public function testEverythingInitialisesFine(
-        string $implementation,
-        array $postConstructionCalls,
-        ...$implementationArgs
-    ) : BaseFramework {
-        list(, , , $logger) = $implementationArgs;
+	/**
+	* @param array<string, array<int, mixed>> $postConstructionCalls
+	* @param mixed ...$implementationArgs
+	*
+	* @dataProvider DataProviderGoodSources
+	*/
+	public function testEverythingInitialisesFine(
+		string $implementation,
+		array $postConstructionCalls,
+		...$implementationArgs
+	) : BaseFramework {
+		list(, , , $logger) = $implementationArgs;
 
-        static::assertInstanceOf(LoggerInterface::class, $logger);
+		static::assertInstanceOf(LoggerInterface::class, $logger);
 
-        $instance = $this->ObtainFrameworkInstance($implementation, ...$implementationArgs);
-        $this->ConfigureFrameworkInstance($instance, $postConstructionCalls);
+		$instance = $this->ObtainFrameworkInstance($implementation, ...$implementationArgs);
+		$this->ConfigureFrameworkInstance($instance, $postConstructionCalls);
 
-        static::assertTrue(
-            (
-                ($instance instanceof Framework) ||
-                ($instance instanceof HttpHandler)
-            )
-        );
+		static::assertTrue(
+			(
+				($instance instanceof Framework) ||
+				($instance instanceof HttpHandler)
+			)
+		);
 
-        /**
-        * @var Framework
-        */
-        $instance = $instance;
+		/**
+		* @var Framework
+		*/
+		$instance = $instance;
 
-        static::assertSame($logger, $instance->ObtainLogger());
+		static::assertSame($logger, $instance->ObtainLogger());
 
-        return $instance;
-    }
+		return $instance;
+	}
 
-    protected function extractDefaultFrameworkArgs(array $implementationArgs) : array
-    {
-        list(, $baseUrl, $basePath, $config) = $implementationArgs;
+	protected function extractDefaultFrameworkArgs(array $implementationArgs) : array
+	{
+		list(, $baseUrl, $basePath, $config) = $implementationArgs;
 
-        return [$baseUrl, $basePath, $config];
-    }
+		return [$baseUrl, $basePath, $config];
+	}
 }

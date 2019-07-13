@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <psalm
-    totallyTyped="true"
-    findUnusedCode="true"
+	totallyTyped="true"
+	findUnusedCode="true"
 	requireVoidReturnType="true"
 	includePhpVersionsInErrorBaseline="true"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns="https://getpsalm.org/schema/config"
-    xsi:schemaLocation="https://getpsalm.org/schema/config"
-    errorBaseline="./psalm.baseline.xml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://getpsalm.org/schema/config"
+	xsi:schemaLocation="https://getpsalm.org/schema/config"
+	errorBaseline="./psalm.baseline.xml"
 >
-    <projectFiles>
-        <file name=".php_cs.dist" />
-        <directory name="src" />
-        <directory name="./Tests/" />
-        <ignoreFiles>
-            <directory name="./vendor/phpunit/phpunit/" />
-            <file name="./vendor/signpostmarv/daft-router/src/DaftRouterHttpRouteDefaultMethodGet.php" />
-        </ignoreFiles>
-    </projectFiles>
+	<projectFiles>
+		<file name=".php_cs.dist" />
+		<directory name="src" />
+		<directory name="./Tests/" />
+		<ignoreFiles>
+			<directory name="./vendor/phpunit/phpunit/" />
+			<file name="./vendor/signpostmarv/daft-router/src/DaftRouterHttpRouteDefaultMethodGet.php" />
+		</ignoreFiles>
+	</projectFiles>
 
-    <issueHandlers>
-    </issueHandlers>
-    <plugins>
-        <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
-    </plugins>
+	<issueHandlers>
+	</issueHandlers>
+	<plugins>
+		<pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
+	</plugins>
 </psalm>

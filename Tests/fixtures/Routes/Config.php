@@ -10,10 +10,10 @@ use SignpostMarv\DaftRouter\DaftSource;
 
 class Config implements DaftSource
 {
-    public static function DaftRouterRouteAndMiddlewareSources() : array
-    {
-        return [
-            Throws::class,
-        ];
-    }
+	public static function DaftRouterRouteAndMiddlewareSources() : array
+	{
+		return [
+			Throws::class,
+		];
+	}
 }

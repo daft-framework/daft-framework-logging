@@ -15,8 +15,8 @@ use SignpostMarv\DaftRouter\TypedArgs;
 */
 class MessageArgs extends TypedArgs
 {
-    /**
-    * @var T
-    */
-    protected $typed;
+	/**
+	* @var T
+	*/
+	protected $typed;
 }
