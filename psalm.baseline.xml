@@ -41,6 +41,11 @@
       <code>$expectedStatus</code>
       <code>$expectedContentRegex</code>
     </PossiblyUnusedParam>
+    <UnusedFunctionCall occurrences="3">
+      <code>realpath</code>
+      <code>sprintf</code>
+      <code>sprintf</code>
+    </UnusedFunctionCall>
   </file>
   <file src="Tests/fixtures/Routes/Throws.php">
     <PossiblyUnusedMethod occurrences="1">
