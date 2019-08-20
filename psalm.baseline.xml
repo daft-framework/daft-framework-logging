@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files
-  psalm-version="dev-master@ee1387473f8060c2f01a4928bc4062f24ef0524c"
+  psalm-version="dev-master@a3e9dec925d595b1701bc0669b7d3364749be0e4"
   php-version="
-    php:7.3.7;
-    bcmath:7.3.7;
-    calendar:7.3.7;
-    Core:7.3.7;
-    ctype:7.3.7;
-    date:7.3.7;
+    php:7.3.8;
+    bcmath:7.3.8;
+    calendar:7.3.8;
+    Core:7.3.8;
+    ctype:7.3.8;
+    date:7.3.8;
     dom:20031129;
-    filter:7.3.7;
-    hash:7.3.7;
-    iconv:7.3.7;
+    filter:7.3.8;
+    hash:7.3.8;
+    iconv:7.3.8;
     json:1.7.0;
-    libxml:7.3.7;
-    mbstring:7.3.7;
+    libxml:7.3.8;
+    mbstring:7.3.8;
     mysqlnd:mysqlnd 5.0.12-dev - 20150407 - $Id: 7cc7cc96e675f6d72e5cf0f267f48e167c2abb23 $;
-    openssl:7.3.7;
-    pcre:7.3.7;
-    PDO:7.3.7;
-    pdo_sqlite:7.3.7;
-    Phar:7.3.7;
-    readline:7.3.7;
-    Reflection:7.3.7;
-    session:7.3.7;
-    SimpleXML:7.3.7;
-    SPL:7.3.7;
-    standard:7.3.7;
-    tokenizer:7.3.7;
-    wddx:7.3.7;
-    xml:7.3.7;
-    xmlreader:7.3.7;
-    xmlwriter:7.3.7;
+    openssl:7.3.8;
+    pcre:7.3.8;
+    PDO:7.3.8;
+    pdo_sqlite:7.3.8;
+    Phar:7.3.8;
+    readline:7.3.8;
+    Reflection:7.3.8;
+    session:7.3.8;
+    SimpleXML:7.3.8;
+    SPL:7.3.8;
+    standard:7.3.8;
+    tokenizer:7.3.8;
+    wddx:7.3.8;
+    xml:7.3.8;
+    xmlreader:7.3.8;
+    xmlwriter:7.3.8;
     zip:1.15.4;
-    zlib:7.3.7
+    zlib:7.3.8
   "
 >
   <file src="Tests/CatchingHttpHandlerTest.php">
