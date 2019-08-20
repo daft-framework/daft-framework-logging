@@ -11,12 +11,26 @@ use SignpostMarv\DaftRouter\TypedArgs;
 /**
 * @psalm-type T = array{msg:string}
 *
-* @template-extends TypedArgs<T>
+* @template-extends TypedArgs<T, T>
 */
 class MessageArgs extends TypedArgs
 {
+	const TYPED_PROPERTIES = [
+		'msg',
+	];
+
 	/**
-	* @var T
+	* @readonly
+	*
+	* @var string
 	*/
-	protected $typed;
+	public $msg;
+
+	/**
+	* @param T $args
+	*/
+	public function __construct(array $args)
+	{
+		$this->msg = $args['msg'];
+	}
 }
