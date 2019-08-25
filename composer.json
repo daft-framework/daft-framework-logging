@@ -41,6 +41,12 @@
 			"dev-master": "2.0.x-dev"
 		}
 	},
+	"conflict": {
+		"vimeo/psalm": "<3.4"
+	},
+	"suggest": {
+		"vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
+	},
 	"require": {
 		"php": "^7.3",
 		"filp/whoops": "^2.5",
@@ -59,6 +65,6 @@
 		"roave/security-advisories": "dev-master",
 		"sebastian/phpcpd": "^4.1",
 		"signpostmarv/php-cs-fixer-config": "^0.11.0",
-		"vimeo/psalm": "3.x-dev"
+		"vimeo/psalm": "^3.4"
 	}
 }
