@@ -28,7 +28,11 @@
 	},
 	"scripts": {
 		"tests": [
-			"phpunit -vvvv --coverage-clover=phpunit.clover",
+			"phpunit",
+			"infection --min-msi=100",
+			"@static-analysis"
+		],
+		"static-analysis": [
 			"psalm --shepherd",
 			"phpcpd src Tests",
 			"phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",

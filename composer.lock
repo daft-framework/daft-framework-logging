@@ -317,12 +317,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/daft-framework.git",
-                "reference": "3934baac227ffaf783ad82712a26c1f99977b0aa"
+                "reference": "e7a350b451ea693ca1f55c25efacc6a58662040f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/daft-framework/zipball/3934baac227ffaf783ad82712a26c1f99977b0aa",
-                "reference": "3934baac227ffaf783ad82712a26c1f99977b0aa",
+                "url": "https://api.github.com/repos/daft-framework/daft-framework/zipball/e7a350b451ea693ca1f55c25efacc6a58662040f",
+                "reference": "e7a350b451ea693ca1f55c25efacc6a58662040f",
                 "shasum": ""
             },
             "require": {
@@ -341,7 +341,7 @@
             },
             "require-dev": {
                 "ext-pdo_sqlite": "*",
-                "infection/infection": "^0.13.4",
+                "infection/infection": "^0.13.5",
                 "maglnet/composer-require-checker": "^2.0",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^8.3",
@@ -377,7 +377,7 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-08-25T07:37:22+00:00"
+            "time": "2019-08-25T12:52:53+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
@@ -435,12 +435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/daft-router.git",
-                "reference": "98a5fe96748cdca0e105d889775ef15e28b64a38"
+                "reference": "5b263085dbaaaf7af99bd78e066a1f9686159433"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/daft-router/zipball/98a5fe96748cdca0e105d889775ef15e28b64a38",
-                "reference": "98a5fe96748cdca0e105d889775ef15e28b64a38",
+                "url": "https://api.github.com/repos/daft-framework/daft-router/zipball/5b263085dbaaaf7af99bd78e066a1f9686159433",
+                "reference": "5b263085dbaaaf7af99bd78e066a1f9686159433",
                 "shasum": ""
             },
             "require": {
@@ -492,7 +492,7 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2019-08-24T22:08:51+00:00"
+            "time": "2019-08-25T11:24:22+00:00"
         },
         {
             "name": "signpostmarv/daft-typed-object",
@@ -2208,16 +2208,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.13.4",
+            "version": "0.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "f0f8327f5e60d1a7d8ab4ea01074c6250ab96f57"
+                "reference": "0f2f3690b38c35971629fe5c61dcb5b116bc13c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/f0f8327f5e60d1a7d8ab4ea01074c6250ab96f57",
-                "reference": "f0f8327f5e60d1a7d8ab4ea01074c6250ab96f57",
+                "url": "https://api.github.com/repos/infection/infection/zipball/0f2f3690b38c35971629fe5c61dcb5b116bc13c6",
+                "reference": "0f2f3690b38c35971629fe5c61dcb5b116bc13c6",
                 "shasum": ""
             },
             "require": {
@@ -2267,6 +2267,10 @@
                     "homepage": "https://twitter.com/maks_rafalko"
                 },
                 {
+                    "name": "Oleg Zhulnev",
+                    "homepage": "https://github.com/sidz"
+                },
+                {
                     "name": "Gert de Pagter",
                     "homepage": "https://github.com/BackEndTea"
                 },
@@ -2274,10 +2278,6 @@
                     "name": "Théo FIDRY",
                     "email": "theo.fidry@gmail.com",
                     "homepage": "https://twitter.com/tfidry"
-                },
-                {
-                    "name": "Oleg Zhulnev",
-                    "homepage": "https://github.com/sidz"
                 },
                 {
                     "name": "Alexey Kopytko",
@@ -2294,7 +2294,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2019-07-01T18:01:41+00:00"
+            "time": "2019-08-24T12:08:51+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

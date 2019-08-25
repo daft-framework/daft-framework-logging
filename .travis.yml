@@ -5,10 +5,14 @@ php:
 cache:
   directories:
     - ./vendor/
+    - ./phpunit.cache
+    - ./php_cs.cache
 install:
   - travis_retry composer install --no-interaction --no-suggest --prefer-source
 script:
-  - composer run tests
+  - composer run static-analysis
+  - ./vendor/bin/phpunit --coverage-clover=./phpunit.clover
+  - ./vendor/bin/infection --min-msi=100
   - ./vendor/bin/php-coveralls -vvv
 matrix:
   fast_finish: true

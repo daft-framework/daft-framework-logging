@@ -10,11 +10,6 @@
 	},
 	"mutators": {
 		"@default": true,
-		"CastArray": {
-			"ignore": [
-				"SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::__construct"
-			]
-		},
 		"Identical": {
 			"ignore": [
 				"SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::ObtainWhoopsRunner"
@@ -32,7 +27,6 @@
 		},
 		"LogicalAnd": {
 			"ignore": [
-				"SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::__construct",
 				"SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::ObtainWhoopsRunner"
 			]
 		},
@@ -49,7 +43,7 @@
 				"SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::ValidateHandlerConfig"
 			]
 		},
-		"TrueValue": {
+		"UnwrapArrayFilter": {
 			"ignore": [
 				"SignpostMarv\\DaftFramework\\Logging\\CatchingHttpHandler::__construct"
 			]

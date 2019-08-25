@@ -16,6 +16,20 @@ use Whoops\Handler\PlainTextHandler;
 use Whoops\Run;
 use Whoops\RunInterface;
 
+/**
+* @template CONFIG as array{
+	SignpostMarv\DaftRouter\DaftSource: array{
+		cacheFile:string,
+		sources:array<int, string>
+	},
+	Whoops\Handler\HandlerInterface: array<
+		class-string<HandlerInterface>,
+		array<int, mixed>
+	>
+}
+*
+* @template-extends HttpHandler<CONFIG>
+*/
 class CatchingHttpHandler extends HttpHandler
 {
 	const INT_ARGS_IS_PLAINTEXT_HANDLER = 1;
@@ -23,12 +37,13 @@ class CatchingHttpHandler extends HttpHandler
 	const BOOL_WHOOPS_NO_SENDING = false;
 
 	/**
-	* @var array<string, mixed[]>
-	*
-	* @psalm-var array<class-string<HandlerInterface>, mixed[]>
+	* @var array<class-string<HandlerInterface>, array<int, mixed>>
 	*/
 	protected $handlers = [];
 
+	/**
+	* @param CONFIG $config
+	*/
 	public function __construct(
 		string $baseUrl,
 		string $basePath,
@@ -38,19 +53,17 @@ class CatchingHttpHandler extends HttpHandler
 		parent::__construct($baseUrl, $basePath, $config, $logger);
 
 		/**
-		* @var array<string, mixed[]>
-		*
-		* @psalm-var array<class-string<HandlerInterface>, mixed[]>
+		* @var array<class-string<HandlerInterface>, array<int, mixed>>
 		*/
+		$subConfig = $config[HandlerInterface::class];
+
 		$subConfig = array_filter(
-			array_filter(
-				(array) $config[HandlerInterface::class],
-				'is_string',
-				ARRAY_FILTER_USE_KEY
-			),
+			$subConfig,
+			/**
+			* @param class-string<HandlerInterface> $maybe
+			*/
 			function (string $maybe) : bool {
 				return
-					is_a($maybe, HandlerInterface::class, true) &&
 					class_exists($maybe);
 			},
 			ARRAY_FILTER_USE_KEY
