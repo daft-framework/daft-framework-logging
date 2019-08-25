@@ -37,10 +37,6 @@
   "
 >
   <file src="Tests/CatchingHttpHandlerTest.php">
-    <PossiblyUnusedParam occurrences="2">
-      <code>$expectedStatus</code>
-      <code>$expectedContentRegex</code>
-    </PossiblyUnusedParam>
     <UnusedFunctionCall occurrences="3">
       <code>realpath</code>
       <code>sprintf</code>

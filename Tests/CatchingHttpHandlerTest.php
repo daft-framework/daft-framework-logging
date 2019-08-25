@@ -432,8 +432,8 @@ class CatchingHttpHandlerTest extends Base
 	*/
 	public function testBadLogger(
 		CatchingHttpHandler $framework,
-		int $expectedStatus,
-		string $expectedContentRegex,
+		int $_expectedStatus,
+		string $_expectedContentRegex,
 		...$requestArgs
 	) : void {
 		$uri = (string) $requestArgs[0];
