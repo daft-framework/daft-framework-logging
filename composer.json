@@ -42,7 +42,7 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "2.0.x-dev"
+			"dev-master": "3.x-dev"
 		}
 	},
 	"conflict": {
@@ -55,8 +55,8 @@
 		"php": "^7.3",
 		"filp/whoops": "^2.5",
 		"psr/log": "^1.1",
-		"signpostmarv/daft-framework": "dev-typed-object-args",
-		"signpostmarv/daft-router": "dev-typed-object-args",
+		"signpostmarv/daft-framework": "^3.0",
+		"signpostmarv/daft-router": "^4.0",
 		"symfony/http-foundation": "^4.3"
 	},
 	"require-dev": {

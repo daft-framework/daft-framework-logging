@@ -189,7 +189,12 @@ class CatchingHttpHandlerTest extends Base
 		$response = $framework->handle($request);
 
 		static::assertSame($expectedStatus, $response->getStatusCode());
-		static::assertRegExp($expectedContentRegex, $response->getContent());
+
+		$response_content = $response->getContent();
+
+		static::assertIsString($response_content);
+
+		static::assertRegExp($expectedContentRegex, $response_content);
 	}
 
 	/**
