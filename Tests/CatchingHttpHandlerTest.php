@@ -11,6 +11,7 @@ use InvalidArgumentException;
 use PHPUnit\Framework\TestCase as Base;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use SignpostMarv\DaftFramework\Framework as BaseFramework;
 use SignpostMarv\DaftFramework\Logging\CatchingHttpHandler;
 use SignpostMarv\DaftFramework\Tests\Utilities;
 use SignpostMarv\DaftRouter\DaftSource;
@@ -331,6 +332,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
+	* @param class-string<BaseFramework> $implementation
 	* @param class-string<Throwable> $expectedExceptionType
 	*
 	* @dataProvider DataProviderTestBadConfig

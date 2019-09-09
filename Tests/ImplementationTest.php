@@ -108,6 +108,7 @@ class ImplementationTest extends Base
 	}
 
 	/**
+	* @param class-string<BaseFramework> $implementation
 	* @param array<string, array<int, mixed>> $postConstructionCalls
 	* @param mixed ...$implementationArgs
 	*
