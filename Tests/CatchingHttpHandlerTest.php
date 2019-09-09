@@ -22,7 +22,7 @@ use Whoops\Handler\PlainTextHandler;
 class CatchingHttpHandlerTest extends Base
 {
 	/**
-	* @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+	* @return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
 	*/
 	public function DataProviderLoggerArguments() : Generator
 	{
@@ -34,7 +34,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array, 2:string, 3:string, 4:array}, mixed, void>
+	* @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array, 2:string, 3:string, 4:array}, mixed, void>
 	*/
 	public function DataProviderFrameworkArguments() : Generator
 	{
@@ -54,7 +54,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:array<string, mixed>, 1:int, 2:string, 3:string}, mixed, void>
+	* @return Generator<int, array{0:array<string, mixed>, 1:int, 2:string, 3:string}, mixed, void>
 	*/
 	public function DataProviderRouterArguments() : Generator
 	{
@@ -85,7 +85,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
+	* @return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
 	*/
 	public function DataProviderTesting() : Generator
 	{
@@ -93,7 +93,7 @@ class CatchingHttpHandlerTest extends Base
 			foreach ($this->DataProviderRouterArguments() as $routerArgs) {
 				foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
 					/**
-					* @psalm-var class-string<LoggerInterface>
+					* @var class-string<LoggerInterface>
 					*/
 					$loggerImplementation = $loggerArgs[0];
 
@@ -143,7 +143,7 @@ class CatchingHttpHandlerTest extends Base
 					array_unshift($yield, $instance);
 
 					/**
-					* @psalm-var array{0:CatchingHttpHandler, 1:int, 2:string}
+					* @var array{0:CatchingHttpHandler, 1:int, 2:string}
 					*/
 					$yield = $yield;
 
@@ -198,7 +198,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:array, 1:class-string<Throwable>, 2:string}, mixed, void>
+	* @return Generator<int, array{0:array, 1:class-string<Throwable>, 2:string}, mixed, void>
 	*/
 	public function DataProviderBadConfig() : Generator
 	{
@@ -267,13 +267,13 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<int, mixed>, 2:class-string<Throwable>, 3:string}, mixed, void>
+	* @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<int, mixed>, 2:class-string<Throwable>, 3:string}, mixed, void>
 	*/
 	public function DataProviderTestBadConfig() : Generator
 	{
 		foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
 			/**
-			* @psalm-var class-string<LoggerInterface>
+			* @var class-string<LoggerInterface>
 			*/
 			$loggerImplementation = $loggerArgs[0];
 
@@ -331,7 +331,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-param class-string<Throwable> $expectedExceptionType
+	* @param class-string<Throwable> $expectedExceptionType
 	*
 	* @dataProvider DataProviderTestBadConfig
 	*
@@ -354,7 +354,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
+	* @return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
 	*/
 	public function DataProviderTestBadLogger() : Generator
 	{
@@ -420,7 +420,7 @@ class CatchingHttpHandlerTest extends Base
 					array_unshift($yield, $instance);
 
 					/**
-					* @psalm-var array{0:CatchingHttpHandler, 1:int, 2:string}
+					* @var array{0:CatchingHttpHandler, 1:int, 2:string}
 					*/
 					$yield = $yield;
 

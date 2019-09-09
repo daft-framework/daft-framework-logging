@@ -53,7 +53,7 @@ class ImplementationTest extends Base
 				$args[] = $logger;
 
 				/**
-				* @psalm-var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+				* @var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
 				*/
 				$args = $args;
 
@@ -70,7 +70,7 @@ class ImplementationTest extends Base
 						$args[4] = $args4;
 
 						/**
-						* @psalm-var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+						* @var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
 						*/
 						$args = $args;
 
@@ -82,7 +82,7 @@ class ImplementationTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+	* @return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
 	*/
 	public function DataProviderLoggerArguments() : Generator
 	{
@@ -94,7 +94,7 @@ class ImplementationTest extends Base
 	}
 
 	/**
-	* @psalm-return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
+	* @return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
 	*/
 	public function DataProviderWhoopsHandlerArguments() : Generator
 	{
