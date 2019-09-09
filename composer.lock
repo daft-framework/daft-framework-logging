@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf6b7dd7d1c3abfceca69895f3eb89bd",
+    "content-hash": "ab4191dbf52ad323250e9a1817b7f733",
     "packages": [
         {
             "name": "filp/whoops",
@@ -313,16 +313,16 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/daft-framework.git",
-                "reference": "8b33f54b58a30b7a119b089344f5228b67ac4683"
+                "reference": "9f9553005aaabf35c47bfd81618abab4ffb9a3ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/daft-framework/zipball/8b33f54b58a30b7a119b089344f5228b67ac4683",
-                "reference": "8b33f54b58a30b7a119b089344f5228b67ac4683",
+                "url": "https://api.github.com/repos/daft-framework/daft-framework/zipball/9f9553005aaabf35c47bfd81618abab4ffb9a3ef",
+                "reference": "9f9553005aaabf35c47bfd81618abab4ffb9a3ef",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +337,7 @@
                 "symfony/http-kernel": "^4.3"
             },
             "conflict": {
-                "vimeo/psalm": "<3.4"
+                "vimeo/psalm": "<3.5"
             },
             "require-dev": {
                 "ext-pdo_sqlite": "*",
@@ -350,7 +350,7 @@
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
                 "signpostmarv/php-cs-fixer-config": "^0.11.0",
-                "vimeo/psalm": "^3.4"
+                "vimeo/psalm": "^3.5"
             },
             "suggest": {
                 "vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
@@ -377,7 +377,7 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-08-26T17:03:58+00:00"
+            "time": "2019-09-09T22:23:18+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
@@ -496,23 +496,27 @@
         },
         {
             "name": "signpostmarv/daft-typed-object",
-            "version": "v0.1.0",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/Daft-Typed-Object.git",
-                "reference": "62c7275c29c1f95cbfdc7f8ce780f20a45a3a9a1"
+                "reference": "15d94a82d0b7a67f0b4c0e7afd9c81aa681a198b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/Daft-Typed-Object/zipball/62c7275c29c1f95cbfdc7f8ce780f20a45a3a9a1",
-                "reference": "62c7275c29c1f95cbfdc7f8ce780f20a45a3a9a1",
+                "url": "https://api.github.com/repos/daft-framework/Daft-Typed-Object/zipball/15d94a82d0b7a67f0b4c0e7afd9c81aa681a198b",
+                "reference": "15d94a82d0b7a67f0b4c0e7afd9c81aa681a198b",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.3"
             },
+            "conflict": {
+                "vimeo/psalm": "<3.4"
+            },
             "require-dev": {
+                "infection/infection": "^0.13.5",
                 "maglnet/composer-require-checker": "^2.0",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^8.2",
@@ -521,9 +525,17 @@
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
                 "signpostmarv/php-cs-fixer-config": "^0.11.0",
-                "vimeo/psalm": "3.x-dev"
+                "vimeo/psalm": "^3.4"
+            },
+            "suggest": {
+                "vimeo/psalm": "for static analysis & templated typehinting"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "SignpostMarv\\DaftTypedObject\\": "./src/"
@@ -540,7 +552,7 @@
                 }
             ],
             "description": "Typed Object, a simplified version of signpostmarv/daft-object",
-            "time": "2019-08-18T10:28:24+00:00"
+            "time": "2019-09-01T08:28:25+00:00"
         },
         {
             "name": "symfony/console",
@@ -1301,16 +1313,16 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v1.1.5",
+            "version": "v1.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "f391a00de78ec7ec8cf5cdcdae59ec7b883edb8d"
+                "reference": "ea7263d6b6d5f798b56a45a5b8d686725f2719a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/f391a00de78ec7ec8cf5cdcdae59ec7b883edb8d",
-                "reference": "f391a00de78ec7ec8cf5cdcdae59ec7b883edb8d",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ea7263d6b6d5f798b56a45a5b8d686725f2719a3",
+                "reference": "ea7263d6b6d5f798b56a45a5b8d686725f2719a3",
                 "shasum": ""
             },
             "require": {
@@ -1355,7 +1367,7 @@
                 "interoperability",
                 "standards"
             ],
-            "time": "2019-06-13T11:15:36+00:00"
+            "time": "2019-08-20T14:44:19+00:00"
         }
     ],
     "packages-dev": [
@@ -1497,16 +1509,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "f26a67e397be0e5c00d7c52ec7b5010098e15ce5"
+                "reference": "10bb96592168a0f8e8f6dcde3532d9fa50b0b527"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/f26a67e397be0e5c00d7c52ec7b5010098e15ce5",
-                "reference": "f26a67e397be0e5c00d7c52ec7b5010098e15ce5",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/10bb96592168a0f8e8f6dcde3532d9fa50b0b527",
+                "reference": "10bb96592168a0f8e8f6dcde3532d9fa50b0b527",
                 "shasum": ""
             },
             "require": {
@@ -1549,7 +1561,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-08-02T09:05:43+00:00"
+            "time": "2019-08-30T08:44:50+00:00"
         },
         {
             "name": "composer/semver",
@@ -1933,16 +1945,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.15.1",
+            "version": "v2.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "20064511ab796593a3990669eff5f5b535001f7c"
+                "reference": "705490b0f282f21017d73561e9498d2b622ee34c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/20064511ab796593a3990669eff5f5b535001f7c",
-                "reference": "20064511ab796593a3990669eff5f5b535001f7c",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/705490b0f282f21017d73561e9498d2b622ee34c",
+                "reference": "705490b0f282f21017d73561e9498d2b622ee34c",
                 "shasum": ""
             },
             "require": {
@@ -1972,9 +1984,10 @@
                 "php-cs-fixer/accessible-object": "^1.0",
                 "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.1",
                 "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.1",
-                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.14 || ^7.1",
                 "phpunitgoodpractices/traits": "^1.8",
-                "symfony/phpunit-bridge": "^4.3"
+                "symfony/phpunit-bridge": "^4.3",
+                "symfony/yaml": "^3.0 || ^4.0"
             },
             "suggest": {
                 "ext-mbstring": "For handling non-UTF8 characters in cache signature.",
@@ -2008,16 +2021,16 @@
             ],
             "authors": [
                 {
-                    "name": "Dariusz Rumiński",
-                    "email": "dariusz.ruminski@gmail.com"
-                },
-                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Dariusz Rumiński",
+                    "email": "dariusz.ruminski@gmail.com"
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2019-06-01T10:32:12+00:00"
+            "time": "2019-08-31T12:51:54+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2208,16 +2221,16 @@
         },
         {
             "name": "infection/infection",
-            "version": "0.13.5",
+            "version": "0.13.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/infection/infection.git",
-                "reference": "0f2f3690b38c35971629fe5c61dcb5b116bc13c6"
+                "reference": "09b4d371d203f7f22dcf1741a3f6c657404fb61e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/0f2f3690b38c35971629fe5c61dcb5b116bc13c6",
-                "reference": "0f2f3690b38c35971629fe5c61dcb5b116bc13c6",
+                "url": "https://api.github.com/repos/infection/infection/zipball/09b4d371d203f7f22dcf1741a3f6c657404fb61e",
+                "reference": "09b4d371d203f7f22dcf1741a3f6c657404fb61e",
                 "shasum": ""
             },
             "require": {
@@ -2294,7 +2307,7 @@
                 "testing",
                 "unit testing"
             ],
-            "time": "2019-08-24T12:08:51+00:00"
+            "time": "2019-08-29T19:22:44+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -2614,16 +2627,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "e612609022e935f3d0337c1295176505b41188c8"
+                "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e612609022e935f3d0337c1295176505b41188c8",
-                "reference": "e612609022e935f3d0337c1295176505b41188c8",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/97e59c7a16464196a8b9c77c47df68e4a39a45c4",
+                "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4",
                 "shasum": ""
             },
             "require": {
@@ -2661,7 +2674,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-08-12T20:17:41+00:00"
+            "time": "2019-09-01T07:51:21+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -4887,16 +4900,16 @@
         },
         {
             "name": "signpostmarv/php-cs-fixer-config",
-            "version": "v0.11.0",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/PHP-CS-Fixer-Config.git",
-                "reference": "406e18c690c06d454d975733610cb3e853986ab0"
+                "reference": "590672b598f4fd3e5a63b07caf49ebf9cb2c3162"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/PHP-CS-Fixer-Config/zipball/406e18c690c06d454d975733610cb3e853986ab0",
-                "reference": "406e18c690c06d454d975733610cb3e853986ab0",
+                "url": "https://api.github.com/repos/SignpostMarv/PHP-CS-Fixer-Config/zipball/590672b598f4fd3e5a63b07caf49ebf9cb2c3162",
+                "reference": "590672b598f4fd3e5a63b07caf49ebf9cb2c3162",
                 "shasum": ""
             },
             "require": {
@@ -4927,7 +4940,7 @@
                 }
             ],
             "description": "PHP-CS-Fixer Config",
-            "time": "2019-07-12T21:00:45+00:00"
+            "time": "2019-09-01T08:21:01+00:00"
         },
         {
             "name": "symfony/config",
@@ -5445,16 +5458,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "3.4.12",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "86e5e50c1bb492045e70f2ebe1da3cad06e4e9b2"
+                "reference": "f8b8f35c031e2fad6754a961a9fad2708649d8da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/86e5e50c1bb492045e70f2ebe1da3cad06e4e9b2",
-                "reference": "86e5e50c1bb492045e70f2ebe1da3cad06e4e9b2",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/f8b8f35c031e2fad6754a961a9fad2708649d8da",
+                "reference": "f8b8f35c031e2fad6754a961a9fad2708649d8da",
                 "shasum": ""
             },
             "require": {
@@ -5528,7 +5541,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2019-08-20T18:26:32+00:00"
+            "time": "2019-09-08T19:25:12+00:00"
         },
         {
             "name": "webmozart/assert",
