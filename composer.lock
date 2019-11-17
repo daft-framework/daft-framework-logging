@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c18ad9ee21faf6dbb908da00ecdc4231",
+    "content-hash": "7090ab034f33ff5473f19da5b0794ee9",
     "packages": [
         {
             "name": "filp/whoops",
@@ -313,16 +313,16 @@
         },
         {
             "name": "signpostmarv/daft-framework",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/daft-framework.git",
-                "reference": "160701107eab6d13184380e1532f2c7cd2611f46"
+                "reference": "3982883580b4b4404b97aa70abe9cc38af3e9ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/daft-framework/zipball/160701107eab6d13184380e1532f2c7cd2611f46",
-                "reference": "160701107eab6d13184380e1532f2c7cd2611f46",
+                "url": "https://api.github.com/repos/daft-framework/daft-framework/zipball/3982883580b4b4404b97aa70abe9cc38af3e9ddf",
+                "reference": "3982883580b4b4404b97aa70abe9cc38af3e9ddf",
                 "shasum": ""
             },
             "require": {
@@ -349,8 +349,8 @@
                 "psalm/plugin-phpunit": "^0.7.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.11.0",
-                "vimeo/psalm": "^3.5"
+                "signpostmarv/php-cs-fixer-config": "^0.13.0",
+                "vimeo/psalm": "^3.6"
             },
             "suggest": {
                 "vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
@@ -358,7 +358,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "3.2.x-dev"
                 }
             },
             "autoload": {
@@ -377,20 +377,20 @@
                 }
             ],
             "description": "Daft Framework",
-            "time": "2019-09-17T17:32:17+00:00"
+            "time": "2019-11-17T13:19:33+00:00"
         },
         {
             "name": "signpostmarv/daft-interface-collector",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/daft-interface-collector.git",
-                "reference": "16559454460fe4c91a5d5286f3763e902d23e04e"
+                "reference": "c594173765173d8e03ecd4b413f0b148cae1c3a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/16559454460fe4c91a5d5286f3763e902d23e04e",
-                "reference": "16559454460fe4c91a5d5286f3763e902d23e04e",
+                "url": "https://api.github.com/repos/SignpostMarv/daft-interface-collector/zipball/c594173765173d8e03ecd4b413f0b148cae1c3a3",
+                "reference": "c594173765173d8e03ecd4b413f0b148cae1c3a3",
                 "shasum": ""
             },
             "require": {
@@ -407,8 +407,8 @@
                 "psalm/plugin-phpunit": "^0.7.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.11.0",
-                "vimeo/psalm": "dev-master"
+                "signpostmarv/php-cs-fixer-config": "^0.13.0",
+                "vimeo/psalm": "^3.6"
             },
             "type": "library",
             "autoload": {
@@ -427,20 +427,20 @@
                 }
             ],
             "description": "interface collector. daft reasons again.",
-            "time": "2019-07-13T09:04:03+00:00"
+            "time": "2019-11-14T22:49:13+00:00"
         },
         {
             "name": "signpostmarv/daft-router",
-            "version": "v4.1.0",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/daft-router.git",
-                "reference": "92a4bbc14e4ae68ba4545c9edd11d97eff042c5e"
+                "reference": "9d19780fa6930344100a6049d5d6c104448d696c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/daft-router/zipball/92a4bbc14e4ae68ba4545c9edd11d97eff042c5e",
-                "reference": "92a4bbc14e4ae68ba4545c9edd11d97eff042c5e",
+                "url": "https://api.github.com/repos/daft-framework/daft-router/zipball/9d19780fa6930344100a6049d5d6c104448d696c",
+                "reference": "9d19780fa6930344100a6049d5d6c104448d696c",
                 "shasum": ""
             },
             "require": {
@@ -464,7 +464,7 @@
                 "psalm/plugin-phpunit": "^0.7.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.12.0",
+                "signpostmarv/php-cs-fixer-config": "^0.13.0",
                 "vimeo/psalm": "^3.5"
             },
             "suggest": {
@@ -492,20 +492,20 @@
                 }
             ],
             "description": "Daft Router",
-            "time": "2019-09-17T17:01:12+00:00"
+            "time": "2019-11-15T18:54:21+00:00"
         },
         {
             "name": "signpostmarv/daft-typed-object",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/daft-framework/Daft-Typed-Object.git",
-                "reference": "b78dd1e8c87a4923b5a2c5fe1738f2f6320bc2cc"
+                "reference": "ee302a832683e93974193032b2655f520f69443d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daft-framework/Daft-Typed-Object/zipball/b78dd1e8c87a4923b5a2c5fe1738f2f6320bc2cc",
-                "reference": "b78dd1e8c87a4923b5a2c5fe1738f2f6320bc2cc",
+                "url": "https://api.github.com/repos/daft-framework/Daft-Typed-Object/zipball/ee302a832683e93974193032b2655f520f69443d",
+                "reference": "ee302a832683e93974193032b2655f520f69443d",
                 "shasum": ""
             },
             "require": {
@@ -525,7 +525,7 @@
                 "psalm/plugin-phpunit": "^0.7.0",
                 "roave/security-advisories": "dev-master",
                 "sebastian/phpcpd": "^4.1",
-                "signpostmarv/php-cs-fixer-config": "^0.12.0",
+                "signpostmarv/php-cs-fixer-config": "^0.13.0",
                 "vimeo/psalm": "^3.5"
             },
             "suggest": {
@@ -553,7 +553,7 @@
                 }
             ],
             "description": "Typed Object, a simplified version of signpostmarv/daft-object",
-            "time": "2019-09-15T19:28:38+00:00"
+            "time": "2019-11-14T23:15:18+00:00"
         },
         {
             "name": "symfony/console",
@@ -632,16 +632,16 @@
         },
         {
             "name": "symfony/debug",
-            "version": "v4.3.4",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/debug.git",
-                "reference": "afcdea44a2e399c1e4b52246ec8d54c715393ced"
+                "reference": "5ea9c3e01989a86ceaa0283f21234b12deadf5e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/afcdea44a2e399c1e4b52246ec8d54c715393ced",
-                "reference": "afcdea44a2e399c1e4b52246ec8d54c715393ced",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/5ea9c3e01989a86ceaa0283f21234b12deadf5e2",
+                "reference": "5ea9c3e01989a86ceaa0283f21234b12deadf5e2",
                 "shasum": ""
             },
             "require": {
@@ -684,7 +684,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-20T14:27:59+00:00"
+            "time": "2019-10-28T17:07:32+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -871,16 +871,16 @@
         },
         {
             "name": "symfony/http-kernel",
-            "version": "v4.3.4",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-kernel.git",
-                "reference": "5e0fc71be03d52cd00c423061cfd300bd6f92a52"
+                "reference": "5fdf186f26f9080de531d3f1d024348b2f0ab12f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/5e0fc71be03d52cd00c423061cfd300bd6f92a52",
-                "reference": "5e0fc71be03d52cd00c423061cfd300bd6f92a52",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/5fdf186f26f9080de531d3f1d024348b2f0ab12f",
+                "reference": "5fdf186f26f9080de531d3f1d024348b2f0ab12f",
                 "shasum": ""
             },
             "require": {
@@ -959,7 +959,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-26T16:47:42+00:00"
+            "time": "2019-11-13T09:07:28+00:00"
         },
         {
             "name": "symfony/mime",
