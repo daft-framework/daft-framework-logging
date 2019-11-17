@@ -35,7 +35,7 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array, 2:string, 3:string, 4:array}, mixed, void>
+	* @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<string, mixed[]>, 2:string, 3:string, 4:array}, mixed, void>
 	*/
 	public function DataProviderFrameworkArguments() : Generator
 	{
@@ -93,28 +93,16 @@ class CatchingHttpHandlerTest extends Base
 		foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
 			foreach ($this->DataProviderRouterArguments() as $routerArgs) {
 				foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
-					/**
-					* @var class-string<LoggerInterface>
-					*/
 					$loggerImplementation = $loggerArgs[0];
 
 					$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-					/**
-					* @var string
-					* @var array<string, mixed[]> $postConstructionCalls
-					*/
 					list($implementation, $postConstructionCalls) = $frameworkArgs;
 
 					/**
 					* @var string
 					*/
 					$implementation = $implementation;
-
-					/**
-					* @var array<string, mixed[]>
-					*/
-					$postConstructionCalls = $postConstructionCalls;
 
 					$frameworkArgs = array_slice($frameworkArgs, 2);
 
@@ -273,9 +261,6 @@ class CatchingHttpHandlerTest extends Base
 	public function DataProviderTestBadConfig() : Generator
 	{
 		foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
-			/**
-			* @var class-string<LoggerInterface>
-			*/
 			$loggerImplementation = $loggerArgs[0];
 
 			foreach ($this->DataProviderRouterArguments() as $routerArgs) {
@@ -285,11 +270,6 @@ class CatchingHttpHandlerTest extends Base
 						$expectedExceptionType,
 						$expectedExceptionMessage
 					) = $badConfigArgs;
-
-					/**
-					* @var array
-					*/
-					$handlerConfigArgs = $handlerConfigArgs;
 
 					foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
 						$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
@@ -365,21 +345,12 @@ class CatchingHttpHandlerTest extends Base
 				foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
 					$logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
-					/**
-					* @var string
-					* @var array<string, mixed[]> $postConstructionCalls
-					*/
 					list($implementation, $postConstructionCalls) = $frameworkArgs;
 
 					/**
 					* @var string
 					*/
 					$implementation = $implementation;
-
-					/**
-					* @var array<string, mixed[]>
-					*/
-					$postConstructionCalls = $postConstructionCalls;
 
 					$frameworkArgs = array_slice($frameworkArgs, 2);
 

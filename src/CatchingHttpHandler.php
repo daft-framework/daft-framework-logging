@@ -52,13 +52,8 @@ class CatchingHttpHandler extends HttpHandler
 	) {
 		parent::__construct($baseUrl, $basePath, $config, $logger);
 
-		/**
-		* @var array<class-string<HandlerInterface>, array<int, mixed>>
-		*/
-		$subConfig = $config[HandlerInterface::class];
-
-		$subConfig = array_filter(
-			$subConfig,
+		$this->handlers = array_filter(
+			$config[HandlerInterface::class],
 			/**
 			* @param class-string<HandlerInterface> $maybe
 			*/
@@ -68,8 +63,6 @@ class CatchingHttpHandler extends HttpHandler
 			},
 			ARRAY_FILTER_USE_KEY
 		);
-
-		$this->handlers = $subConfig;
 	}
 
 	public function handle(Request $request) : Response

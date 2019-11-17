@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files
-  psalm-version="3.5.1@deb36e8b273d4b25601f1991482a69d412e3169f"
+  psalm-version="3.6.6@5e17a9af104de39321c47f73b253cece9df1cf2c"
   php-version="
     php:7.3.9;
     bcmath:7.3.9;
@@ -11,6 +11,7 @@
     date:7.3.9;
     dom:20031129;
     filter:7.3.9;
+    gd:7.3.8;
     hash:7.3.9;
     iconv:7.3.9;
     intl:7.3.8;
