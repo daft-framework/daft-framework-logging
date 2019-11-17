@@ -18,15 +18,15 @@ use Whoops\RunInterface;
 
 /**
 * @template CONFIG as array{
-	SignpostMarv\DaftRouter\DaftSource: array{
-		cacheFile:string,
-		sources:array<int, string>
-	},
-	Whoops\Handler\HandlerInterface: array<
-		class-string<HandlerInterface>,
-		array<int, mixed>
-	>
-}
+*	SignpostMarv\DaftRouter\DaftSource: array{
+*		cacheFile:string,
+*		sources:array<int, string>
+*	},
+*	Whoops\Handler\HandlerInterface: array<
+*		class-string<HandlerInterface>,
+*		array<int, mixed>
+*	>
+* }
 *
 * @template-extends HttpHandler<CONFIG>
 */

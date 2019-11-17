@@ -11,11 +11,11 @@ use SignpostMarv\DaftFramework\HttpHandler as Base;
 
 /**
 * @template CONFIG as array{
-	SignpostMarv\DaftRouter\DaftSource: array{
-		cacheFile:string,
-		sources:array<int, string>
-	}
-}
+*	SignpostMarv\DaftRouter\DaftSource: array{
+*		cacheFile:string,
+*		sources:array<int, string>
+*	}
+* }
 *
 * @template-extends Base<CONFIG>
 */
