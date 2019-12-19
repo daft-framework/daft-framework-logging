@@ -39,7 +39,7 @@ class CatchingHttpHandler extends HttpHandler
 	/**
 	* @var array<class-string<HandlerInterface>, array<int, mixed>>
 	*/
-	protected $handlers = [];
+	protected array $handlers = [];
 
 	/**
 	* @param CONFIG $config

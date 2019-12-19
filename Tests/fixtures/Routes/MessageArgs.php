@@ -21,10 +21,8 @@ class MessageArgs extends TypedArgs
 
 	/**
 	* @readonly
-	*
-	* @var string
 	*/
-	public $msg;
+	public string $msg;
 
 	/**
 	* @param T $args

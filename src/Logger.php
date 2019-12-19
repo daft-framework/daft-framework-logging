@@ -10,10 +10,7 @@ use Psr\Log\LoggerInterface;
 
 trait Logger
 {
-	/**
-	* @var LoggerInterface
-	*/
-	protected $logger;
+	protected LoggerInterface $logger;
 
 	public function ObtainLogger() : LoggerInterface
 	{

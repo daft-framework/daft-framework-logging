@@ -36,6 +36,9 @@ class ImplementationTest extends Base
 
 				$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
+				/**
+				* @var class-string<BaseFramework>
+				*/
 				$implementation = array_shift($args);
 
 				/**

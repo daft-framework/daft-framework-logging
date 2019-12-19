@@ -42,33 +42,33 @@
 	},
 	"extra": {
 		"branch-alias": {
-			"dev-master": "3.x-dev"
+			"dev-master": "3.3.x-dev"
 		}
 	},
 	"conflict": {
-		"vimeo/psalm": "<3.6"
+		"vimeo/psalm": "<3.7"
 	},
 	"suggest": {
 		"vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
 	},
 	"require": {
-		"php": "^7.3",
+		"php": "^7.4",
 		"filp/whoops": "^2.5",
 		"psr/log": "^1.1",
-		"signpostmarv/daft-framework": "^3.2",
-		"signpostmarv/daft-router": "^4.1",
-		"symfony/http-foundation": "^4.3"
+		"signpostmarv/daft-framework": "^3.3",
+		"signpostmarv/daft-router": "^4.3",
+		"symfony/http-foundation": "^4.4|^5.0"
 	},
 	"require-dev": {
-		"infection/infection": "^0.13.4",
+		"infection/infection": "^0.15.0",
 		"maglnet/composer-require-checker": "^2.0",
-		"php-coveralls/php-coveralls": "^2.1",
-		"phpunit/phpunit": "^8.3",
+		"php-coveralls/php-coveralls": "^2.2",
+		"phpunit/phpunit": "^8.5",
 		"povils/phpmnd": "^2.1",
-		"psalm/plugin-phpunit": "^0.7.0",
+		"psalm/plugin-phpunit": "^0.8.0",
 		"roave/security-advisories": "dev-master",
 		"sebastian/phpcpd": "^4.1",
 		"signpostmarv/php-cs-fixer-config": "^0.13.0",
-		"vimeo/psalm": "^3.6"
+		"vimeo/psalm": "^3.7"
 	}
 }

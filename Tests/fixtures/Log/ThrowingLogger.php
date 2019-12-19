@@ -11,25 +11,13 @@ use RuntimeException;
 
 class ThrowingLogger extends Base
 {
-	/**
-	* @var int
-	*/
-	protected $loggingCalls = 0;
+	protected int $loggingCalls = 0;
 
-	/**
-	* @var int
-	*/
-	protected $throwUnderLogCount = 0;
+	protected int $throwUnderLogCount = 0;
 
-	/**
-	* @var string
-	*/
-	protected $exceptionMessage;
+	protected string $exceptionMessage;
 
-	/**
-	* @var int
-	*/
-	protected $exceptionCode = 0;
+	protected int $exceptionCode = 0;
 
 	public function __construct(
 		int $throwUnderLogCount,
