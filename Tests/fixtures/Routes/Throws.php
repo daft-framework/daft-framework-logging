@@ -17,8 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 * @psalm-type T1 = array{msg:string}
 * @psalm-type T2 = MessageArgs
 * @psalm-type R_TYPED = Response
-*
-* @template-extends DaftRouteAcceptsOnlyTypedArgs<T1, T1, T2, R_TYPED, 'GET', 'GET'>
+* @psalm-type THTTP = 'GET'|'POST'|'CONNECT'|'DELETE'|'HEAD'|'OPTIONS'|'PATCH'|'PURGE'|'PUT'|'TRACE'
 */
 class Throws extends DaftRouteAcceptsOnlyTypedArgs
 {
@@ -29,7 +28,12 @@ class Throws extends DaftRouteAcceptsOnlyTypedArgs
 	*/
 	public static function DaftRouterHandleRequestWithTypedArgs(Request $request, TypedArgs $args) : Response
 	{
-		static::DaftRouterAutoMethodChecking($request->getMethod());
+		/**
+		* @var THTTP
+		*/
+		$method = $request->getMethod();
+
+		static::DaftRouterAutoMethodChecking($method);
 
 		throw new RuntimeException($args->msg);
 	}
