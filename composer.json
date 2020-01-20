@@ -55,10 +55,9 @@
 		"php": "^7.4",
 		"filp/whoops": "^2.7",
 		"psr/log": "^1.1",
-		"signpostmarv/daft-framework": "^3.4|3.4.x-dev",
-		"signpostmarv/daft-router": "^4.4|4.4.x-dev",
-		"signpostmarv/daft-typed-object": "^0.5|0.5.x-dev",
-		"symfony/http-foundation": "^4.4|^5.0"
+		"signpostmarv/daft-framework": "^3.4",
+		"signpostmarv/daft-router": "^4.4",
+		"symfony/http-foundation": "^5.0"
 	},
 	"require-dev": {
 		"infection/infection": "^0.15.0",

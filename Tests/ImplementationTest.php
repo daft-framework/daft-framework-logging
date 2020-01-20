@@ -148,7 +148,7 @@ class ImplementationTest extends Base
 
 	protected function extractDefaultFrameworkArgs(array $implementationArgs) : array
 	{
-		list(, $baseUrl, $basePath, $config) = $implementationArgs;
+		list($baseUrl, $basePath, $config) = $implementationArgs;
 
 		return [$baseUrl, $basePath, $config];
 	}
