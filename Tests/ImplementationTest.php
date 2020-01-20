@@ -117,12 +117,12 @@ class ImplementationTest extends Base
 	*
 	* @dataProvider DataProviderGoodSources
 	*/
-	public function testEverythingInitialisesFine(
+	public function test_everything_initialises_fine(
 		string $implementation,
 		array $postConstructionCalls,
 		...$implementationArgs
 	) : BaseFramework {
-		list(, , , $logger) = $implementationArgs;
+		[, , , $logger] = $implementationArgs;
 
 		static::assertInstanceOf(LoggerInterface::class, $logger);
 
@@ -148,7 +148,7 @@ class ImplementationTest extends Base
 
 	protected function extractDefaultFrameworkArgs(array $implementationArgs) : array
 	{
-		list($baseUrl, $basePath, $config) = $implementationArgs;
+		[$baseUrl, $basePath, $config] = $implementationArgs;
 
 		return [$baseUrl, $basePath, $config];
 	}

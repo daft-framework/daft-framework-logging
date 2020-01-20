@@ -57,7 +57,7 @@ class CatchingHttpHandler extends HttpHandler
 			/**
 			* @param class-string<HandlerInterface> $maybe
 			*/
-			function (string $maybe) : bool {
+			static function (string $maybe) : bool {
 				return
 					class_exists($maybe);
 			},

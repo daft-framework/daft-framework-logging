@@ -97,7 +97,7 @@ class CatchingHttpHandlerTest extends Base
 
 					$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-					list($implementation, $postConstructionCalls) = $frameworkArgs;
+					[$implementation, $postConstructionCalls] = $frameworkArgs;
 
 					/**
 					* @var string
@@ -147,7 +147,7 @@ class CatchingHttpHandlerTest extends Base
 	*
 	* @dataProvider DataProviderTesting
 	*/
-	public function testCachingHttpHandler(
+	public function test_caching_http_handler(
 		CatchingHttpHandler $framework,
 		int $expectedStatus,
 		string $expectedContentRegex,
@@ -265,16 +265,16 @@ class CatchingHttpHandlerTest extends Base
 
 			foreach ($this->DataProviderRouterArguments() as $routerArgs) {
 				foreach ($this->DataProviderBadConfig() as $badConfigArgs) {
-					list(
+					[
 						$handlerConfigArgs,
 						$expectedExceptionType,
 						$expectedExceptionMessage
-					) = $badConfigArgs;
+					] = $badConfigArgs;
 
 					foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
 						$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
-						list($implementation) = $frameworkArgs;
+						[$implementation] = $frameworkArgs;
 
 						$frameworkArgs = array_slice($frameworkArgs, 2);
 
@@ -317,9 +317,9 @@ class CatchingHttpHandlerTest extends Base
 	*
 	* @dataProvider DataProviderTestBadConfig
 	*
-	* @depends testCachingHttpHandler
+	* @depends test_caching_http_handler
 	*/
-	public function testBadConfig(
+	public function test_bad_config(
 		string $implementation,
 		array $frameworkArgs,
 		string $expectedExceptionType,
@@ -345,7 +345,7 @@ class CatchingHttpHandlerTest extends Base
 				foreach ($this->DataProviderFrameworkArguments() as $frameworkArgs) {
 					$logger = new fixtures\Log\ThrowingLogger($throwUnderLogCount, 'testing');
 
-					list($implementation, $postConstructionCalls) = $frameworkArgs;
+					[$implementation, $postConstructionCalls] = $frameworkArgs;
 
 					/**
 					* @var string
@@ -408,7 +408,7 @@ class CatchingHttpHandlerTest extends Base
 	*
 	* @dataProvider DataProviderTestBadLogger
 	*/
-	public function testBadLogger(
+	public function test_bad_logger(
 		CatchingHttpHandler $framework,
 		int $_expectedStatus,
 		string $_expectedContentRegex,
