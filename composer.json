@@ -46,7 +46,7 @@
 		}
 	},
 	"conflict": {
-		"vimeo/psalm": "<3.8"
+		"vimeo/psalm": "<3.8.3"
 	},
 	"suggest": {
 		"vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
