@@ -15,5 +15,6 @@ script:
   - ./vendor/bin/phpunit --coverage-clover=./phpunit.clover
   - ./vendor/bin/infection --min-msi=100
   - ./vendor/bin/php-coveralls -vvv
+  - composer update --dry-run roave/security-advisories
 matrix:
   fast_finish: true
