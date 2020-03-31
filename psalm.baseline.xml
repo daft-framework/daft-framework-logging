@@ -42,10 +42,12 @@
   "
 >
   <file src="Tests/fixtures/Routes/Throws.php">
-    <MoreSpecificImplementedParamType occurrences="3">
+    <MoreSpecificImplementedParamType occurrences="5">
       <code>$args</code>
       <code>$args</code>
+      <code>$method</code>
       <code>$args</code>
+      <code>$method</code>
     </MoreSpecificImplementedParamType>
   </file>
   <file src="src/CatchingHttpHandler.php">
