@@ -4,10 +4,12 @@ php:
   - 7.4.0
   - 7.4
 cache:
+  files:
+    - ./.phpunit.cache
+    - ./.php_cs.cache
   directories:
-    - ./vendor/
-    - ./phpunit.cache
-    - ./php_cs.cache
+    - $HOME/.composer/cache
+    - ./psalm/cache
 install:
   - travis_retry composer install --no-interaction --no-suggest --prefer-source
 script:
