@@ -17,19 +17,19 @@ use Whoops\Run;
 use Whoops\RunInterface;
 
 /**
-* @template CONFIG as array{
-*	SignpostMarv\DaftRouter\DaftSource: array{
-*		cacheFile:string,
-*		sources:array<int, string>
-*	},
-*	Whoops\Handler\HandlerInterface: array<
-*		class-string<HandlerInterface>,
-*		array<int, mixed>
-*	>
-* }
-*
-* @template-extends HttpHandler<CONFIG>
-*/
+ * @template CONFIG as array{
+ *	SignpostMarv\DaftRouter\DaftSource: array{
+ *		cacheFile:string,
+ *		sources:array<int, string>
+ *	},
+ *	Whoops\Handler\HandlerInterface: array<
+ *		class-string<HandlerInterface>,
+ *		array<int, mixed>
+ *	>
+ * }
+ *
+ * @template-extends HttpHandler<CONFIG>
+ */
 class CatchingHttpHandler extends HttpHandler
 {
 	const INT_ARGS_IS_PLAINTEXT_HANDLER = 1;
@@ -37,13 +37,13 @@ class CatchingHttpHandler extends HttpHandler
 	const BOOL_WHOOPS_NO_SENDING = false;
 
 	/**
-	* @var array<class-string<HandlerInterface>, array<int, mixed>>
-	*/
+	 * @var array<class-string<HandlerInterface>, array<int, mixed>>
+	 */
 	protected array $handlers = [];
 
 	/**
-	* @param CONFIG $config
-	*/
+	 * @param CONFIG $config
+	 */
 	public function __construct(
 		string $baseUrl,
 		string $basePath,
@@ -55,8 +55,8 @@ class CatchingHttpHandler extends HttpHandler
 		$this->handlers = array_filter(
 			$config[HandlerInterface::class],
 			/**
-			* @param class-string<HandlerInterface> $maybe
-			*/
+			 * @param class-string<HandlerInterface> $maybe
+			 */
 			static function (string $maybe) : bool {
 				return
 					class_exists($maybe);
@@ -95,8 +95,8 @@ class CatchingHttpHandler extends HttpHandler
 
 		foreach ($this->handlers as $handler => $handlerArgs) {
 			/**
-			* @var HandlerInterface
-			*/
+			 * @var HandlerInterface
+			 */
 			$handlerInstance =
 				(
 					PlainTextHandler::class === $handler &&
@@ -117,8 +117,8 @@ class CatchingHttpHandler extends HttpHandler
 	protected function ValidateConfig(array $config) : array
 	{
 		/**
-		* @var array|string|null
-		*/
+		 * @var array|string|null
+		 */
 		$subConfig = $config[HandlerInterface::class] ?? null;
 
 		if ( ! isset($subConfig)) {
@@ -130,8 +130,8 @@ class CatchingHttpHandler extends HttpHandler
 		}
 
 		/**
-		* @var array<int|string, scalar|array|object|null>
-		*/
+		 * @var array<int|string, scalar|array|object|null>
+		 */
 		$subConfig = $subConfig;
 
 		foreach ($subConfig as $handler => $handlerArgs) {
@@ -142,9 +142,9 @@ class CatchingHttpHandler extends HttpHandler
 	}
 
 	/**
-	* @param mixed $handler
-	* @param mixed $handlerArgs
-	*/
+	 * @param mixed $handler
+	 * @param mixed $handlerArgs
+	 */
 	protected function ValidateHandlerConfig($handler, $handlerArgs) : void
 	{
 		if ( ! is_string($handler)) {

@@ -14,23 +14,23 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
-* @psalm-type T1 = array{msg:string}
-* @psalm-type T2 = MessageArgs
-* @psalm-type R_TYPED = Response
-* @psalm-type THTTP = 'GET'|'POST'|'CONNECT'|'DELETE'|'HEAD'|'OPTIONS'|'PATCH'|'PURGE'|'PUT'|'TRACE'
-*/
+ * @psalm-type T1 = array{msg:string}
+ * @psalm-type T2 = MessageArgs
+ * @psalm-type R_TYPED = Response
+ * @psalm-type THTTP = 'GET'|'POST'|'CONNECT'|'DELETE'|'HEAD'|'OPTIONS'|'PATCH'|'PURGE'|'PUT'|'TRACE'
+ */
 class Throws extends DaftRouteAcceptsOnlyTypedArgs
 {
 	use DaftRouterHttpRouteDefaultMethodGet;
 
 	/**
-	* @param T2 $args
-	*/
+	 * @param T2 $args
+	 */
 	public static function DaftRouterHandleRequestWithTypedArgs(Request $request, TypedArgs $args) : Response
 	{
 		/**
-		* @var THTTP
-		*/
+		 * @var THTTP
+		 */
 		$method = $request->getMethod();
 
 		static::DaftRouterAutoMethodChecking($method);
@@ -39,8 +39,8 @@ class Throws extends DaftRouteAcceptsOnlyTypedArgs
 	}
 
 	/**
-	* @return array<string, array<int, 'GET'>>
-	*/
+	 * @return array<string, array<int, 'GET'>>
+	 */
 	public static function DaftRouterRoutes() : array
 	{
 		return [
@@ -49,9 +49,9 @@ class Throws extends DaftRouteAcceptsOnlyTypedArgs
 	}
 
 	/**
-	* @param T2 $args
-	* @param 'GET'|null $method
-	*/
+	 * @param T2 $args
+	 * @param 'GET'|null $method
+	 */
 	public static function DaftRouterHttpRouteWithTypedArgs(
 		TypedArgs $args,
 		string $method = null
@@ -64,11 +64,11 @@ class Throws extends DaftRouteAcceptsOnlyTypedArgs
 	}
 
 	/**
-	* @param T1 $args
-	* @param 'GET'|null $method
-	*
-	* @return T2
-	*/
+	 * @param T1 $args
+	 * @param 'GET'|null $method
+	 *
+	 * @return T2
+	 */
 	public static function DaftRouterHttpRouteArgsTyped(
 		array $args,
 		string $method = null

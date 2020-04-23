@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fea3ddb29921bd1ee0be8f97f4288a9",
+    "content-hash": "b857633d0ea7c26ed84734635fbd1e7d",
     "packages": [
         {
             "name": "filp/whoops",
@@ -5380,16 +5380,16 @@
         },
         {
             "name": "signpostmarv/php-cs-fixer-config",
-            "version": "v0.16.3",
+            "version": "v0.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SignpostMarv/PHP-CS-Fixer-Config.git",
-                "reference": "11d06b2667cdd17ce15ab7a0d3999fd9eb57a1ef"
+                "reference": "d588691af72fc17ed43aaf3ac0615c1aa5ab7e3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SignpostMarv/PHP-CS-Fixer-Config/zipball/11d06b2667cdd17ce15ab7a0d3999fd9eb57a1ef",
-                "reference": "11d06b2667cdd17ce15ab7a0d3999fd9eb57a1ef",
+                "url": "https://api.github.com/repos/SignpostMarv/PHP-CS-Fixer-Config/zipball/d588691af72fc17ed43aaf3ac0615c1aa5ab7e3f",
+                "reference": "d588691af72fc17ed43aaf3ac0615c1aa5ab7e3f",
                 "shasum": ""
             },
             "require": {
@@ -5397,14 +5397,14 @@
                 "php": "^7.4"
             },
             "conflict": {
-                "vimeo/psalm": "<3.8.3"
+                "vimeo/psalm": "<3.11.2"
             },
             "require-dev": {
                 "maglnet/composer-require-checker": "^2.0",
                 "povils/phpmnd": "^2.2",
                 "roave/security-advisories": "dev-master",
-                "sebastian/phpcpd": "^4.1",
-                "vimeo/psalm": "^3.8"
+                "sebastian/phpcpd": "^5.0",
+                "vimeo/psalm": "^3.11"
             },
             "type": "library",
             "autoload": {
@@ -5423,7 +5423,7 @@
                 }
             ],
             "description": "PHP-CS-Fixer Config",
-            "time": "2020-01-19T11:16:57+00:00"
+            "time": "2020-04-20T08:02:28+00:00"
         },
         {
             "name": "symfony/config",

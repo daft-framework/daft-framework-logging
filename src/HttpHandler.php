@@ -10,22 +10,22 @@ use Psr\Log\LoggerInterface;
 use SignpostMarv\DaftFramework\HttpHandler as Base;
 
 /**
-* @template CONFIG as array{
-*	SignpostMarv\DaftRouter\DaftSource: array{
-*		cacheFile:string,
-*		sources:array<int, string>
-*	}
-* }
-*
-* @template-extends Base<CONFIG>
-*/
+ * @template CONFIG as array{
+ *	SignpostMarv\DaftRouter\DaftSource: array{
+ *		cacheFile:string,
+ *		sources:array<int, string>
+ *	}
+ * }
+ *
+ * @template-extends Base<CONFIG>
+ */
 class HttpHandler extends Base
 {
 	use Logger;
 
 	/**
-	* @param CONFIG $config
-	*/
+	 * @param CONFIG $config
+	 */
 	public function __construct(
 		string $baseUrl,
 		string $basePath,

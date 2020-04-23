@@ -9,10 +9,10 @@ namespace SignpostMarv\DaftFramework\Logging\Tests\fixtures\Routes;
 use SignpostMarv\DaftRouter\TypedArgs;
 
 /**
-* @psalm-type T = array{msg:string}
-*
-* @template-extends TypedArgs<T, T>
-*/
+ * @psalm-type T = array{msg:string}
+ *
+ * @template-extends TypedArgs<T, T>
+ */
 class MessageArgs extends TypedArgs
 {
 	const TYPED_PROPERTIES = [
@@ -20,13 +20,13 @@ class MessageArgs extends TypedArgs
 	];
 
 	/**
-	* @readonly
-	*/
+	 * @readonly
+	 */
 	public string $msg;
 
 	/**
-	* @param T $args
-	*/
+	 * @param T $args
+	 */
 	public function __construct(array $args)
 	{
 		$this->msg = $args['msg'];

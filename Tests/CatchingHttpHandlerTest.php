@@ -23,8 +23,8 @@ use Whoops\Handler\PlainTextHandler;
 class CatchingHttpHandlerTest extends Base
 {
 	/**
-	* @return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+	 */
 	public function DataProviderLoggerArguments() : Generator
 	{
 		yield from [
@@ -35,8 +35,8 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<string, mixed[]>, 2:string, 3:string, 4:array}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<string, mixed[]>, 2:string, 3:string, 4:array}, mixed, void>
+	 */
 	public function DataProviderFrameworkArguments() : Generator
 	{
 		yield from [
@@ -55,8 +55,8 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:array<string, mixed>, 1:int, 2:string, 3:string}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:array<string, mixed>, 1:int, 2:string, 3:string}, mixed, void>
+	 */
 	public function DataProviderRouterArguments() : Generator
 	{
 		yield from [
@@ -86,8 +86,8 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
+	 */
 	public function DataProviderTesting() : Generator
 	{
 		foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
@@ -100,15 +100,15 @@ class CatchingHttpHandlerTest extends Base
 					[$implementation, $postConstructionCalls] = $frameworkArgs;
 
 					/**
-					* @var string
-					*/
+					 * @var string
+					 */
 					$implementation = $implementation;
 
 					$frameworkArgs = array_slice($frameworkArgs, 2);
 
 					/**
-					* @var array<string, mixed>
-					*/
+					 * @var array<string, mixed>
+					 */
 					$config = (array) $frameworkArgs[2];
 
 					$config[DaftSource::class] = (array) $routerArgs[0];
@@ -132,8 +132,8 @@ class CatchingHttpHandlerTest extends Base
 					array_unshift($yield, $instance);
 
 					/**
-					* @var array{0:CatchingHttpHandler, 1:int, 2:string}
-					*/
+					 * @var array{0:CatchingHttpHandler, 1:int, 2:string}
+					 */
 					$yield = $yield;
 
 					yield $yield;
@@ -143,10 +143,10 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @param mixed ...$requestArgs
-	*
-	* @dataProvider DataProviderTesting
-	*/
+	 * @param mixed ...$requestArgs
+	 *
+	 * @dataProvider DataProviderTesting
+	 */
 	public function test_caching_http_handler(
 		CatchingHttpHandler $framework,
 		int $expectedStatus,
@@ -161,8 +161,8 @@ class CatchingHttpHandlerTest extends Base
 		$server = (array) ($requestArgs[5] ?? []);
 
 		/**
-		* @var string|resource|null
-		*/
+		 * @var string|resource|null
+		 */
 		$content = ($requestArgs[6] ?? null);
 
 		$request = Request::create(
@@ -187,8 +187,8 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:array, 1:class-string<Throwable>, 2:string}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:array, 1:class-string<Throwable>, 2:string}, mixed, void>
+	 */
 	public function DataProviderBadConfig() : Generator
 	{
 		yield from [
@@ -256,8 +256,8 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<int, mixed>, 2:class-string<Throwable>, 3:string}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:class-string<CatchingHttpHandler>, 1:array<int, mixed>, 2:class-string<Throwable>, 3:string}, mixed, void>
+	 */
 	public function DataProviderTestBadConfig() : Generator
 	{
 		foreach ($this->DataProviderLoggerArguments() as $loggerArgs) {
@@ -279,8 +279,8 @@ class CatchingHttpHandlerTest extends Base
 						$frameworkArgs = array_slice($frameworkArgs, 2);
 
 						/**
-						* @var array<string, mixed>
-						*/
+						 * @var array<string, mixed>
+						 */
 						$config = (array) $frameworkArgs[2];
 
 						$config[DaftSource::class] = (array) $routerArgs[0];
@@ -295,8 +295,8 @@ class CatchingHttpHandlerTest extends Base
 						$frameworkArgs[] = $logger;
 
 						/**
-						* @var array<int, mixed>
-						*/
+						 * @var array<int, mixed>
+						 */
 						$frameworkArgs = $frameworkArgs;
 
 						yield [
@@ -312,13 +312,13 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @param class-string<BaseFramework> $implementation
-	* @param class-string<Throwable> $expectedExceptionType
-	*
-	* @dataProvider DataProviderTestBadConfig
-	*
-	* @depends test_caching_http_handler
-	*/
+	 * @param class-string<BaseFramework> $implementation
+	 * @param class-string<Throwable> $expectedExceptionType
+	 *
+	 * @dataProvider DataProviderTestBadConfig
+	 *
+	 * @depends test_caching_http_handler
+	 */
 	public function test_bad_config(
 		string $implementation,
 		array $frameworkArgs,
@@ -336,8 +336,8 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:CatchingHttpHandler, 1:int, 2:string}, mixed, void>
+	 */
 	public function DataProviderTestBadLogger() : Generator
 	{
 		foreach ($this->DataProviderRouterArguments() as $routerArgs) {
@@ -348,8 +348,8 @@ class CatchingHttpHandlerTest extends Base
 					[$implementation, $postConstructionCalls] = $frameworkArgs;
 
 					/**
-					* @var string
-					*/
+					 * @var string
+					 */
 					$implementation = $implementation;
 
 					$frameworkArgs = array_slice($frameworkArgs, 2);
@@ -359,8 +359,8 @@ class CatchingHttpHandlerTest extends Base
 					static::assertIsArray($frameworkArgs[2]);
 
 					/**
-					* @var array{0:string, 1:string, 2:array}
-					*/
+					 * @var array{0:string, 1:string, 2:array}
+					 */
 					$frameworkArgs = $frameworkArgs;
 
 					$frameworkArgs[2][DaftSource::class] = (array) $routerArgs[0];
@@ -373,8 +373,8 @@ class CatchingHttpHandlerTest extends Base
 					);
 
 					/**
-					* @var array{0:string, 1:string, 2:array, 3:LoggerInterface}
-					*/
+					 * @var array{0:string, 1:string, 2:array, 3:LoggerInterface}
+					 */
 					$frameworkArgs = $frameworkArgs;
 
 					$instance = Utilities::ObtainHttpHandlerInstanceMixedArgs(
@@ -393,8 +393,8 @@ class CatchingHttpHandlerTest extends Base
 					array_unshift($yield, $instance);
 
 					/**
-					* @var array{0:CatchingHttpHandler, 1:int, 2:string}
-					*/
+					 * @var array{0:CatchingHttpHandler, 1:int, 2:string}
+					 */
 					$yield = $yield;
 
 					yield $yield;
@@ -404,10 +404,10 @@ class CatchingHttpHandlerTest extends Base
 	}
 
 	/**
-	* @param mixed ...$requestArgs
-	*
-	* @dataProvider DataProviderTestBadLogger
-	*/
+	 * @param mixed ...$requestArgs
+	 *
+	 * @dataProvider DataProviderTestBadLogger
+	 */
 	public function test_bad_logger(
 		CatchingHttpHandler $framework,
 		int $_expectedStatus,
@@ -422,8 +422,8 @@ class CatchingHttpHandlerTest extends Base
 		$server = (array) ($requestArgs[5] ?? []);
 
 		/**
-		* @var string|resource|null
-		*/
+		 * @var string|resource|null
+		 */
 		$content = ($requestArgs[6] ?? null);
 
 		$request = Request::create(

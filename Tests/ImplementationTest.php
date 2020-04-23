@@ -26,8 +26,8 @@ class ImplementationTest extends Base
 	];
 
 	/**
-	* @return Generator<int, array{0:class-string<BaseFramework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:class-string<BaseFramework>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}, mixed, void>
+	 */
 	public function DataProviderGoodSources() : Generator
 	{
 		foreach (parent::DataProviderGoodSources() as $args) {
@@ -37,18 +37,18 @@ class ImplementationTest extends Base
 				$logger = new $loggerImplementation(...array_slice($loggerArgs, 1));
 
 				/**
-				* @var class-string<BaseFramework>
-				*/
+				 * @var class-string<BaseFramework>
+				 */
 				$implementation = array_shift($args);
 
 				/**
-				* @var string
-				*/
+				 * @var string
+				 */
 				$implementation = self::RemapFrameworks[$implementation] ?? $implementation;
 
 				/**
-				* @var array<string, mixed[]>
-				*/
+				 * @var array<string, mixed[]>
+				 */
 				$postConstructionCalls = array_shift($args);
 
 				array_unshift($args, $implementation, $postConstructionCalls);
@@ -56,8 +56,8 @@ class ImplementationTest extends Base
 				$args[] = $logger;
 
 				/**
-				* @var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
-				*/
+				 * @var array{0:class-string<Framework>|class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+				 */
 				$args = $args;
 
 				yield $args;
@@ -73,8 +73,8 @@ class ImplementationTest extends Base
 						$args[4] = $args4;
 
 						/**
-						* @var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
-						*/
+						 * @var array{0:class-string<HttpHandler>, 1:array<string, array<int, mixed>>, 2:string, 3:string, 4:array}
+						 */
 						$args = $args;
 
 						yield $args;
@@ -85,8 +85,8 @@ class ImplementationTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:class-string<LoggerInterface>}, mixed, void>
+	 */
 	public function DataProviderLoggerArguments() : Generator
 	{
 		yield from [
@@ -97,8 +97,8 @@ class ImplementationTest extends Base
 	}
 
 	/**
-	* @return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
-	*/
+	 * @return Generator<int, array{0:array<class-string<HandlerInterface>, mixed[]>}, mixed, void>
+	 */
 	public function DataProviderWhoopsHandlerArguments() : Generator
 	{
 		yield from [
@@ -111,12 +111,12 @@ class ImplementationTest extends Base
 	}
 
 	/**
-	* @param class-string<BaseFramework> $implementation
-	* @param array<string, array<int, mixed>> $postConstructionCalls
-	* @param mixed ...$implementationArgs
-	*
-	* @dataProvider DataProviderGoodSources
-	*/
+	 * @param class-string<BaseFramework> $implementation
+	 * @param array<string, array<int, mixed>> $postConstructionCalls
+	 * @param mixed ...$implementationArgs
+	 *
+	 * @dataProvider DataProviderGoodSources
+	 */
 	public function test_everything_initialises_fine(
 		string $implementation,
 		array $postConstructionCalls,
@@ -137,8 +137,8 @@ class ImplementationTest extends Base
 		);
 
 		/**
-		* @var Framework
-		*/
+		 * @var Framework
+		 */
 		$instance = $instance;
 
 		static::assertSame($logger, $instance->ObtainLogger());
